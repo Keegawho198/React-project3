@@ -1,0 +1,204 @@
+import React, { useState, useEffect } from "react";
+import "./style.css";
+import API from "../utils/api";
+import { UserForm, FormSubmit,SelectedForm } from '../components/Forms/Forms';
+
+
+function UserCreate() {
+  const [users, setUsers] = useState([])
+  const [formObject, setFormObject] = useState({})
+
+
+
+
+  function handleInputChange(event) {
+    const { name, value } = event.target;
+    console.log(event.target);
+   
+
+  if(event.target.name==="image"){
+    let files = event.target.files;
+    console.log(files);
+    let reader = new FileReader();
+    reader.readAsDataURL(files[0]); 
+    reader.onload = r => {
+         console.log(r.target.result);
+             
+    console.log(files[0]);
+    var image=r.target.result;
+
+    setFormObject({ ...formObject, image })
+         
+     };
+
+    
+
+  } else{
+    setFormObject({ ...formObject, [name]: value })
+  }
+
+
+
+
+  }
+
+
+  function handleFormSubmit(event) {
+    event.preventDefault();
+    console.log('HELLO');
+    console.log(API.saveUser);
+    console.log(formObject);
+    API.saveUser({
+      email: formObject.email,
+      password: formObject.password,
+      name: formObject.name,
+      age: formObject.age,
+      gender: formObject.gender,
+      height: formObject.height,
+      energyExpenditure: formObject.energyExpenditure,
+      currentWeight:formObject.currentWeight,
+      image:formObject.image,
+      goalWeight: formObject.goalWeight,
+    })
+      .catch(err => console.log(err));
+
+  };
+
+
+
+  return (
+    <div>
+
+
+      <div className="container">
+        <div className="row">
+          <div className="col-sm-7">
+            <br></br>
+            <h1>Start Your Journey!</h1>
+            <br></br>
+            <form>
+              <div className="form-group">
+                Email
+  <UserForm
+                  onChange={handleInputChange}
+                  name="email"
+                  type="text"
+                  placeholder="Email (required)"
+                />
+              </div>
+              <div className="form-group">
+                Password
+  <UserForm
+                  onChange={handleInputChange}
+                  name="password"
+                  type="password"
+                  placeholder="Password (required)"
+                />
+              </div>
+              <div className="form-group">
+                Name
+  <UserForm
+                  onChange={handleInputChange}
+                  name="name"
+                  placeholder="Name (required)"
+                  type="text"
+                />
+              </div>
+              <div className="form-group">
+                Age
+  <UserForm
+                  onChange={handleInputChange}
+                  name="age"
+                  placeholder="Age (required)"
+                  type="number"
+                />
+              </div>
+              <div className="form-group">
+                Gender
+  <UserForm
+                  onChange={handleInputChange}
+                  name="gender"
+                  placeholder="Gender (required)"
+                  type="text"
+                />
+              </div>
+              <div className="form-group">
+                Height
+  <UserForm
+                  onChange={handleInputChange}
+                  name="height"
+                  placeholder="Height (required)"
+                  type="number"
+                />
+              </div>
+              <div className="form-group">
+                Energy Expenditure
+  <UserForm
+                  onChange={handleInputChange}
+                  name="energyExpenditure"
+                  placeholder="Title (required)"
+                  type="text"
+                />
+              </div>
+              <div className="form-group">
+                Current Weight
+  <UserForm
+                  onChange={handleInputChange}
+                  name="currentWeight"
+                  placeholder="Current Weight (required)"
+                  type="number"
+                />
+              </div>
+              <div className="form-group">
+                Weight Goal
+  <UserForm
+                  onChange={handleInputChange}
+                  name="goalWeight"
+                  placeholder="Weight Goal (required)"
+                  type="number"
+                />
+              </div>
+              <div className="form-group">
+                Image
+  <UserForm
+                  onChange={handleInputChange}
+                  name="image"
+                  placeholder="Input Your image File (required)"
+                  type="file"
+                />
+              </div>
+
+              <div className="form-group">
+               Choose Your Coach
+  <SelectedForm>  <option value="1"></option>
+                 <option value="2"></option>
+                 <option value="3"></option> </SelectedForm>
+              </div>
+              <FormSubmit
+                onClick={handleFormSubmit}
+              />
+            </form>
+
+          </div>
+          <div className="col-sm-5"><img src="https://dujye7n3e5wjl.cloudfront.net/photographs/1080-tall/time-100-influential-photos-neil-leifer-muhammad-ali-vs-sonny-liston-56.jpg" id="sport">
+          </img></div>
+        </div>
+        <br></br>
+        <br></br>
+
+
+      </div>
+
+    </div>
+
+
+
+
+
+
+
+  );
+
+}
+
+export default UserCreate;
