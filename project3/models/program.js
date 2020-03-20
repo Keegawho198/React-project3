@@ -2,12 +2,8 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const ProgramSchema = new Schema({
-  name: {
-    type: String,
-    trim: true,
-    // required: "Name is Required"
-  },
-  day: {
+  program: [{
+    programForDay: {
     dayNum: Number,
     exercise: [{
       exerciseName: String,
@@ -16,9 +12,8 @@ const ProgramSchema = new Schema({
       tempo: String,
       rest: Number
     }]
-  },
-  program: [dayNum]
-
+  }
+  }]
   });
 
 const Program = mongoose.model("Program", ProgramSchema);
