@@ -38,14 +38,10 @@ const TableDisplay = (props) => {
     console.log(apiData);
 
     API.saveProgram({
-      //   // email: formObject.email,
-      //   // password: formObject.password,
-      //   // name: formObject.name,
-      //   // qualifications: formObject.qualifications,
-      //   // image: formObject.image
-
-      // day[0].exercise[0].exerciseName : tableData.name,
-
+      dayNum: apiData.dayNum,
+      exercise: [{
+        exerciseName: apiData
+      }]
       // name: tableData.exerciseName
     })
       .catch(err => console.log(err));
