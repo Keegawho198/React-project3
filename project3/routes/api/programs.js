@@ -3,7 +3,7 @@ const programController = require("../../controller/programController");
 
 // Matches with "/api/books"
 router.route("/")
-  // .get(programController.findAll)
+  .get(programController.findAll)
   .post(programController.create);
   //console.log("posting");
 

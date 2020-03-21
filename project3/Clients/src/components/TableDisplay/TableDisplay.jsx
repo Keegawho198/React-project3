@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 // import Form from '../Form/Form';
+// import DeleteBtn from "../components/DeleteBtn";
 import API from '../../utils/api'
 import _ from 'lodash'; 
 //var _ = require('lodash')
@@ -21,40 +22,48 @@ const TableDisplay = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("btn work");
+    console.log("submit btn work");
 
 
     //connect to get/ backend get
 
-    console.log('HELLO');
-    console.log(API);
-    console.log(tableData);
-
+    // console.log('HELLO');
+    // console.log(API);
+    // console.log(tableData);
+    let test  = tableData.map((data) => {
+      return  _.omit(data, "dayNum")
+    });
+    console.log(test)
     var apiData = {
-      dayNum: tableData.dayNum,
-      exercise: _.omit(tableData, "dayNum"),
+      dayNum: tableData[1].dayNum,
+      exercise: test
+      //_.omit(tableData, "dayNum"),
     }
 
     console.log(apiData);
 
-    API.saveProgram({
-      //   // email: formObject.email,
-      //   // password: formObject.password,
-      //   // name: formObject.name,
-      //   // qualifications: formObject.qualifications,
-      //   // image: formObject.image
+    API.saveProgram(apiData
+      // dayNum: apiData.dayNum,
 
-      // day[0].exercise[0].exerciseName : tableData.name,
+      // exercise: [{
+      //   exerciseName: apiData
+      //   // exerciseName: apiData = JSON.stringify();
 
-      // name: tableData.exerciseName
-    })
+      // }]
+    )
       .catch(err => console.log(err));
   };
+
+  //  function deleteProgram(id) {
+  //   API.deleteBook(id)
+  //     .then(res => loadPrograms())
+  //     .catch(err => console.log(err));
+  // }
 
   return (
     <div>
 
-      <table className="table">
+      <table className="table-form">
         <thead>
           <tr>
             <th scope="col">Day Number</th>
@@ -76,6 +85,7 @@ const TableDisplay = (props) => {
                 <td>{row.reps}</td>
                 <td>{row.tempo}</td>
                 <td>{row.rest}</td>
+                {/* <DeleteBtn onClick={() => deleteProgram(program._id)} /> */}
               </tr>)
             )}
 
@@ -89,64 +99,4 @@ const TableDisplay = (props) => {
 
 export default TableDisplay;
 
-
-
-
-
-
-
-// program: [
-//   {
-//   programForDay: {
-//       dayNum: 1,
-//       exercises: [
-//         {
-//           exerciseName: "boxing",
-//           sets: "3",
-//           reps: "4",
-//           tempo: "hard",
-//           rest: "50"
-//         },
-//         {
-//           exerciseName: "boxing",
-//           sets: "3",
-//           reps: "4",
-//           tempo: "hard",
-//           rest: "50"
-//         }, {
-//           exerciseName: "boxing",
-//           sets: "3",
-//           reps: "4",
-//           tempo: "hard",
-//           rest: "50"
-//         }
-//       ]
-//   },
-//   {
-//     programForDay: {
-//         dayNum: 2,
-//         exercises: [
-//           {
-//             exerciseName: "boxing",
-//             sets: "3",
-//             reps: "4",
-//             tempo: "hard",
-//             rest: "50"
-//           },
-//           {
-//             exerciseName: "boxing",
-//             sets: "3",
-//             reps: "4",
-//             tempo: "hard",
-//             rest: "50"
-//           }, {
-//             exerciseName: "boxing",
-//             sets: "3",
-//             reps: "4",
-//             tempo: "hard",
-//             rest: "50"
-//           }
-//         ]
-//     }
-// }
-// ]
+//get data by property mongo

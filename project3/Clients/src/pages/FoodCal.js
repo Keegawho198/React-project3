@@ -1,11 +1,11 @@
 import React from 'react';
 import Form from "../components/Form/index";
-const Program = () => {
+const FoodCal = () => {
   return(
     <>
-      <h1>Program Page</h1> 
+      <h1>Food / calories Page</h1> 
       <Form /> </>
   );
 }
 
-export default Program;
+export default FoodCal;

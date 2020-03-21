@@ -5,6 +5,9 @@ import Dashboard from './pages/Dashboard';
 import MasterCreate from './pages/MasterSignUp';
 import MasterDashboard from './pages/MasterDashboard';
 import Program from "./pages/Program"
+import FoodCal from "./pages/FoodCal"
+import ViewProgram from "./pages/ViewPrograms"
+
 
 import './App.css';
 
@@ -22,7 +25,9 @@ function App() {
             <Route exact path="/master" component={MasterCreate} />
             <Route exact path="/master-dashboard" component={MasterDashboard} />
             <Route exact path="/program" component={Program} />
+            <Route exact path="/viewprogram" component={ViewProgram} />
 
+            <Route exact path="/foodCal" component={FoodCal} />
           </Switch>
 
         </div>

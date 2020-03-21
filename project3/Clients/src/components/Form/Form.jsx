@@ -64,7 +64,9 @@ const Form = () => {
 
   return (
     <>
-      <div style={{ margin: '2rem' }}>
+  <div className="row">
+    <div className="col-sm-6">
+      One of three columns
       <FormInput label="Day Number" type="number" name="dayNum" value={formData.dayNum} onChange={handleChange} />
         <FormInput label="Exercise Name" type="text" name="exerciseName" value={formData.exerciseName} onChange={handleChange} />
         <FormInput label="Sets" type="number" name="sets" value={formData.sets} onChange={handleChange} />
@@ -72,10 +74,17 @@ const Form = () => {
         <FormInput label="Tempo" type="text" name="tempo" value={formData.tempo} onChange={handleChange} />
         <FormInput label="Rest" type="number" name="rest" value={formData.rest} onChange={handleChange} />
         <button type="button" className="btn btn-lg btn-primary " onClick={handleSave}>Save</button>
-      </div>
-      
+    </div>
+
+    <div class="col-sm">
+      One of three columns
       <TableDisplay dayNum={formData.dayNum} data={tableData}>
       </TableDisplay>
+    </div>
+  </div>
+      <p>Submited programs might go down here?</p>
+      
+      
 
     </>
 
