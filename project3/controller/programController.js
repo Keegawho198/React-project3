@@ -4,15 +4,30 @@ const db = require("../models");
 module.exports = {
   create: function(req, res) {
     console.log(req.body);
+    // var data = {
+    //   dayNum: parseInt(req.body.dayNum),
+    //   exercise: [{
+    //     exerciseName: req.body.exerciseName,
+    //     sets: parseInt(req.body.sets),
+    //     reps: parseInt(req.body.reps),
+    //     tempo: req.body.tempo,
+    //     rest: parseInt(req.body.rest)
+    //   }]
+    // }
     db.Program
-      .create(req.body)
+      .create({
+                dayNum: req.body.dayNum,
+                exercise: req.body.exercise
+      })
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
+     // res.send('item saved');
+
   },
   findAll: function(req, res) {
     db.Program
       .find(req.query)
-      .sort({ date: -1 })
+      // .sort({ date: -1 })
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
