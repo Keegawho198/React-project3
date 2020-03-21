@@ -36,30 +36,11 @@ const Viewprogram = (props) => {
         setTableData(task);
         //here setfilterData(task)
       }
-
-
         //loop through res.data
         //loop through row.exercise
         //add daynum to all exercise
         //set exerciese to tableData
 
-        /*
-          {
-            daynum: ""
-            exercise:[{},{}]
-          }
-
-          {
-            daynum: "",
-            exerciseName,: ""
-            reps: ""
-          },
-          {
-            daynum: "",
-            exerciseName,: ""
-            reps: ""
-          }
-        */
       )
       .catch(err => console.log(err));
   };
