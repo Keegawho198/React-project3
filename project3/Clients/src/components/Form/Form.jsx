@@ -13,6 +13,7 @@ const Form = () => {
   // const [password, setPassword] = useState("");
   const [formData, setFormData] = useState({
     dayNum: "",
+    focus: "",
     exerciseName: "",
     sets: "",
     reps: "",
@@ -22,6 +23,7 @@ const Form = () => {
 
   const [tableData, setTableData] = useState({
     exerciseName: "",
+    focus: "",
     sets: "",
     reps: "",
     tempo: "",
@@ -33,7 +35,7 @@ const Form = () => {
     e.preventDefault();
     console.log(formData);
     console.log('saved')
-    var exerciseDat = _.omit(formData, 'dayNum')
+    //var exerciseDat = _.omit(formData, 'dayNum')
     setTableData({ ...formData });
   }
 
@@ -65,9 +67,9 @@ const Form = () => {
   return (
     <>
   <div className="row">
-    <div className="col-sm-6">
-      One of three columns
+    <div className="col-sm-5">
       <FormInput label="Day Number" type="number" name="dayNum" value={formData.dayNum} onChange={handleChange} />
+      <FormInput label="Focus" type="text" name="focus" value={formData.focus} onChange={handleChange} />
         <FormInput label="Exercise Name" type="text" name="exerciseName" value={formData.exerciseName} onChange={handleChange} />
         <FormInput label="Sets" type="number" name="sets" value={formData.sets} onChange={handleChange} />
         <FormInput label="Reps" type="number" name="reps" value={formData.reps} onChange={handleChange} />
@@ -77,7 +79,6 @@ const Form = () => {
     </div>
 
     <div class="col-sm">
-      One of three columns
       <TableDisplay dayNum={formData.dayNum} data={tableData}>
       </TableDisplay>
     </div>

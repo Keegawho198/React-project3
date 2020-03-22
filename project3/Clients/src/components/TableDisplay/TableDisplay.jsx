@@ -11,9 +11,11 @@ import './style.css';
 const TableDisplay = (props) => {
   const [tableData, setTableData] = useState([]);
   const[dayNum, setDayNum] = useState(0);
+  const[focus, setFocus] = useState([]);
   useEffect(() => {
     console.log("useEffect hit")
     setDayNum(props.dayNum);
+    setFocus(props.focus);
     setTableData([...tableData, props.data])
 
 
@@ -31,26 +33,20 @@ const TableDisplay = (props) => {
     // console.log(API);
     // console.log(tableData);
     let test  = tableData.map((data) => {
-      return  _.omit(data, "dayNum")
+      return  _.omit(data, "dayNum", "focus")
+      //return _.omit(data, "focus")
     });
     console.log(test)
     var apiData = {
       dayNum: tableData[1].dayNum,
+      focus: tableData[1].focus,
       exercise: test
       //_.omit(tableData, "dayNum"),
     }
 
     console.log(apiData);
 
-    API.saveProgram(apiData
-      // dayNum: apiData.dayNum,
-
-      // exercise: [{
-      //   exerciseName: apiData
-      //   // exerciseName: apiData = JSON.stringify();
-
-      // }]
-    )
+    API.saveProgram(apiData)
       .catch(err => console.log(err));
   };
 
@@ -67,6 +63,7 @@ const TableDisplay = (props) => {
         <thead>
           <tr>
             <th scope="col">Day Number</th>
+            <th scope="col">Focus</th>
             <th scope="col">Exercise Name</th>
             <th scope="col">Sets</th>
             <th scope="col">Reps</th>
@@ -80,6 +77,7 @@ const TableDisplay = (props) => {
             .map(row => (
               <tr>
                 <td>{row.dayNum}</td>
+                <td>{row.focus}</td>
                 <td>{row.exerciseName}</td>
                 <td>{row.sets}</td>
                 <td>{row.reps}</td>

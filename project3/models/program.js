@@ -14,9 +14,9 @@ const ProgramSchema = new Schema({
   //   }]
   // }
   // }]
-
   // program: {
     dayNum: Number,
+    focus: String,
     exercise: [{
       exerciseName: String,
       sets: Number,

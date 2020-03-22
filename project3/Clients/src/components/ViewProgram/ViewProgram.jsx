@@ -6,18 +6,19 @@ import _ from 'lodash';
 //var _ = require('lodash')
 // import './style.css';
 
+import { MDBDropdown, MDBDropdownToggle, MDBDropdownMenu, MDBDropdownItem } from "mdbreact";
+
+
 
 
 const Viewprogram = (props) => {
   const [tableData, setTableData] = useState([]);
-  const [dayNum, setDayNum] = useState(0);
+  //const [dayNum, setDayNum] = useState(0);
   useEffect(() => {
     console.log("useEffect hit")
     loadPrograms();
     // setDayNum(props.dayNum);
     // setTableData([...tableData, props.data])
-
-
     //console.log(props.data)
   }, []);
 
@@ -27,8 +28,9 @@ const Viewprogram = (props) => {
       .then(res => {
         res.data.map((value, index) => {
           value.exercise.map((exercise) => {
-            // console.log(exercise);
+            console.log(exercise);
             exercise.dayNum = value.dayNum;
+            exercise.focus = value.focus;
             task.push(exercise);
           })
         }
@@ -47,11 +49,28 @@ const Viewprogram = (props) => {
 
   return (
     <div>
-        
+      <MDBDropdown size="lg" className="text-center">
+        <MDBDropdownToggle caret color="primary" >
+        Filter Day Number
+        </MDBDropdownToggle>
+        <MDBDropdownMenu color="danger" basic>
+          <MDBDropdownItem>1</MDBDropdownItem>
+          <MDBDropdownItem>2</MDBDropdownItem>
+          <MDBDropdownItem>3</MDBDropdownItem>
+          <MDBDropdownItem>4</MDBDropdownItem>
+          <MDBDropdownItem>5</MDBDropdownItem>
+          <MDBDropdownItem>6</MDBDropdownItem>
+          <MDBDropdownItem>7</MDBDropdownItem>
+        </MDBDropdownMenu>
+      </MDBDropdown>
+
+      <br></br>
+
       <table className="table-form">
         <thead>
           <tr>
             <th scope="col">Day Number</th>
+            <th scope="col">Focus</th>
             <th scope="col">Exercise Name</th>
             <th scope="col">Sets</th>
             <th scope="col">Reps</th>
@@ -65,7 +84,7 @@ const Viewprogram = (props) => {
             .map(row => (
               <tr>
                 <td>{row.dayNum}</td>
-
+                <td>{row.focus}</td>
                 <td>{row.exerciseName}</td>
                 <td>{row.sets}</td>
                 <td>{row.reps}</td>
@@ -83,7 +102,7 @@ const Viewprogram = (props) => {
 
 export default Viewprogram;
 
-
+//focus not showing up. only shows up as undefined in console
 
 // onchange on dropdown, loop through tabledata. 
 //only return data where tableData.dayNum == value
