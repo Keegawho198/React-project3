@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 // import Form from '../Form/Form';
-// import DeleteBtn from "../components/DeleteBtn";
+import DeleteBtn from "../DeleteBtn";
 import API from '../../utils/api'
 import _ from 'lodash';
 //var _ = require('lodash')
@@ -47,6 +47,13 @@ const Viewprogram = (props) => {
       .catch(err => console.log(err));
   };
 
+
+  function deleteProgram(id) {
+    API.deleteProgram(id)
+      .then(res => loadPrograms())
+      .catch(err => console.log(err));
+  }
+
   return (
     <div>
       <MDBDropdown size="lg" className="text-center">
@@ -76,6 +83,7 @@ const Viewprogram = (props) => {
             <th scope="col">Reps</th>
             <th scope="col">Tempo</th>
             <th scope="col">Rest</th>
+            <th scope="col"></th>
           </tr>
         </thead>
         <tbody>
@@ -90,7 +98,7 @@ const Viewprogram = (props) => {
                 <td>{row.reps}</td>
                 <td>{row.tempo}</td>
                 <td>{row.rest}</td>
-                {/* <DeleteBtn onClick={() => deleteProgram(program._id)} /> */}
+                <td><DeleteBtn onClick={() => deleteProgram(row.dayNum)} /></td>
               </tr>)
             )}
 
@@ -101,6 +109,8 @@ const Viewprogram = (props) => {
 }
 
 export default Viewprogram;
+
+//deletebtn not working
 
 //focus not showing up. only shows up as undefined in console
 

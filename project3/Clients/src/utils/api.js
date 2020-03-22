@@ -44,5 +44,9 @@ export default {
     console.log("posting")
     return axios.post("/api/programs", programData);
 
-  }
+  },
+
+  deleteProgram: function(id) {
+    return axios.delete("/api/programs/" + id);
+  },
 };
