@@ -49,4 +49,20 @@ export default {
   deleteProgram: function(id) {
     return axios.delete("/api/programs/" + id);
   },
+
+    // Gets all Exercises
+    getExercise: function () {
+      return axios.get("/api/Exercise");
+    },
+
+      //Saves a Program to the database
+  saveExercise: function (exerciseData) {
+    console.log("posting")
+    return axios.post("/api/Exercise", exerciseData);
+
+  },
+
+  deleteExercise: function(id) {
+    return axios.delete("/api/Exercise/" + id);
+  },
 };

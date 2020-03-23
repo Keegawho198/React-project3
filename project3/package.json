@@ -20,11 +20,16 @@
     "nodemon": "^1.18.7"
   },
   "dependencies": {
+    "@progress/kendo-react-dropdowns": "^3.11.0",
+    "@progress/kendo-react-intl": "^3.11.0",
     "axios": "^0.18.0",
+    "bootstrap": "^4.4.1",
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "if-env": "^1.0.4",
     "mongoose": "^5.3.16",
-    "react-native-image-base64": "^0.1.4"
+    "react-bootstrap": "^1.0.0-beta.17",
+    "react-native-image-base64": "^0.1.4",
+    "reactstrap": "^8.4.1"
   }
 }
