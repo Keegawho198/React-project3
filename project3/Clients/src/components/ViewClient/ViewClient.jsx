@@ -41,7 +41,7 @@ const ViewClient = (props) => {
 
   //         task.push(exercise);
 
-        
+
   //       }
   //       )
   //       setTableData(task);
@@ -77,24 +77,107 @@ const ViewClient = (props) => {
   //     console.log(value);
   //   })
 
-    // {tableData
-    //   .map(row => (
-    //     <tr key={row._id}>
-    //       <td>{row.exerciseName}</td>
-    //       <td>{row.instructions}</td>
-    //       <td>{row.img}</td>
-    //       <td><DeleteBtn onClick={() => deleteExercise(row.id)} /></td>
-    //     </tr>)
-    //   )}
+  // {tableData
+  //   .map(row => (
+  //     <tr key={row._id}>
+  //       <td>{row.exerciseName}</td>
+  //       <td>{row.instructions}</td>
+  //       <td>{row.img}</td>
+  //       <td><DeleteBtn onClick={() => deleteExercise(row.id)} /></td>
+  //     </tr>)
+  //   )}
 
   //};
 
   return (
-    <div className="text-center">
-    
-    <img src={placeholder} alt="placeholder"/>
+    <div>
+      <div className="text-center">
+        <div className="color text-center">
+          <br></br>
+          <img src={placeholder} alt="placeholder" />
 
-        
+          <h1 className="white">Name Here</h1>
+          <p className="white">Email.Email@email.com Here</p>
+          <br></br>
+
+          <p className="white">Current Weight : Weight Here</p>
+          <br></br>
+
+          <p className="white">Weight Goal: Goal Here</p>
+          <br></br>
+
+          <div class="container">
+            <div class="row">
+              <div class="col-sm-3">
+                <p className="white"> Age: Age here </p>
+              </div>
+
+              <div class="col-sm-3">
+                <p className="white">Gender: Gender </p>
+              </div>
+
+              <div class="col-sm-3">
+                <p className="white">Height: height (CM or something)</p>
+              </div>
+
+              <div class="col-sm-3">
+                <p className="white">Calories Expenditure: 1000kj </p>
+              </div>
+
+            </div>
+          </div>
+          <br></br>
+
+        </div>
+
+
+        <br></br>
+
+
+        <h1>Current Workout</h1>
+
+        <button>Set Workout for Today</button>
+
+        <br></br>
+        <br></br>
+
+
+
+        <table align="center" className="table-form">
+          <thead>
+            <tr>
+              <th scope="col">Focus</th>
+              <th scope="col">Exercise Name</th>
+              <th scope="col">Sets</th>
+              <th scope="col">Reps</th>
+              <th scope="col">Tempo</th>
+              <th scope="col">Rest</th>
+
+              <th scope="col"></th>
+            </tr>
+          </thead>
+          <tbody>
+
+
+            <tr>
+              <td>Chest</td>
+              <td>Bench Press</td>
+              <td>5</td>
+              <td>5</td>
+              <td>Medium</td>
+              <td>30</td>
+              <td></td>
+
+            </tr>
+
+
+          </tbody>
+        </table>
+
+      </div>
+      <br></br>
+
+      <p>Test</p>
     </div>
   );
 }

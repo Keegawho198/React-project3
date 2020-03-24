@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import DeleteBtn from "../DeleteBtn";
 import API from '../../utils/api'
 import _ from 'lodash';
-// import './style.css';
+import './style.css';
 
 import { MDBDropdown, MDBDropdownToggle, MDBDropdownMenu, MDBDropdownItem } from "mdbreact";
 // import { Dropdown, DropdownMenu } from 'react-bootstrap';
@@ -92,8 +92,12 @@ const ViewExercise = (props) => {
         <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
       </DropdownMenu> */}
 
+    <div className="form-group">
+    <label for="exampleInputEmail1">Filter Exercise Name</label>
+    <input type="text" class="form-control" id="inputExercise" placeholder="Enter Exercise Filter"/>
+      </div>
 
-      <MDBDropdown size="lg" className="text-center" onChange={handleChange}>
+      {/* <MDBDropdown size="lg" className="text-center" onChange={handleChange}>
         <MDBDropdownToggle caret color="primary" >
           Filter Exercise
         </MDBDropdownToggle>
@@ -102,7 +106,7 @@ const ViewExercise = (props) => {
           <MDBDropdownItem value="2" >2</MDBDropdownItem>
         
         </MDBDropdownMenu>
-      </MDBDropdown>
+      </MDBDropdown> */}
 
       <br></br>
 

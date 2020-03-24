@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 // import Form from '../Form/Form';
 // import DeleteBtn from "../components/DeleteBtn";
 import API from '../../utils/api'
-import _ from 'lodash'; 
+import _ from 'lodash';
 //var _ = require('lodash')
 import './style.css';
 
@@ -10,8 +10,8 @@ import './style.css';
 
 const TableDisplay = (props) => {
   const [tableData, setTableData] = useState([]);
-  const[dayNum, setDayNum] = useState(0);
-  const[focus, setFocus] = useState([]);
+  const [dayNum, setDayNum] = useState(0);
+  const [focus, setFocus] = useState([]);
   useEffect(() => {
     console.log("useEffect hit")
     setDayNum(props.dayNum);
@@ -32,8 +32,8 @@ const TableDisplay = (props) => {
     // console.log('HELLO');
     // console.log(API);
     // console.log(tableData);
-    let test  = tableData.map((data) => {
-      return  _.omit(data, "dayNum", "focus")
+    let test = tableData.map((data) => {
+      return _.omit(data, "dayNum", "focus")
       //return _.omit(data, "focus")
     });
     console.log(test)
@@ -43,6 +43,7 @@ const TableDisplay = (props) => {
       exercise: test
       //_.omit(tableData, "dayNum"),
     }
+    console.log(tableData);
 
     console.log(apiData);
 
@@ -50,6 +51,11 @@ const TableDisplay = (props) => {
       .catch(err => console.log(err));
   };
 
+  //this.setTableData("");
+
+  // this.setState({
+  //   city: ''
+  // })
   //  function deleteProgram(id) {
   //   API.deleteBook(id)
   //     .then(res => loadPrograms())
@@ -59,7 +65,7 @@ const TableDisplay = (props) => {
   return (
     <div>
 
-      <table className="table-form">
+      <table className="table-form col-sm-4 col-md-6">
         <thead>
           <tr>
             <th scope="col">Day Number</th>
@@ -90,7 +96,12 @@ const TableDisplay = (props) => {
         </tbody>
       </table>
 
-      <button type="button" className="btn btn-lg btn-primary " onClick={handleSubmit}>Submit</button>
+              <br></br>
+
+      <div className="text-align text-center">
+      <button type="button" className="btn btn-lg btn-primary text-center" onClick={handleSubmit}>Submit</button>
+      </div>
+
     </div>
   );
 }

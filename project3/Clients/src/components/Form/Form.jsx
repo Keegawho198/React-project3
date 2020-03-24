@@ -59,7 +59,7 @@ const Form = () => {
   return (
     <>
   <div className="row">
-    <div className="col-sm-5">
+    <div className="col-sm-4">
       <FormInput label="Day Number" type="number" name="dayNum" value={formData.dayNum} onChange={handleChange} />
       <FormInput label="Focus" type="text" name="focus" value={formData.focus} onChange={handleChange} />
         <FormInput label="Exercise Name" type="text" name="exerciseName" value={formData.exerciseName} onChange={handleChange} />

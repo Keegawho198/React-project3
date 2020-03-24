@@ -80,7 +80,15 @@ const ExerciseTable = (props) => {
         </tbody>
       </table>
 
+      <br></br>
+              
+      <div className="text-align text-center">
       <button type="button" className="btn btn-lg btn-primary " onClick={handleSubmit}>Submit</button>
+      </div>
+
+      {/* <button type="button" className="btn btn-lg btn-primary text-center" onClick={handleSubmit}>Submit</button> */}
+      
+
     </div>
   );
 }
