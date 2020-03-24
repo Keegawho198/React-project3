@@ -17,6 +17,7 @@ module.exports = {
     db.Program
       .create({
                 dayNum: req.body.dayNum,
+                focus: req.body.focus,
                 exercise: req.body.exercise
       })
       .then(dbModel => res.json(dbModel))
@@ -49,5 +50,9 @@ module.exports = {
       .then(dbModel => dbModel.remove())
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
+
+// model.registerCompany.findOneAndUpdate({companyKey:"a key"},
+//     {$pull:{onlineEmployees:"John"}},
+
   }
 };

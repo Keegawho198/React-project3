@@ -13,6 +13,7 @@ const Form = () => {
   // const [password, setPassword] = useState("");
   const [formData, setFormData] = useState({
     dayNum: "",
+    //exerciseId: 0,
     focus: "",
     exerciseName: "",
     sets: "",
@@ -23,6 +24,7 @@ const Form = () => {
 
   const [tableData, setTableData] = useState({
     exerciseName: "",
+    //exerciseId: 0,
     focus: "",
     sets: "",
     reps: "",
@@ -35,6 +37,12 @@ const Form = () => {
     e.preventDefault();
     console.log(formData);
     console.log('saved')
+    // var exerciseId = 0;
+    // console.log(exerciseId);
+    // exerciseId++;
+    // console.log(exerciseId);
+
+    
     //var exerciseDat = _.omit(formData, 'dayNum')
     setTableData({ ...formData });
   }
@@ -46,22 +54,6 @@ const Form = () => {
 
     setFormData({ ...formData, [key]: value })
   }
-
-  // function handleFormSubmit(event) {
-  //   event.preventDefault();
-  //   console.log('HELLO');
-  //   console.log(API);
-  //   // console.log(formObject);
-
-  //   // API.savePrograms({
-  //   //   // email: formObject.email,
-  //   //   // password: formObject.password,
-  //   //   // name: formObject.name,
-  //   //   // qualifications: formObject.qualifications,
-  //   //   // image: formObject.image
-
-  //   //   day[0].exercise[0].exerciseName : formData.name
-  //   // })
 
 
   return (

@@ -10,10 +10,6 @@ import { MDBDropdown, MDBDropdownToggle, MDBDropdownMenu, MDBDropdownItem } from
 // import DropdownButton from 'react-bootstrap/DropdownButton'
 
 
-
-
-
-
 const ViewExercise = (props) => {
   const [tableData, setTableData] = useState([]);
   const [filterData, setFilterData] = useState([]);
@@ -66,11 +62,25 @@ const ViewExercise = (props) => {
   function handleChange(event) {
     // event: event.target.value;
     console.log(event.target.value);
-    console.log(event.traget.name);
+    console.log(event.target.name);
 
-    event.data.map((value, index) => {
+    setFilterData({ dayNum: event.target.name });
+    //console.log(setFilterData);
+
+
+    event.value.map((value, index) => {
       console.log(value);
     })
+
+    // {tableData
+    //   .map(row => (
+    //     <tr key={row._id}>
+    //       <td>{row.exerciseName}</td>
+    //       <td>{row.instructions}</td>
+    //       <td>{row.img}</td>
+    //       <td><DeleteBtn onClick={() => deleteExercise(row.id)} /></td>
+    //     </tr>)
+    //   )}
 
   };
 
@@ -89,6 +99,8 @@ const ViewExercise = (props) => {
         </MDBDropdownToggle>
         <MDBDropdownMenu color="danger" >
           <MDBDropdownItem value="1" >1</MDBDropdownItem>
+          <MDBDropdownItem value="2" >2</MDBDropdownItem>
+        
         </MDBDropdownMenu>
       </MDBDropdown>
 
@@ -112,7 +124,7 @@ const ViewExercise = (props) => {
                 <td>{row.exerciseName}</td>
                 <td>{row.instructions}</td>
                 <td>{row.img}</td>
-                <td><DeleteBtn onClick={() => deleteExercise(row.dayNum)} /></td>
+                <td><DeleteBtn onClick={() => deleteExercise(row.id)} /></td>
               </tr>)
             )}
 

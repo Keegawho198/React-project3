@@ -28,8 +28,6 @@ const ExerciseTable = (props) => {
 
 
     //connect to get/ backend get
-
-    // console.log('HELLO');
     // console.log(API);
     // console.log(tableData);
     // let test = tableData.map((data) => {

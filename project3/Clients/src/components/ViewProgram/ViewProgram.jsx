@@ -33,6 +33,7 @@ const Viewprogram = (props) => {
         res.data.map((value, index) => {
           value.exercise.map((exercise) => {
             console.log(exercise);
+            exercise._id = value._id;
             exercise.dayNum = value.dayNum;
             exercise.focus = value.focus;
             task.push(exercise);
@@ -62,12 +63,16 @@ const Viewprogram = (props) => {
   function handleChange(event) {
 
     console.log(event.target.value);
+
+    setFilterData({ dayNum: event.target.name });
+    console.log(filterData);
+
     // console.log(event);
     // console.log(event.traget.name);
 
-    // event.data.map((value, index) => {
-    //   console.log(value);
-    // })
+    event.data.map((value, index) => {
+      console.log(value);
+    })
 
   };
 
@@ -86,37 +91,6 @@ const Viewprogram = (props) => {
           <option value="7">7</option>
         </Form.Control>
       </Form.Group>
-
-      {/* <Dropdown >
-  <Dropdown.Toggle variant="success" id="dropdown-basic" >
-    Dropdown Button
-  </Dropdown.Toggle>
-
-  <Dropdown.Menu id="dropdown-basic-button" title="Dropdown button" >
-        <Dropdown.Item value="1" name="1" onClick={handleChange}>1</Dropdown.Item>
-        <Dropdown.Item value="2" name="2" onClick={handleChange}>2</Dropdown.Item>
-        <Dropdown.Item value="3" name="3" onClick={handleChange}>3</Dropdown.Item>
-        <Dropdown.Item value="4" name="4" onClick={handleChange}>4</Dropdown.Item>
-        <Dropdown.Item value="5" name="5" onClick={handleChange}>5</Dropdown.Item>
-        <Dropdown.Item value="6" name="6" onClick={handleChange}>6</Dropdown.Item>
-        <Dropdown.Item value="7" name="7" onClick={handleChange}>7</Dropdown.Item>
-      </Dropdown.Menu>
-</Dropdown> */}
-
-      {/* <MDBDropdown size="lg" className="text-center" >
-        <MDBDropdownToggle caret color="primary" onChange={handleChange}>
-          Filter Day Number
-        </MDBDropdownToggle>
-        <MDBDropdownMenu color="danger"  >
-          <MDBDropdownItem value="1" >1</MDBDropdownItem>
-          <MDBDropdownItem value="2">2</MDBDropdownItem>
-          <MDBDropdownItem value="3">3</MDBDropdownItem>
-          <MDBDropdownItem value="4">4</MDBDropdownItem>
-          <MDBDropdownItem value="5">5</MDBDropdownItem>
-          <MDBDropdownItem value="6">6</MDBDropdownItem>
-          <MDBDropdownItem value="7">7</MDBDropdownItem>
-        </MDBDropdownMenu>
-      </MDBDropdown> */}
 
       <br></br>
 
@@ -137,7 +111,7 @@ const Viewprogram = (props) => {
 
           {tableData
             .map(row => (
-              <tr>
+              <tr key={row._id}>
                 <td>{row.dayNum}</td>
                 <td>{row.focus}</td>
                 <td>{row.exerciseName}</td>
@@ -145,7 +119,7 @@ const Viewprogram = (props) => {
                 <td>{row.reps}</td>
                 <td>{row.tempo}</td>
                 <td>{row.rest}</td>
-                <td><DeleteBtn onClick={() => deleteProgram(row.dayNum)} /></td>
+                <td><DeleteBtn onClick={() => deleteProgram(row._id)} /></td>
               </tr>)
             )}
 
@@ -159,8 +133,8 @@ export default Viewprogram;
 
 //deletebtn not working
 
-//focus not showing up. only shows up as undefined in console
-
 // onchange on dropdown, loop through tabledata. 
 //only return data where tableData.dayNum == value
 // set value to filtered data array, filter data to display instead of table data.
+
+//

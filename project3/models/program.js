@@ -5,6 +5,7 @@ const ProgramSchema = new Schema({
     dayNum: Number,
     focus: String,
     exercise: [{
+     // exerciseId: Number,
       exerciseName: String,
       sets: Number,
       reps: Number,

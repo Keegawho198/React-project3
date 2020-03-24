@@ -10,6 +10,7 @@ import FoodCal from "./pages/FoodCal"
 import ViewProgram from "./pages/ViewPrograms"
 import AddExercise from "./pages/AddExercise"
 import viewExercise from "./pages/ViewExercise"
+import viewClient from "./pages/ViewClient"
 
 
 
@@ -34,6 +35,8 @@ function App() {
             <Route exact path="/foodCal" component={FoodCal} />
             <Route exact path="/addExercise" component={AddExercise} />
             <Route exact path="/viewExercise" component={viewExercise} />
+            <Route exact path="/viewClient" component={viewClient} />
+
 
 
 
