@@ -1,17 +1,12 @@
 import React from 'react';
 import './style.css'
 
-export function FoodToday(props){
+export function FoodToday({children}){
     return(
 <div class="card" id="daysFood">
   <div class="card-body">
-    <h3 style={{textAlign: "center"}}>{props.child}</h3>
    
-  <div className="row"> 
-  <br></br>
- 
-   
-    </div>
+   {children}
   </div>
 </div>
     )

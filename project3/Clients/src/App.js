@@ -4,6 +4,7 @@ import  UserCreate  from './pages/SignUp';
 import Dashboard from './pages/Dashboard';
 import MasterCreate from './pages/MasterSignUp';
 import MasterDashboard from './pages/MasterDashboard';
+import NutritionSearch from './pages/NutritionSearch';
 
 import './App.css';
 
@@ -25,6 +26,7 @@ function App() {
           <Route exact path="/dashboard" component={Dashboard} />
           <Route exact path="/master" component={MasterCreate} />
           <Route exact path="/master-dashboard" component={MasterDashboard} />
+          <Route exact path="/nutrition-search" component={NutritionSearch} />
         </Switch>
       
     </div>
