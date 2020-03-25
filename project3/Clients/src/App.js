@@ -1,4 +1,5 @@
 import React from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom"
 import UserCreate from './pages/SignUp';
 import Dashboard from './pages/Dashboard';
@@ -7,6 +8,12 @@ import MasterDashboard from './pages/MasterDashboard';
 import Program from "./pages/Program"
 import FoodCal from "./pages/FoodCal"
 import ViewProgram from "./pages/ViewPrograms"
+import AddExercise from "./pages/AddExercise"
+import viewExercise from "./pages/ViewExercise"
+import viewClient from "./pages/ViewClient"
+
+import DataTableP from "./pages/DatatablePage"
+
 
 
 import './App.css';
@@ -28,6 +35,11 @@ function App() {
             <Route exact path="/viewprogram" component={ViewProgram} />
 
             <Route exact path="/foodCal" component={FoodCal} />
+            <Route exact path="/addExercise" component={AddExercise} />
+            <Route exact path="/viewExercise" component={viewExercise} />
+            <Route exact path="/viewClient" component={viewClient} />
+
+            <Route exact path="/Filter" component={DataTableP} />
           </Switch>
 
         </div>

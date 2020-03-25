@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 
 import _ from 'lodash'; 
 
+import './style.css';
 
 import FormInput from '../FormInput';
 import TableDisplay from '../TableDisplay'
@@ -13,6 +14,8 @@ const Form = () => {
   // const [password, setPassword] = useState("");
   const [formData, setFormData] = useState({
     dayNum: "",
+    //exerciseId: 0,
+    focus: "",
     exerciseName: "",
     sets: "",
     reps: "",
@@ -22,6 +25,8 @@ const Form = () => {
 
   const [tableData, setTableData] = useState({
     exerciseName: "",
+    //exerciseId: 0,
+    focus: "",
     sets: "",
     reps: "",
     tempo: "",
@@ -33,7 +38,13 @@ const Form = () => {
     e.preventDefault();
     console.log(formData);
     console.log('saved')
-    var exerciseDat = _.omit(formData, 'dayNum')
+    // var exerciseId = 0;
+    // console.log(exerciseId);
+    // exerciseId++;
+    // console.log(exerciseId);
+
+    
+    //var exerciseDat = _.omit(formData, 'dayNum')
     setTableData({ ...formData });
   }
 
@@ -45,29 +56,13 @@ const Form = () => {
     setFormData({ ...formData, [key]: value })
   }
 
-  // function handleFormSubmit(event) {
-  //   event.preventDefault();
-  //   console.log('HELLO');
-  //   console.log(API);
-  //   // console.log(formObject);
-
-  //   // API.savePrograms({
-  //   //   // email: formObject.email,
-  //   //   // password: formObject.password,
-  //   //   // name: formObject.name,
-  //   //   // qualifications: formObject.qualifications,
-  //   //   // image: formObject.image
-
-  //   //   day[0].exercise[0].exerciseName : formData.name
-  //   // })
-
 
   return (
     <>
   <div className="row">
-    <div className="col-sm-6">
-      One of three columns
+    <div className="Form col-sm-4 col-lg-4">
       <FormInput label="Day Number" type="number" name="dayNum" value={formData.dayNum} onChange={handleChange} />
+      <FormInput label="Focus" type="text" name="focus" value={formData.focus} onChange={handleChange} />
         <FormInput label="Exercise Name" type="text" name="exerciseName" value={formData.exerciseName} onChange={handleChange} />
         <FormInput label="Sets" type="number" name="sets" value={formData.sets} onChange={handleChange} />
         <FormInput label="Reps" type="number" name="reps" value={formData.reps} onChange={handleChange} />
@@ -76,8 +71,7 @@ const Form = () => {
         <button type="button" className="btn btn-lg btn-primary " onClick={handleSave}>Save</button>
     </div>
 
-    <div class="col-sm">
-      One of three columns
+    <div class="col-sm-8 col-md col-lg-8">
       <TableDisplay dayNum={formData.dayNum} data={tableData}>
       </TableDisplay>
     </div>

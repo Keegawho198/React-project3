@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 
-import _ from 'lodash'; 
+import _ from 'lodash';
 
 
 import FormInput from '../FormInput';
-import TableDisplay from '../TableDisplay'
+import ExerciseTable from '../ExerciseTable'
 
 
 const Form = () => {
@@ -12,22 +12,15 @@ const Form = () => {
   //const [name, setName] = useState("");
   // const [password, setPassword] = useState("");
   const [formData, setFormData] = useState({
-    dayNum: "",
-    focus: "",
     exerciseName: "",
-    sets: "",
-    reps: "",
-    tempo: "",
-    rest: ""
+    instructions: "",
+    img: "",
   });
 
   const [tableData, setTableData] = useState({
     exerciseName: "",
-    focus: "",
-    sets: "",
-    reps: "",
-    tempo: "",
-    rest: ""
+    instructions: "",
+    img: "",
   });
 
 
@@ -66,23 +59,23 @@ const Form = () => {
 
   return (
     <>
-  <div className="row">
-    <div className="col-sm-5">
-      <FormInput label="Day Number" type="number" name="dayNum" value={formData.dayNum} onChange={handleChange} />
-      <FormInput label="Focus" type="text" name="focus" value={formData.focus} onChange={handleChange} />
-        <FormInput label="Exercise Name" type="text" name="exerciseName" value={formData.exerciseName} onChange={handleChange} />
-        
-        <button type="button" className="btn btn-lg btn-primary " onClick={handleSave}>Save</button>
-    </div>
+      <div className="row">
+        <div className="col-sm-5">
+          <FormInput label="Exercise Name" type="Text" name="exerciseName" value={formData.exerciseName} onChange={handleChange} />
+          <FormInput label="Instructions" type="text" name="instructions" value={formData.instructions} onChange={handleChange} />
+          <FormInput label="Image" type="text" name="img" value={formData.img} onChange={handleChange} />
 
-    <div class="col-sm">
-      <TableDisplay dayNum={formData.dayNum} data={tableData}>
-      </TableDisplay>
-    </div>
-  </div>
+          <button type="button" className="btn btn-lg btn-primary " onClick={handleSave}>Save</button>
+        </div>
+
+        <div class="col-sm">
+          <ExerciseTable dayNum={formData.dayNum} data={tableData}>
+          </ExerciseTable>
+        </div>
+      </div>
       <p>Submited programs might go down here?</p>
-      
-      
+
+
 
     </>
 

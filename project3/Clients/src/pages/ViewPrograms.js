@@ -1,12 +1,12 @@
 import React from 'react';
 //import Form from "../components/Form/index";
-import ViewProgram from "../components/ViewProgram/index"
+import Program from "../components/ViewProgram/index"
 const ViewPrograms = () => {
   return(
     <>
       <h1>View Programs Page</h1> 
-      <ViewProgram /> </>
+      <Program /> </>
   );
 }
 
-export default ViewProgram;
+export default ViewPrograms;

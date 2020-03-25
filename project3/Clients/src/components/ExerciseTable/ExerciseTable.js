@@ -8,14 +8,14 @@ import './style.css';
 
 
 
-const TableDisplay = (props) => {
+const ExerciseTable = (props) => {
   const [tableData, setTableData] = useState([]);
-  const [dayNum, setDayNum] = useState(0);
-  const [focus, setFocus] = useState([]);
+  const [exerciseName, setExerciseName] = useState(0);
+  const [instructions, setInstructions] = useState([]);
   useEffect(() => {
     console.log("useEffect hit")
-    setDayNum(props.dayNum);
-    setFocus(props.focus);
+    setExerciseName(props.exerciseName);
+    setInstructions(props.instructions);
     setTableData([...tableData, props.data])
 
 
@@ -28,57 +28,44 @@ const TableDisplay = (props) => {
 
 
     //connect to get/ backend get
-
-    // console.log('HELLO');
     // console.log(API);
     // console.log(tableData);
-    let test = tableData.map((data) => {
-      return _.omit(data, "dayNum", "focus")
-      //return _.omit(data, "focus")
-    });
-    console.log(test)
+    // let test = tableData.map((data) => {
+    //   return _.omit(data, "dayNum", "focus")
+    //   //return _.omit(data, "focus")
+    // });
+    //console.log(test)
     var apiData = {
-      dayNum: tableData[1].dayNum,
-      focus: tableData[1].focus,
-      exercise: test
+      exerciseName: tableData[1].exerciseName,
+      instructions: tableData[1].instructions,
+      img: tableData[1].img
       //_.omit(tableData, "dayNum"),
     }
-    console.log(tableData);
 
     console.log(apiData);
 
-    API.saveProgram(apiData)
+    API.saveExercise(apiData)
       .catch(err => console.log(err));
 
       window.location.reload(false);
 
   };
 
-  //this.setTableData("");
-
-  // this.setState({
-  //   city: ''
-  // })
   //  function deleteProgram(id) {
   //   API.deleteBook(id)
   //     .then(res => loadPrograms())
   //     .catch(err => console.log(err));
   // }
 
-  
   return (
     <div>
 
       <table className="table-form">
         <thead>
           <tr>
-            <th scope="col">Day Number</th>
-            <th scope="col">Focus</th>
             <th scope="col">Exercise Name</th>
-            <th scope="col">Sets</th>
-            <th scope="col">Reps</th>
-            <th scope="col">Tempo</th>
-            <th scope="col">Rest</th>
+            <th scope="col">Instructions</th>
+            <th scope="col">Image</th>
           </tr>
         </thead>
         <tbody>
@@ -86,13 +73,9 @@ const TableDisplay = (props) => {
           {tableData
             .map(row => (
               <tr>
-                <td>{row.dayNum}</td>
-                <td>{row.focus}</td>
                 <td>{row.exerciseName}</td>
-                <td>{row.sets}</td>
-                <td>{row.reps}</td>
-                <td>{row.tempo}</td>
-                <td>{row.rest}</td>
+                <td>{row.instructions}</td>
+                <td>{row.img}</td>
                 {/* <DeleteBtn onClick={() => deleteProgram(program._id)} /> */}
               </tr>)
             )}
@@ -100,16 +83,17 @@ const TableDisplay = (props) => {
         </tbody>
       </table>
 
-              <br></br>
-
+      <br></br>
+              
       <div className="text-align text-center">
-      <button type="button" className="btn btn-lg btn-primary text-center" onClick={handleSubmit}>Submit</button>
+      <button type="button" className="btn btn-lg btn-primary " onClick={handleSubmit}>Submit</button>
       </div>
+
+      {/* <button type="button" className="btn btn-lg btn-primary text-center" onClick={handleSubmit}>Submit</button> */}
+      
 
     </div>
   );
 }
 
-export default TableDisplay;
-
-//get data by property mongo
+export default ExerciseTable;
