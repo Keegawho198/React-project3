@@ -49,6 +49,9 @@ const TableDisplay = (props) => {
 
     API.saveProgram(apiData)
       .catch(err => console.log(err));
+
+      window.location.reload(false);
+
   };
 
   //this.setTableData("");
@@ -62,6 +65,7 @@ const TableDisplay = (props) => {
   //     .catch(err => console.log(err));
   // }
 
+  
   return (
     <div>
 

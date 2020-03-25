@@ -46,6 +46,9 @@ const ExerciseTable = (props) => {
 
     API.saveExercise(apiData)
       .catch(err => console.log(err));
+
+      window.location.reload(false);
+
   };
 
   //  function deleteProgram(id) {
