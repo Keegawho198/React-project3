@@ -17,7 +17,7 @@ import { MDBBtn, MDBTable, MDBTableBody, MDBTableHead  } from 'mdbreact';
 
 const Viewprogram = (props) => {
   const [tableData, setTableData] = useState([]);
-  const [filterData, setFilterData] = useState([]);
+  //const [filterData, setFilterData] = useState([]);
 
   const data = {
     columns: [{
@@ -117,7 +117,7 @@ const Viewprogram = (props) => {
         )
         setTableData(task);
         console.log(task)
-        setFilterData(task);
+        //setFilterData(task);
         //here setfilterData(task)
       }
         //loop through res.data
@@ -253,9 +253,3 @@ const Viewprogram = (props) => {
 export default Viewprogram;
 
 //deletebtn not working
-
-// onchange on dropdown, loop through tabledata. 
-//only return data where tableData.dayNum == value
-// set value to filtered data array, filter data to display instead of table data.
-
-//

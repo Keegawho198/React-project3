@@ -37,7 +37,7 @@ const ViewExercise = (props) => {
       width: 200
     },
     {
-      label: 'Complete',
+      label: 'Delete',
       field: 'Handle',
       sort: 'asc',
       width: 100
@@ -167,7 +167,6 @@ const ViewExercise = (props) => {
         hover
         data={data}
         sorting={false}
-        
       />
 
       {/* <table className="table-form">
