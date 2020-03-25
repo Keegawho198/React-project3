@@ -20,14 +20,8 @@ module.exports = {
     console.log(req.body);
     db.Master
 
-      .create({
-        email: req.body.email,
-        password: req.body.password,
-        name: req.body.name,
-        qualifications: req.body.qualifications,
-        bio: req.body.bio,
-        image: req.body.image,
-      })
+    .create(req.body)
+    
       .then(dbModel => res.json(dbModel))
       .catch(err => {
         console.log(err);

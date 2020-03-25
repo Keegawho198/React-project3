@@ -2,6 +2,8 @@ const mongoose = require("mongoose");
 
 const Schema = mongoose.Schema;
 
+
+
 const UserSchema = new Schema({
 
   email: {
@@ -33,12 +35,22 @@ const UserSchema = new Schema({
 
   },
   energyExpenditure: {
-    type: String,
+    type: Number,
 
   },
 
-  currentWeight: {
+  currentWeight: {    //1 1, 2 2
     type: Number
+  },
+
+  week:{   //[1], [1,2],
+    type:[String]
+
+  },
+
+  weights:{   //[1], [1,2],
+    type:[Number]
+
   },
 
   goalWeight: {
@@ -49,21 +61,18 @@ const UserSchema = new Schema({
     data: Buffer,
     type: String
   },
+}, {
+  toJSON: {
+    virtuals: true
+  }
+})
 
 
-  Calories: [
-    {
-      Protein: Number,
-      Fat: Number,
-      Carbohydrates: Number
-    }
-  ],
-
- 
-
-
-
-
+UserSchema.virtual('calories').get(function() {  
+  if(this.gender==="Female"){
+    return (((10*this.currentWeight) + (6.25*this.height)- (5*this.age)-161)*this.energyExpenditure) + " Cals"
+  }
+  return (Math.round((10*this.currentWeight) + (6.25*this.height)- (5*this.age)+5)*this.energyExpenditure) + " Cals"
 });
 
 const User = mongoose.model("User", UserSchema);

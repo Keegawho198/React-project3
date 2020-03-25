@@ -5,12 +5,16 @@ import UserCreate from './pages/SignUp';
 import Dashboard from './pages/Dashboard';
 import MasterCreate from './pages/MasterSignUp';
 import MasterDashboard from './pages/MasterDashboard';
+
+import NutritionSearch from './pages/NutritionSearch';
+
 import Program from "./pages/Program"
 import FoodCal from "./pages/FoodCal"
 import ViewProgram from "./pages/ViewPrograms"
 import AddExercise from "./pages/AddExercise"
 import viewExercise from "./pages/ViewExercise"
 import viewClient from "./pages/ViewClient"
+
 
 import DataTableP from "./pages/DatatablePage"
 
@@ -21,16 +25,21 @@ import './App.css';
 function App() {
   return (
     <div className="App">
-      <Router>
-        <div>
 
+     <Router>
+    <div>
+      
+   
+      <Switch>
+          <Route exact path="/" component={Dashboard} />
+          <Route exact path="/signup" component={UserCreate} />
+          <Route exact path="/dashboard" component={Dashboard} />
+          <Route exact path="/master" component={MasterCreate} />
+          <Route exact path="/master-dashboard" component={MasterDashboard} />
+          <Route exact path="/nutrition-search" component={NutritionSearch} />
+     
 
-          <Switch>
-            <Route exact path="/" component={Dashboard} />
-            <Route exact path="/signup" component={UserCreate} />
-            <Route exact path="/dashboard" component={Dashboard} />
-            <Route exact path="/master" component={MasterCreate} />
-            <Route exact path="/master-dashboard" component={MasterDashboard} />
+     
             <Route exact path="/program" component={Program} />
             <Route exact path="/viewprogram" component={ViewProgram} />
 
@@ -44,6 +53,7 @@ function App() {
 
         </div>
       </Router>
+
 
     </div>
   );

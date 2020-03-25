@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
 import "./style.css";
 import API from "../utils/api";
-import { UserForm, FormSubmit,SelectedForm } from '../components/Forms/Forms';
+import { UserForm, FormSubmit,EnergyInput} from '../components/Forms/Forms';
+import SelectedInput from '../components/Forms/SelectedInput'
 
 
 function UserCreate() {
-  const [users, setUsers] = useState([])
+  
   const [formObject, setFormObject] = useState({})
 
 
@@ -14,6 +15,7 @@ function UserCreate() {
   function handleInputChange(event) {
     const { name, value } = event.target;
     console.log(event.target);
+    console.log(name,value);
    
 
   if(event.target.name==="image"){
@@ -34,6 +36,7 @@ function UserCreate() {
     
 
   } else{
+    
     setFormObject({ ...formObject, [name]: value })
   }
 
@@ -43,23 +46,25 @@ function UserCreate() {
   }
 
 
+
   function handleFormSubmit(event) {
     event.preventDefault();
-    console.log('HELLO');
-    console.log(API.saveUser);
-    console.log(formObject);
-    API.saveUser({
-      email: formObject.email,
-      password: formObject.password,
-      name: formObject.name,
-      age: formObject.age,
-      gender: formObject.gender,
-      height: formObject.height,
-      energyExpenditure: formObject.energyExpenditure,
-      currentWeight:formObject.currentWeight,
-      image:formObject.image,
-      goalWeight: formObject.goalWeight,
-    })
+    API.saveUser(
+      {
+        email: formObject.email,
+        password: formObject.password,
+        name: formObject.name,
+        age: formObject.age,
+        gender: formObject.gender,
+        height: formObject.height,
+        energyExpenditure: formObject.Energy,
+        currentWeight:formObject.currentWeight,
+        image:formObject.image,
+        goalWeight: formObject.goalWeight,  
+        masterId: formObject.select,
+      },
+      // formObject.select,
+    )
       .catch(err => console.log(err));
 
   };
@@ -133,13 +138,11 @@ function UserCreate() {
               </div>
               <div className="form-group">
                 Energy Expenditure
-  <UserForm
-                  onChange={handleInputChange}
-                  name="energyExpenditure"
-                  placeholder="Title (required)"
-                  type="text"
-                />
-              </div>
+ <EnergyInput
+ onChange={handleInputChange}
+ 
+ />
+ </div>
               <div className="form-group">
                 Current Weight
   <UserForm
@@ -167,13 +170,13 @@ function UserCreate() {
                   type="file"
                 />
               </div>
-
-              <div className="form-group">
-               Choose Your Coach
-  <SelectedForm>  <option value="1"></option>
-                 <option value="2"></option>
-                 <option value="3"></option> </SelectedForm>
-              </div>
+             
+              <SelectedInput
+              onChange={handleInputChange}
+              />
+   
+    
+          
               <FormSubmit
                 onClick={handleFormSubmit}
               />
