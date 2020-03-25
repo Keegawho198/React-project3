@@ -1,0 +1,28 @@
+img {
+  border-radius: 50%;
+}
+
+table {
+  border-collapse: collapse;
+  width: 60%;
+  margin: auto;
+}
+
+th, td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+  background-color: whitesmoke;
+}
+
+tr:hover {background-color:gray;}
+
+.color{
+  background-color: #c6d1c1;
+  /* box-sizing: border-box;  */
+  /* margin: auto; */
+}
+
+.white{
+  color: white;
+}

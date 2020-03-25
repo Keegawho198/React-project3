@@ -5,6 +5,7 @@ const APIKEY = "&app_id=a6ef16ee&app_key=9e54b4ed8b64bc332e2ee0f583850cf6";
 
 export default {
   // Gets all books
+
   getUsers: function() {
     return axios.get("/api/User");
   },
@@ -49,5 +50,41 @@ export default {
   }
 
 
+
+
+
+
+  // Gets all Programs
+  getPrograms: function () {
+    return axios.get("/api/programs");
+  },
+
+  //Saves a Program to the database
+  saveProgram: function (programData) {
+    console.log("posting")
+    return axios.post("/api/programs", programData);
+
+  },
+
+  deleteProgram: function(id) {
+    return axios.delete("/api/programs/" + id );
+    // return axios.delete("/api/programs/:" + _id + "exercise/:" + _id );
+  },
+
+    // Gets all Exercises
+    getExercise: function () {
+      return axios.get("/api/ExerciseList");
+    },
+
+      //Saves a Program to the database
+  saveExercise: function (exerciseData) {
+    console.log("posting")
+    return axios.post("/api/ExerciseList", exerciseData);
+
+  },
+
+  deleteExercise: function(id) {
+    return axios.delete("/api/ExerciseList/" + id);
+  },
 
 };

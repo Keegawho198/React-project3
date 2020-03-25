@@ -1,21 +1,31 @@
 import React from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom"
-import  UserCreate  from './pages/SignUp';
+import UserCreate from './pages/SignUp';
 import Dashboard from './pages/Dashboard';
 import MasterCreate from './pages/MasterSignUp';
 import MasterDashboard from './pages/MasterDashboard';
+
 import NutritionSearch from './pages/NutritionSearch';
 
+import Program from "./pages/Program"
+import FoodCal from "./pages/FoodCal"
+import ViewProgram from "./pages/ViewPrograms"
+import AddExercise from "./pages/AddExercise"
+import viewExercise from "./pages/ViewExercise"
+import viewClient from "./pages/ViewClient"
+
+
+import DataTableP from "./pages/DatatablePage"
+
+
+
 import './App.css';
-
-
-
-
-
 
 function App() {
   return (
     <div className="App">
+
      <Router>
     <div>
       
@@ -27,11 +37,24 @@ function App() {
           <Route exact path="/master" component={MasterCreate} />
           <Route exact path="/master-dashboard" component={MasterDashboard} />
           <Route exact path="/nutrition-search" component={NutritionSearch} />
-        </Switch>
-      
-    </div>
-    </Router>
      
+
+     
+            <Route exact path="/program" component={Program} />
+            <Route exact path="/viewprogram" component={ViewProgram} />
+
+            <Route exact path="/foodCal" component={FoodCal} />
+            <Route exact path="/addExercise" component={AddExercise} />
+            <Route exact path="/viewExercise" component={viewExercise} />
+            <Route exact path="/viewClient" component={viewClient} />
+
+            <Route exact path="/Filter" component={DataTableP} />
+          </Switch>
+
+        </div>
+      </Router>
+
+
     </div>
   );
 }
