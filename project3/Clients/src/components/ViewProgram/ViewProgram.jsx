@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 // import Form from '../Form/Form';
-import DeleteBtn from "../DeleteBtn";
+//import DeleteBtn from "../DeleteBtn";
 import API from '../../utils/api'
 import _ from 'lodash';
 // import './style.css';
@@ -75,12 +75,12 @@ const Viewprogram = (props) => {
           dayNum: tableData.dayNum,
           focus: tableData.focus,
           exerciseName: tableData.exerciseName,
-          vehicleNumber: tableData.vehicleNumber,
           sets: tableData.sets,
           reps: tableData.reps,
           tempo: tableData.tempo,
           rest: tableData.rest,
-          'Handle': <MDBBtn className="btn-red" style={{backgroundColor:"green", color:"white"}} color="red" size="sm" onClick={deleteProgram()} >Complete</MDBBtn>
+          'Handle': <MDBBtn className="btn-red" style={{backgroundColor:"green", color:"white"}}
+          color="red" size="sm" onClick={() => deleteProgram(tableData._id)} >Complete</MDBBtn>
 
           // clickEvent: () => this.handleClick(params)
         }  
@@ -97,7 +97,7 @@ const Viewprogram = (props) => {
     loadPrograms();
     // setDayNum(props.dayNum);
     //setTableData([...tableData, props.data])
-    console.log(props.data)
+    //console.log(props.data)
   }, []);
 
   function loadPrograms() {
@@ -108,7 +108,7 @@ const Viewprogram = (props) => {
         res.data.map((value, index) => {
           value.exercise.map((exercise) => {
             console.log(exercise);
-            exercise._id = value._id;
+            exercise._id = exercise._id;
             exercise.dayNum = value.dayNum;
             exercise.focus = value.focus;
             task.push(exercise);
@@ -116,7 +116,7 @@ const Viewprogram = (props) => {
         }
         )
         setTableData(task);
-        //console.log(task)
+        console.log(task)
         setFilterData(task);
         //here setfilterData(task)
       }
@@ -131,10 +131,16 @@ const Viewprogram = (props) => {
 
 
   function deleteProgram(id) {
+    //new array 
+    //loop through old array
+    //return everything in old array in new array except for 
+    // chosen .id
+
     console.log("delete hitting");
-    // API.deleteProgram(id)
-    //   .then(res => loadPrograms())
-    //   .catch(err => console.log(err));
+    console.log(id);
+    API.deleteProgram(id)
+      .then(res => loadPrograms())
+      .catch(err => console.log(err));
   }
 
   // function handleChange(event) {

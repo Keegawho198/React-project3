@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 
 import _ from 'lodash'; 
 
+import './style.css';
 
 import FormInput from '../FormInput';
 import TableDisplay from '../TableDisplay'
@@ -59,7 +60,7 @@ const Form = () => {
   return (
     <>
   <div className="row">
-    <div className="col-sm-4">
+    <div className="Form col-sm-4 col-lg-4">
       <FormInput label="Day Number" type="number" name="dayNum" value={formData.dayNum} onChange={handleChange} />
       <FormInput label="Focus" type="text" name="focus" value={formData.focus} onChange={handleChange} />
         <FormInput label="Exercise Name" type="text" name="exerciseName" value={formData.exerciseName} onChange={handleChange} />
@@ -70,7 +71,7 @@ const Form = () => {
         <button type="button" className="btn btn-lg btn-primary " onClick={handleSave}>Save</button>
     </div>
 
-    <div class="col-sm">
+    <div class="col-sm-8 col-md col-lg-8">
       <TableDisplay dayNum={formData.dayNum} data={tableData}>
       </TableDisplay>
     </div>

@@ -69,7 +69,7 @@ const TableDisplay = (props) => {
   return (
     <div>
 
-      <table className="table-form col-sm-4 col-md-6">
+      <table className="table-form">
         <thead>
           <tr>
             <th scope="col">Day Number</th>

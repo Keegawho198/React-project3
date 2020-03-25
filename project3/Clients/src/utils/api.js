@@ -47,22 +47,23 @@ export default {
   },
 
   deleteProgram: function(id) {
-    return axios.delete("/api/programs/" + id);
+    return axios.delete("/api/programs/" + id );
+    // return axios.delete("/api/programs/:" + _id + "exercise/:" + _id );
   },
 
     // Gets all Exercises
     getExercise: function () {
-      return axios.get("/api/Exercise");
+      return axios.get("/api/ExerciseList");
     },
 
       //Saves a Program to the database
   saveExercise: function (exerciseData) {
     console.log("posting")
-    return axios.post("/api/Exercise", exerciseData);
+    return axios.post("/api/ExerciseList", exerciseData);
 
   },
 
   deleteExercise: function(id) {
-    return axios.delete("/api/Exercise/" + id);
+    return axios.delete("/api/ExerciseList/" + id);
   },
 };

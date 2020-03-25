@@ -5,7 +5,9 @@ import API from '../../utils/api'
 import _ from 'lodash';
 import './style.css';
 
-import { MDBDropdown, MDBDropdownToggle, MDBDropdownMenu, MDBDropdownItem } from "mdbreact";
+// import { MDBDropdown, MDBDropdownToggle, MDBDropdownMenu, MDBDropdownItem } from "mdbreact";
+import { MDBDataTable } from 'mdbreact';
+import { MDBBtn, MDBTable, MDBTableBody, MDBTableHead  } from 'mdbreact';
 // import { Dropdown, DropdownMenu } from 'react-bootstrap';
 // import DropdownButton from 'react-bootstrap/DropdownButton'
 
@@ -14,6 +16,54 @@ const ViewExercise = (props) => {
   const [tableData, setTableData] = useState([]);
   const [filterData, setFilterData] = useState([]);
   //const [dayNum, setDayNum] = useState(0);
+
+  const data = {
+    columns: [{
+      label: 'Exercise Name',
+      field: 'exerciseName',
+      sort: 'asc',
+      width: 200
+    },
+    {
+      label: 'Instructions',
+      field: 'instructions',
+      sort: 'asc',
+      width: 250
+    },
+    {
+      label: 'Img',
+      field: 'img',
+      sort: 'asc',
+      width: 200
+    },
+    {
+      label: 'Complete',
+      field: 'Handle',
+      sort: 'asc',
+      width: 100
+    },
+    ],
+    
+      rows: tableData.map(tableData => {
+        return {
+          
+          exerciseName: tableData.exerciseName,
+          instructions: tableData.instructions,
+          img: tableData.img,
+
+          
+          'Handle': <MDBBtn className="btn-red" style={{backgroundColor:"red", color:"white"}}
+          color="red" size="sm" onClick={() => deleteExercise(tableData._id)} >Delete</MDBBtn>
+
+          // clickEvent: () => this.handleClick(params)
+        }  
+        // <MDBBtn color="purple" size="sm">Button</MDBBtn>
+      })
+      
+    
+
+  }
+
   useEffect(() => {
     console.log("useEffect hit")
     loadExercises();
@@ -59,30 +109,30 @@ const ViewExercise = (props) => {
       .catch(err => console.log(err));
   }
 
-  function handleChange(event) {
-    // event: event.target.value;
-    console.log(event.target.value);
-    console.log(event.target.name);
+  // function handleChange(event) {
+  //   // event: event.target.value;
+  //   console.log(event.target.value);
+  //   console.log(event.target.name);
 
-    setFilterData({ dayNum: event.target.name });
-    //console.log(setFilterData);
+  //   setFilterData({ dayNum: event.target.name });
+  //   //console.log(setFilterData);
 
 
-    // event.value.map((value, index) => {
-    //   console.log(value);
-    // })
+  //   // event.value.map((value, index) => {
+  //   //   console.log(value);
+  //   // })
 
-    // {tableData
-    //   .map(row => (
-    //     <tr key={row._id}>
-    //       <td>{row.exerciseName}</td>
-    //       <td>{row.instructions}</td>
-    //       <td>{row.img}</td>
-    //       <td><DeleteBtn onClick={() => deleteExercise(row.id)} /></td>
-    //     </tr>)
-    //   )}
+  //   // {tableData
+  //   //   .map(row => (
+  //   //     <tr key={row._id}>
+  //   //       <td>{row.exerciseName}</td>
+  //   //       <td>{row.instructions}</td>
+  //   //       <td>{row.img}</td>
+  //   //       <td><DeleteBtn onClick={() => deleteExercise(row.id)} /></td>
+  //   //     </tr>)
+  //   //   )}
 
-  };
+  // };
 
   return (
     <div>
@@ -92,10 +142,10 @@ const ViewExercise = (props) => {
         <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
       </DropdownMenu> */}
 
-    <div className="form-group">
-    <label for="exampleInputEmail1">Filter Exercise Name</label>
-    <input type="text" class="form-control" id="inputExercise" placeholder="Enter Exercise Filter"/>
-      </div>
+    {/* <div className="form-group">
+    <label htmlFor="exampleInputEmail1">Filter Exercise Name</label>
+    <input type="text" className="form-control" id="inputExercise" placeholder="Enter Exercise Filter"/>
+      </div> */}
 
       {/* <MDBDropdown size="lg" className="text-center" onChange={handleChange}>
         <MDBDropdownToggle caret color="primary" >
@@ -110,7 +160,17 @@ const ViewExercise = (props) => {
 
       <br></br>
 
-      <table className="table-form">
+      <MDBDataTable
+        noBottomColumns
+        striped
+        bordered
+        hover
+        data={data}
+        sorting={false}
+        
+      />
+
+      {/* <table className="table-form">
         <thead>
           <tr>
             <th scope="col">Exercise Name</th>
@@ -133,7 +193,7 @@ const ViewExercise = (props) => {
             )}
 
         </tbody>
-      </table>
+      </table> */}
     </div>
   );
 }
