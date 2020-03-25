@@ -7,26 +7,101 @@ import _ from 'lodash';
 
 // import { MDBDropdown, MDBDropdownToggle, MDBDropdownMenu, MDBDropdownItem } from "mdbreact";
 import { Form, Col } from 'react-bootstrap';
+import { MDBDataTable } from 'mdbreact';
+import { MDBBtn, MDBTable, MDBTableBody, MDBTableHead  } from 'mdbreact';
+
+//import {  MDBTableEditable } from "mdbreact";
+
 // import DropdownButton from 'react-bootstrap/DropdownButton'
-
-
-
-
 
 
 const Viewprogram = (props) => {
   const [tableData, setTableData] = useState([]);
   const [filterData, setFilterData] = useState([]);
+
+  const data = {
+    columns: [{
+      label: 'Day Number',
+      field: 'dayNum',
+      sort: 'asc',
+      width: 150
+    },
+    {
+      label: 'Focus',
+      field: 'focus',
+      sort: 'asc',
+      width: 270
+    },
+    {
+      label: 'Exercise Name',
+      field: 'exerciseName',
+      sort: 'asc',
+      width: 200
+    },
+    {
+      label: 'Sets',
+      field: 'sets',
+      sort: 'asc',
+      width: 100
+    },
+    {
+      label: 'Reps',
+      field: 'reps',
+      sort: 'asc',
+      width: 100
+    },
+    {
+      label: 'Tempo',
+      field: 'tempo',
+      sort: 'asc',
+      width: 100
+    },
+    {
+      label: 'Rest',
+      field: 'rest',
+      sort: 'asc',
+      width: 100
+    },
+    {
+      label: 'Complete',
+      field: 'Handle',
+      sort: 'asc',
+      width: 100
+    },
+    ],
+    
+      rows: tableData.map(tableData => {
+        return {
+          dayNum: tableData.dayNum,
+          focus: tableData.focus,
+          exerciseName: tableData.exerciseName,
+          vehicleNumber: tableData.vehicleNumber,
+          sets: tableData.sets,
+          reps: tableData.reps,
+          tempo: tableData.tempo,
+          rest: tableData.rest,
+          'Handle': <MDBBtn className="btn-red" style={{backgroundColor:"green", color:"white"}} color="red" size="sm" onClick={deleteProgram()} >Complete</MDBBtn>
+
+          // clickEvent: () => this.handleClick(params)
+        }  
+        // <MDBBtn color="purple" size="sm">Button</MDBBtn>
+      })
+      
+    
+
+  }
+
   //const [dayNum, setDayNum] = useState(0);
   useEffect(() => {
     console.log("useEffect hit")
     loadPrograms();
     // setDayNum(props.dayNum);
-    // setTableData([...tableData, props.data])
-    //console.log(props.data)
+    //setTableData([...tableData, props.data])
+    console.log(props.data)
   }, []);
 
   function loadPrograms() {
+    //console.log(tableData)
     let task = []
     API.getPrograms()
       .then(res => {
@@ -41,6 +116,7 @@ const Viewprogram = (props) => {
         }
         )
         setTableData(task);
+        //console.log(task)
         setFilterData(task);
         //here setfilterData(task)
       }
@@ -55,17 +131,18 @@ const Viewprogram = (props) => {
 
 
   function deleteProgram(id) {
-    API.deleteProgram(id)
-      .then(res => loadPrograms())
-      .catch(err => console.log(err));
+    console.log("delete hitting");
+    // API.deleteProgram(id)
+    //   .then(res => loadPrograms())
+    //   .catch(err => console.log(err));
   }
 
-  function handleChange(event) {
+  // function handleChange(event) {
 
-    console.log(event.target.value);
+  //   console.log(event.target.value);
 
-    setFilterData({ dayNum: event.target.name });
-    console.log(setFilterData);
+  //   setFilterData({ dayNum: event.target.name });
+  //   console.log(setFilterData);
 
     // console.log(event);
     // console.log(event.traget.name);
@@ -73,46 +150,56 @@ const Viewprogram = (props) => {
     // event.data.map((value, index) => {
     //   console.log(value);
     // })
+    // return (
+    //   <div>
+    //   {
+    //     tableData
+    //         .map(row => (
+    //       <tr key={row._id == event.target.value}>
+    //         {/* //only return data where tableData.dayNum == value */}
+    //           <ul>
+    //             {filterData}
+    //             </ul>
+    //         <td>{row.dayNum == event.target.value}</td>
+    //         <td>{row.focus}</td>
+    //         <td>{row.exerciseName}</td>
+    //         <td>{row.sets}</td>
+    //         <td>{row.reps}</td>
+    //         <td>{row.tempo}</td>
+    //         <td>{row.rest}</td>
+    //         <td><DeleteBtn onClick={() => deleteProgram(row._id)} /></td>
+    //       </tr>)
 
-    {tableData
-      .map(row => (
-        <tr key={row._id == event.target.value}>
-          {/* //only return data where tableData.dayNum == value */}
+    //     )
 
-          <td>{row.dayNum == event.target.value}</td>
-          <td>{row.focus}</td>
-          <td>{row.exerciseName}</td>
-          <td>{row.sets}</td>
-          <td>{row.reps}</td>
-          <td>{row.tempo}</td>
-          <td>{row.rest}</td>
-          <td><DeleteBtn onClick={() => deleteProgram(row._id)} /></td>
-        </tr>)
-      )}
+    //   }
+    //   </div>
+    // )
 
-      console.log(tableData);
 
-  };
+    //console.log(tableData);
+  //};
 
+  console.log(tableData);
   return (
     <div>
-      <Form.Group as={Col} controlId="formGridState">
-        <Form.Label>Filter by Day Number</Form.Label>
-        <Form.Control as="select" value="Choose..." onChange={handleChange}>
-          <option value="0"></option>
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-          <option value="5">5</option>
-          <option value="6">6</option>
-          <option value="7">7</option>
-        </Form.Control>
-      </Form.Group>
+      {/* <Form.Group as={Col} controlId="formGridState">
+      <Form.Label>Filter by Day Number</Form.Label>
+      <Form.Control as="select" value="Choose..." onChange={handleChange}>
+        <option value="0"></option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+      </Form.Control>
+    </Form.Group> */}
 
       <br></br>
 
-      <table className="table-form">
+      {/* <table className="table-form">
         <thead>
           <tr>
             <th scope="col">Day Number</th>
@@ -125,9 +212,19 @@ const Viewprogram = (props) => {
             <th scope="col"></th>
           </tr>
         </thead>
-        <tbody>
+        <tbody> */}
 
-          {tableData
+
+      <MDBDataTable
+        noBottomColumns
+        striped
+        bordered
+        hover
+        data={data}
+        sorting={false}
+        
+      />
+      {/* {tableData
             .map(row => (
               <tr key={row._id}>
                 <td>{row.dayNum}</td>
@@ -139,10 +236,10 @@ const Viewprogram = (props) => {
                 <td>{row.rest}</td>
                 <td><DeleteBtn onClick={() => deleteProgram(row._id)} /></td>
               </tr>)
-            )}
+            )} */}
 
-        </tbody>
-      </table>
+      {/* </tbody>
+      </table> */}
     </div>
   );
 }

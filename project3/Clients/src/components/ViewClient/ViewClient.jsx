@@ -127,6 +127,9 @@ const ViewClient = (props) => {
             </div>
           </div>
           <br></br>
+          <br></br>
+          <br></br>
+
 
         </div>
 
@@ -135,8 +138,10 @@ const ViewClient = (props) => {
 
 
         <h1>Current Workout</h1>
+<br></br>
+        <button type="button" className="btn btn-lg btn-primary text-center" onClick="">Set Workout for Today</button>
+        <br></br>
 
-        <button>Set Workout for Today</button>
 
         <br></br>
         <br></br>

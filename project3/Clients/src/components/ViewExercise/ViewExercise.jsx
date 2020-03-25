@@ -68,9 +68,9 @@ const ViewExercise = (props) => {
     //console.log(setFilterData);
 
 
-    event.value.map((value, index) => {
-      console.log(value);
-    })
+    // event.value.map((value, index) => {
+    //   console.log(value);
+    // })
 
     // {tableData
     //   .map(row => (

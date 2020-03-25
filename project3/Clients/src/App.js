@@ -12,6 +12,8 @@ import AddExercise from "./pages/AddExercise"
 import viewExercise from "./pages/ViewExercise"
 import viewClient from "./pages/ViewClient"
 
+import DataTableP from "./pages/DatatablePage"
+
 
 
 import './App.css';
@@ -37,9 +39,7 @@ function App() {
             <Route exact path="/viewExercise" component={viewExercise} />
             <Route exact path="/viewClient" component={viewClient} />
 
-
-
-
+            <Route exact path="/Filter" component={DataTableP} />
           </Switch>
 
         </div>
