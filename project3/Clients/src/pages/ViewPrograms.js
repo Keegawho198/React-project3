@@ -7,7 +7,8 @@ const ViewPrograms = () => {
   return(
     <>
     <Navbar/>
-      <h1>View Programs Page</h1> 
+    <br></br>
+    <h1 className="text-center">View Programs Page</h1>
       <Program /> </>
   );
 }

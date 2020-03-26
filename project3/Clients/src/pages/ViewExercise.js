@@ -8,7 +8,7 @@ const ViewExercise = () => {
   return (
     <>
       <Navbar />
-
+      <br></br>
       <h1 className="text-center">View All Exercises Page</h1>
       <Exercise /> </>
   );

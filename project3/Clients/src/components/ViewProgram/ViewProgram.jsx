@@ -8,7 +8,7 @@ import _ from 'lodash';
 // import { MDBDropdown, MDBDropdownToggle, MDBDropdownMenu, MDBDropdownItem } from "mdbreact";
 import { Form, Col } from 'react-bootstrap';
 import { MDBDataTable } from 'mdbreact';
-import { MDBBtn, MDBTable, MDBTableBody, MDBTableHead  } from 'mdbreact';
+import { MDBBtn, MDBTable, MDBTableBody, MDBTableHead } from 'mdbreact';
 
 //import {  MDBTableEditable } from "mdbreact";
 
@@ -70,25 +70,25 @@ const Viewprogram = (props) => {
       width: 100
     },
     ],
-    
-      rows: tableData.map(tableData => {
-        return {
-          dayNum: tableData.dayNum,
-          focus: tableData.focus,
-          exerciseName: tableData.exerciseName,
-          sets: tableData.sets,
-          reps: tableData.reps,
-          tempo: tableData.tempo,
-          rest: tableData.rest,
-          'Handle': <MDBBtn className="btn-red" style={{backgroundColor:"green", color:"white"}}
+
+    rows: tableData.map(tableData => {
+      return {
+        dayNum: tableData.dayNum,
+        focus: tableData.focus,
+        exerciseName: tableData.exerciseName,
+        sets: tableData.sets,
+        reps: tableData.reps,
+        tempo: tableData.tempo,
+        rest: tableData.rest,
+        'Handle': <MDBBtn className="btn-red" style={{ backgroundColor: "green", color: "white" }}
           color="red" size="sm" onClick={() => deleteProgram(tableData._id)} >Complete</MDBBtn>
 
-          // clickEvent: () => this.handleClick(params)
-        }  
-        // <MDBBtn color="purple" size="sm">Button</MDBBtn>
-      })
-      
-    
+        // clickEvent: () => this.handleClick(params)
+      }
+      // <MDBBtn color="purple" size="sm">Button</MDBBtn>
+    })
+
+
 
   }
 
@@ -151,76 +151,47 @@ const Viewprogram = (props) => {
   //   setFilterData({ dayNum: event.target.name });
   //   console.log(setFilterData);
 
-    // console.log(event);
-    // console.log(event.traget.name);
+  // console.log(event);
+  // console.log(event.traget.name);
 
-    // event.data.map((value, index) => {
-    //   console.log(value);
-    // })
-    // return (
-    //   <div>
-    //   {
-    //     tableData
-    //         .map(row => (
-    //       <tr key={row._id == event.target.value}>
-    //         {/* //only return data where tableData.dayNum == value */}
-    //           <ul>
-    //             {filterData}
-    //             </ul>
-    //         <td>{row.dayNum == event.target.value}</td>
-    //         <td>{row.focus}</td>
-    //         <td>{row.exerciseName}</td>
-    //         <td>{row.sets}</td>
-    //         <td>{row.reps}</td>
-    //         <td>{row.tempo}</td>
-    //         <td>{row.rest}</td>
-    //         <td><DeleteBtn onClick={() => deleteProgram(row._id)} /></td>
-    //       </tr>)
+  // event.data.map((value, index) => {
+  //   console.log(value);
+  // })
+  // return (
+  //   <div>
+  //   {
+  //     tableData
+  //         .map(row => (
+  //       <tr key={row._id == event.target.value}>
+  //         {/* //only return data where tableData.dayNum == value */}
+  //           <ul>
+  //             {filterData}
+  //             </ul>
+  //         <td>{row.dayNum == event.target.value}</td>
+  //         <td>{row.focus}</td>
+  //         <td>{row.exerciseName}</td>
+  //         <td>{row.sets}</td>
+  //         <td>{row.reps}</td>
+  //         <td>{row.tempo}</td>
+  //         <td>{row.rest}</td>
+  //         <td><DeleteBtn onClick={() => deleteProgram(row._id)} /></td>
+  //       </tr>)
 
-    //     )
+  //     )
 
-    //   }
-    //   </div>
-    // )
+  //   }
+  //   </div>
+  // )
 
 
-    //console.log(tableData);
+  //console.log(tableData);
   //};
 
   //console.log(tableData);
   return (
     <div>
-      {/* <Form.Group as={Col} controlId="formGridState">
-      <Form.Label>Filter by Day Number</Form.Label>
-      <Form.Control as="select" value="Choose..." onChange={handleChange}>
-        <option value="0"></option>
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
-        <option value="6">6</option>
-        <option value="7">7</option>
-      </Form.Control>
-    </Form.Group> */}
-
       <br></br>
-
-      {/* <table className="table-form">
-        <thead>
-          <tr>
-            <th scope="col">Day Number</th>
-            <th scope="col">Focus</th>
-            <th scope="col">Exercise Name</th>
-            <th scope="col">Sets</th>
-            <th scope="col">Reps</th>
-            <th scope="col">Tempo</th>
-            <th scope="col">Rest</th>
-            <th scope="col"></th>
-          </tr>
-        </thead>
-        <tbody> */}
-
+      <br></br>
 
       <MDBDataTable
         noBottomColumns
@@ -229,7 +200,7 @@ const Viewprogram = (props) => {
         hover
         data={data}
         sorting={false}
-        
+
       />
       {/* {tableData
             .map(row => (
@@ -245,8 +216,6 @@ const Viewprogram = (props) => {
               </tr>)
             )} */}
 
-      {/* </tbody>
-      </table> */}
     </div>
   );
 }

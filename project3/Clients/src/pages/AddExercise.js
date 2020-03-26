@@ -8,8 +8,7 @@ const AddExercise = () => {
   return(
     <>
     <Navbar />
-
-      <h1>Add Exercise Page</h1> 
+      <h1 className="text-center">Add Exercise Page</h1> 
       <Exercise /> </>
   );
 }

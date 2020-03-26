@@ -6,7 +6,8 @@ const Program = () => {
   return(
     <>
 <Navbar />
-      <h1>Program Page</h1> 
+<br></br>
+      <h1 className="text-center">Program Page</h1> 
       <Form /> </>
   );
 }

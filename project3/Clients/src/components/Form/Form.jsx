@@ -59,6 +59,9 @@ const Form = () => {
 
   return (
     <>
+    <br></br>
+          
+
   <div className="row">
     <div className="Form col-sm-4 col-lg-4">
       <FormInput label="Day Number" type="number" name="dayNum" value={formData.dayNum} onChange={handleChange} />

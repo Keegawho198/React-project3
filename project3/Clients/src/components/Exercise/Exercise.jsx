@@ -59,6 +59,8 @@ const Form = () => {
 
   return (
     <>
+              <br></br>
+
       <div className="row">
         <div className="col-sm-5">
           <FormInput label="Exercise Name" type="Text" name="exerciseName" value={formData.exerciseName} onChange={handleChange} />

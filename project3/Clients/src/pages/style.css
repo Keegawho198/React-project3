@@ -126,7 +126,7 @@ width:100%;
     position: relative;
     margin: auto;
     margin-top:60px;
-    margin-left: 20%;
+    /* margin-left: 20%; */
     border-radius: 10px;
 }
 
@@ -159,6 +159,10 @@ width:100%;
     text-align: center;
 }
 
+.text-center{
+  align-items: center;
+  /* alignItems: 'center' */
+}
 
 
 
