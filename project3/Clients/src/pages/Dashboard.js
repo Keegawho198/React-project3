@@ -13,7 +13,7 @@ function Dashboard() {
   const [user, setUser] = useState({});
   const [show, setShow] = useState(false);
   const [tempweight, SetTempWeight] = useState("");
-  const [newWeek, SetnewWeek]= useState("");
+  const [newWeek, SetnewWeek] = useState("");
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -29,7 +29,7 @@ function Dashboard() {
     console.log(event.target);
     console.log(name, value);
 
-    if(name==="currentWeight"){
+    if (name === "currentWeight") {
       SetTempWeight(parseInt(value));
     }
     SetnewWeek(value);
@@ -56,15 +56,15 @@ function Dashboard() {
   }
 
 
-   async function saveWeight() {
-   
+  async function saveWeight() {
+
     console.log(tempweight);
     console.log(newWeek);
     const newUser = {
       ...user,
       currentWeight: tempweight,
       weights: [...user.weights, tempweight],
-      week:[...user.week,newWeek]
+      week: [...user.week, newWeek]
     };
     setUser(newUser);
 
@@ -74,7 +74,7 @@ function Dashboard() {
 
     console.log(user);
 
-    
+
 
 
   }
@@ -102,8 +102,8 @@ function Dashboard() {
         </Modal.Title>
           </Modal.Header>
           <Modal.Body>
-          <div className="form-group">
-            Enter Your Weight in (Kg)
+            <div className="form-group">
+              Enter Your Weight in (Kg)
             <input className="form-control" id="exampleInput" type="number" name="currentWeight" onChange={handleInputChange}></input>
             </div>
             <div className="form-group">
@@ -127,19 +127,19 @@ function Dashboard() {
 
 
         <TodaysIntake>
-        <div className="row">
-          <div className="col">
-          <h2>Hello {user.name} ! </h2>
+          <div className="row">
+            <div className="col">
+              <h2>Hello {user.name}  </h2>
+            </div>
+            <div className="col">
+              <img src="https://images.unsplash.com/photo-1563199611-373f88ed91ff?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" style={{ borderRadius: "50%", height: "350%", marginTop: "-45px", marginLeft: "900px", position: "absolute" }}></img>
+            </div>
           </div>
-          <div className="col">
-          <img src="https://images.unsplash.com/photo-1563199611-373f88ed91ff?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" style={{ borderRadius: "50%", height:"350%",marginTop:"-45px", marginLeft:"900px", position:"absolute"}}></img>
-          </div>
-          </div>
-         
+
           <h4>You're currently on track with the progress keep it up!</h4>
-          </TodaysIntake>
-          
-     
+        </TodaysIntake>
+
+
 
 
       </div>
@@ -156,14 +156,14 @@ function Dashboard() {
         <div class="col">
           <div className="row">
             <FoodToday>
-            <p style={{fontSize:"20px",textAlign:"center"}}>Todays Nutrition</p>
-  <p style={{fontSize:"40px", color:"#c5d3c1",textAlign:"center"}}>{user.calories}</p>
-              <p style={{ fontSize:"20px",color:"#c2c2c2",textAlign:"center"}}>Search Food</p>
+              <p style={{ fontSize: "20px", textAlign: "center" }}>Todays Nutrition</p>
+              <p style={{ fontSize: "40px", color: "#c5d3c1", textAlign: "center" }}>{user.calories}</p>
+              <p style={{ fontSize: "20px", color: "#c2c2c2", textAlign: "center" }}>Search Food</p>
             </FoodToday>
             <TodaysWorkout>
-              <p style={{fontSize:"20px",textAlign:"center"}}>Todays Workout</p>
-              <p style={{fontSize:"40px", color:"#c5d3c1",textAlign:"center"}}>Push Day</p>
-              <p style={{ fontSize:"20px",color:"#c2c2c2",textAlign:"center"}}>View all Workout</p>
+              <p style={{ fontSize: "20px", textAlign: "center" }}>Todays Workout</p>
+              <p style={{ fontSize: "40px", color: "#c5d3c1", textAlign: "center" }}>Push Day</p>
+              <p style={{ fontSize: "20px", color: "#c2c2c2", textAlign: "center" }}>View all Workout</p>
             </TodaysWorkout>
             <br></br>
 

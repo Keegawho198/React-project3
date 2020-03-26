@@ -33,15 +33,18 @@ const TableDisplay = (props) => {
     // console.log(API);
     // console.log(tableData);
     let test = tableData.map((data) => {
+      console.log(data);
       return _.omit(data, "dayNum", "focus")
       //return _.omit(data, "focus")
     });
-    console.log(test)
+    console.log(test[1])
     var apiData = {
       dayNum: tableData[1].dayNum,
       focus: tableData[1].focus,
-      exercise: test
-      //_.omit(tableData, "dayNum"),
+//animals.slice(2)
+
+      exercise: test.slice(1)
+      //will ignore empty array value
     }
     console.log(tableData);
 

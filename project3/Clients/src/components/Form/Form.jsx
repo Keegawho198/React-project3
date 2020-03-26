@@ -76,7 +76,7 @@ const Form = () => {
       </TableDisplay>
     </div>
   </div>
-      <p>Submited programs might go down here?</p>
+      <p>Only submit for one day. Don't add a day 1 and day 2 exercise in one submission</p>
       
       
 
