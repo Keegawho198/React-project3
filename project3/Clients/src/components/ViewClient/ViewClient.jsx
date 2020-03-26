@@ -94,7 +94,7 @@ const ViewClient = (props) => {
       <div className="text-center">
         <div className="color text-center">
           <br></br>
-          <img src={placeholder} alt="placeholder" />
+          <img id="placeHolder" src={placeholder} alt="placeholder" />
 
           <h1 className="white">Name Here</h1>
           <p className="white">Email.Email@email.com Here</p>

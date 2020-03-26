@@ -1,11 +1,15 @@
 import React from 'react';
 //import Form from "../components/Form/index";
 import Exercise from "../components/ViewExercise/index"
+import { Navbar } from '../components/Cards/Cards/Navbar/Navbar';
+
 
 const ViewExercise = () => {
-  return(
+  return (
     <>
-      <h1>View All Exercises Page</h1> 
+      <Navbar />
+
+      <h1 className="text-center">View All Exercises Page</h1>
       <Exercise /> </>
   );
 }

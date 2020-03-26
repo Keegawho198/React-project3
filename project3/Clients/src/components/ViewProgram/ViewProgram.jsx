@@ -15,6 +15,7 @@ import { MDBBtn, MDBTable, MDBTableBody, MDBTableHead  } from 'mdbreact';
 // import DropdownButton from 'react-bootstrap/DropdownButton'
 
 
+
 const Viewprogram = (props) => {
   const [tableData, setTableData] = useState([]);
   //const [filterData, setFilterData] = useState([]);
@@ -107,7 +108,7 @@ const Viewprogram = (props) => {
       .then(res => {
         res.data.map((value, index) => {
           value.exercise.map((exercise) => {
-            console.log(exercise);
+            // console.log(exercise);
             exercise._id = exercise._id;
             exercise.dayNum = value.dayNum;
             exercise.focus = value.focus;
@@ -186,7 +187,7 @@ const Viewprogram = (props) => {
     //console.log(tableData);
   //};
 
-  console.log(tableData);
+  //console.log(tableData);
   return (
     <div>
       {/* <Form.Group as={Col} controlId="formGridState">

@@ -3,6 +3,7 @@ import Exercise from "../components/Exercise/index";
 import { Navbar } from '../components/Cards/Cards/Navbar/Navbar';
 
 
+
 const AddExercise = () => {
   return(
     <>

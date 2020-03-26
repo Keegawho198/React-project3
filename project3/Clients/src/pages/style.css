@@ -9,7 +9,8 @@
     
   }
   #logo{
-    margin-right: 60%;
+    margin-right: 20%;
+    background-blend-mode:lighten;
   }
   
   nav{
@@ -17,7 +18,7 @@
 
   }
 #link{
- margin-left: 170%; 
+ margin-left: 60%; 
  
 }
 
@@ -131,12 +132,12 @@ width:100%;
 
 
 
-.profile_pic{
+/* .profile_pic{
     position: absolute;
     z-index:2;
     height: 100%;
     width: 100%;
-}
+} */
 
 .profile_pic img{
     width: 60%;

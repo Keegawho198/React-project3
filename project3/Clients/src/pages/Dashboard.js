@@ -38,7 +38,7 @@ function Dashboard() {
 
 
   function loadUsers() {
-    API.getUser("5e7b51fd7790450918cc9539")
+    API.getUser("5e7c88c6b0c5b99b942bd00c")
       .then(res =>
         setUser(res.data)
 
@@ -132,7 +132,7 @@ function Dashboard() {
               <h2>Hello {user.name}  </h2>
             </div>
             <div className="col">
-              <img src="https://images.unsplash.com/photo-1563199611-373f88ed91ff?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" style={{ borderRadius: "50%", height: "350%", marginTop: "-45px", marginLeft: "900px", position: "absolute" }}></img>
+              <img src={user.image} style={{ borderRadius: "50%", height: "350%", marginTop: "-45px", marginLeft: "900px", position: "absolute" }}></img>
             </div>
           </div>
 
