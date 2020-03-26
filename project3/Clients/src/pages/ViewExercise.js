@@ -15,3 +15,6 @@ const ViewExercise = () => {
 }
 
 export default ViewExercise;
+
+
+//input type files from bootstrap

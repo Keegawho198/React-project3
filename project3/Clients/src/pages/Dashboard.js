@@ -75,6 +75,7 @@ function Dashboard() {
     console.log(user);
 
 
+    window.location.reload(false);
 
 
   }

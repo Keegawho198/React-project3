@@ -1,5 +1,5 @@
 import React from 'react';
-import Exercise from "../components/Exercise/index";
+import Exercise from "../components/CreateExercise/index";
 import { Navbar } from '../components/Cards/Cards/Navbar/Navbar';
 
 
