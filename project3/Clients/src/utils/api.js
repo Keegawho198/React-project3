@@ -3,6 +3,9 @@ import axios from "axios";
 const BASEURL = "https://api.edamam.com/api/food-database/parser?ingr=";
 const APIKEY = "&app_id=a6ef16ee&app_key=9e54b4ed8b64bc332e2ee0f583850cf6";
 
+// var program_id = req.params.programid,
+//     exercise_id = req.params.exerciseid;
+
 export default {
   // Gets all books
 
@@ -47,7 +50,7 @@ export default {
 
   getNutrition: function(query){
     return axios.get(BASEURL + query + APIKEY);
-  }
+  },
 
 
 
@@ -66,10 +69,23 @@ export default {
 
   },
 
-  deleteProgram: function(id) {
-    return axios.delete("/api/programs/" + id );
+  deleteProgram: function(_id) {
+    return axios.delete("/api/programs/" + _id);
     // return axios.delete("/api/programs/:" + _id + "exercise/:" + _id );
   },
+
+  ////api/comments/:articleid/:commentid
+  // Article.findByIdAndUpdate(
+  //   article_id,
+  //  { $pull: { 'comments': {  _id: comment_id } } },function(err,model){
+  //     if(err){
+  //      	console.log(err);
+  //      	return res.send(err);
+  //       }
+  //       return res.json(model);
+  //   });
+
+
 
     // Gets all Exercises
     getExercise: function () {

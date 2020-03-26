@@ -59,6 +59,9 @@ const Form = () => {
 
   return (
     <>
+    <br></br>
+          
+
   <div className="row">
     <div className="Form col-sm-4 col-lg-4">
       <FormInput label="Day Number" type="number" name="dayNum" value={formData.dayNum} onChange={handleChange} />
@@ -76,7 +79,7 @@ const Form = () => {
       </TableDisplay>
     </div>
   </div>
-      <p>Submited programs might go down here?</p>
+      <p>Only submit for one day. Don't add a day 1 and day 2 exercise in one submission</p>
       
       
 

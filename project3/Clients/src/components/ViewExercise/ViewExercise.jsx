@@ -37,7 +37,7 @@ const ViewExercise = (props) => {
       width: 200
     },
     {
-      label: 'Complete',
+      label: 'Delete',
       field: 'Handle',
       sort: 'asc',
       width: 100
@@ -109,54 +109,11 @@ const ViewExercise = (props) => {
       .catch(err => console.log(err));
   }
 
-  // function handleChange(event) {
-  //   // event: event.target.value;
-  //   console.log(event.target.value);
-  //   console.log(event.target.name);
 
-  //   setFilterData({ dayNum: event.target.name });
-  //   //console.log(setFilterData);
-
-
-  //   // event.value.map((value, index) => {
-  //   //   console.log(value);
-  //   // })
-
-  //   // {tableData
-  //   //   .map(row => (
-  //   //     <tr key={row._id}>
-  //   //       <td>{row.exerciseName}</td>
-  //   //       <td>{row.instructions}</td>
-  //   //       <td>{row.img}</td>
-  //   //       <td><DeleteBtn onClick={() => deleteExercise(row.id)} /></td>
-  //   //     </tr>)
-  //   //   )}
-
-  // };
 
   return (
     <div>
-      {/* <DropdownMenu id="dropdown-basic-button" title="Dropdown button">
-        <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
-        <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
-        <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
-      </DropdownMenu> */}
-
-    {/* <div className="form-group">
-    <label htmlFor="exampleInputEmail1">Filter Exercise Name</label>
-    <input type="text" className="form-control" id="inputExercise" placeholder="Enter Exercise Filter"/>
-      </div> */}
-
-      {/* <MDBDropdown size="lg" className="text-center" onChange={handleChange}>
-        <MDBDropdownToggle caret color="primary" >
-          Filter Exercise
-        </MDBDropdownToggle>
-        <MDBDropdownMenu color="danger" >
-          <MDBDropdownItem value="1" >1</MDBDropdownItem>
-          <MDBDropdownItem value="2" >2</MDBDropdownItem>
-        
-        </MDBDropdownMenu>
-      </MDBDropdown> */}
+    
 
       <br></br>
 
@@ -167,33 +124,9 @@ const ViewExercise = (props) => {
         hover
         data={data}
         sorting={false}
-        
       />
 
-      {/* <table className="table-form">
-        <thead>
-          <tr>
-            <th scope="col">Exercise Name</th>
-            <th scope="col">Instructions</th>
-            <th scope="col">Image</th>
-
-            <th scope="col"></th>
-          </tr>
-        </thead>
-        <tbody>
-
-          {tableData
-            .map(row => (
-              <tr key={row._id}>
-                <td>{row.exerciseName}</td>
-                <td>{row.instructions}</td>
-                <td>{row.img}</td>
-                <td><DeleteBtn onClick={() => deleteExercise(row.id)} /></td>
-              </tr>)
-            )}
-
-        </tbody>
-      </table> */}
+    
     </div>
   );
 }

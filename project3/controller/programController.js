@@ -1,5 +1,8 @@
 const db = require("../models");
 
+// var program_id = req.params.programid,
+//     exercise_id = req.params.exerciseid;
+
 // Defining methods for the ProgramsController
 module.exports = {
   create: function (req, res) {
@@ -14,8 +17,7 @@ module.exports = {
     //     rest: parseInt(req.body.rest)
     //   }]
     // }
-    db.Program
-      .create({
+    db.Program.create({
         dayNum: req.body.dayNum,
         focus: req.body.focus,
         exercise: req.body.exercise
@@ -44,13 +46,13 @@ module.exports = {
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
-  remove: function (req, res) {
-    db.Program
-      .findById({ _id: req.params.id })
-      .then(dbModel => dbModel.remove())
-      .then(dbModel => res.json(dbModel))
-      .catch(err => res.status(422).json(err));
-  }
+  // remove: function (req, res) {
+  //   db.Program
+  //     .findById({ _id: req.params.id })
+  //     .then(dbModel => dbModel.remove())
+  //     .then(dbModel => res.json(dbModel))
+  //     .catch(err => res.status(422).json(err));
+  // }
 
   // //   // model.registerCompany.findOneAndUpdate({companyKey:"a key"},
   // //   //     {$pull:{onlineEmployees:"John"}},
@@ -61,17 +63,28 @@ module.exports = {
 
   //db.mycollection.update({'_id': ObjectId("5150a1199fac0e6910000002")}, {$pull: {id: 23}});
 
+///api/comments/:articleid/:commentid
+  remove: function (req, res) {
+    db.Program.findByIdAndUpdate(
+      req.params.program_id,
+      { $pull: { 'exercise': { exerciseName: req.params.exercise_id } } },{ multi: true }, function (err, model) {
+        //console.log(req.params.exercise_id);
+        console.log(req.params.program_id);
+        
 
-  // remove: function (req, res) {
-  //   db.Program.findByIdAndUpdate(
-  //     req.params.program_id,
-  //     { $pull: { 'exercise': { _id: req.params.exercise_id } } }, function (err, model) {
-  //       if (err) {
-  //         console.log(err);
-  //         return res.send(err);
-  //       }
-  //       return res.json(model);
-  //     });
-  // }
+
+        if (err) {
+          console.log(err);
+          return res.send(err);
+        }
+        return res.json(model);
+      });
+  }
 
 };
+
+
+
+//get help for delete btn
+//
+//ref week 20 activity 21 for the update without the clicked thing 
