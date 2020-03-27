@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./style.css";
 import { Navbar } from '../components/Cards/Cards/Navbar/Navbar';
-
+import { Link } from "react-router-dom";
 import {TodaysIntake} from '../components/Cards/Cards/Navbar/TodaysIntake'
 
 import API from '../utils/api'
@@ -10,25 +10,49 @@ import API from '../utils/api'
 
 
 function MasterDashboard() {
-  const [userList, setUserList] = useState([])
+ const [master,Setmaster]=useState({
+  id:"",
+  tag:"",
+  email: "",
+  password: "",
+  name: "",
+  qualifications: "",
+  bio: "",
+  image: "",
+  users: [
+    
+  ],
+  
+ });
  
   useEffect(() => {
-    loadUsers()
+    loadMaster()
    
   }, [])
 
 
-  function loadUsers() {
-    API.getUsers()
-      .then(res => 
-        setUserList(res.data)
-        
+  function loadMaster() {
+    API.getMaster("5e7d85ab5c04ae499851c955")
+      .then(res =>
+        Setmaster({
+          id:res.data._id,
+          name:res.data.name,
+          email:res.data.email,
+          password:res.data.password,
+          qualifications:res.data.qualifications,
+          bio:res.data.bio,
+          image:res.data.image,
+          users:res.data.users
+
+
+        })
+
       )
-      
+
       .catch(err => console.log(err));
   };
 
-
+console.log(master);
 
   return (
    
@@ -39,7 +63,9 @@ function MasterDashboard() {
      
       <div className="row">
        
-      <TodaysIntake><h2>Hello  ! </h2>
+      <TodaysIntake><h2>Hello {master.name} ! </h2>
+      <h2>Please add the excercises for all your clients</h2>
+      <img src={master.image} style={{ borderRadius: "50%", height:"200%",marginTop:"-130px", marginLeft:"1200px", position:"absolute"}}></img>
          </TodaysIntake>
       </div>
       <br></br>
@@ -58,121 +84,31 @@ function MasterDashboard() {
      
 
 <div className="row">
-<div className="col-lg-3" style={{marginLeft:"5%"}}>
+{master.users.map((userList)=>{
+            return(
+              <div className="col-lg-3" style={{marginLeft:"5%"}}>
                
-               <div className="tile">
-               <div className="profile_pic" style={{backgroundColor:"white"}}>
-       <img src="https://images.unsplash.com/photo-1563199611-373f88ed91ff?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"></img>
-       <p className="title">Gus Agung</p>
-       <br></br>
+              <div className="tile" key={userList._id}>
+              <div className="profile_pic" style={{backgroundColor:"white"}} >
+      <img src={userList.image}></img>
+            <p className="title">{userList.name}</p>
+      <br></br>
+    
+        <button type="button" className="btn btn-primary" style={{marginLeft:"38%"}}><Link to={"/viewClient/" + userList._id} style={{color:"white"}}>View More</Link></button>
      
-         <button type="button" className="btn btn-primary" style={{marginLeft:"38%"}}>View More</button>
       
-       
-      
-     </div>
-   </div>
- 
-             
-   <br></br>
-      <br></br>       
-             </div>
-             <div className="col-lg-3" style={{marginLeft:"5%"}}>
-               
-               <div className="tile">
-               <div className="profile_pic" style={{backgroundColor:"white"}}>
-       <img src="https://images.unsplash.com/photo-1563199611-373f88ed91ff?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"></img>
-       <p className="title">Gus Agung</p>
-       <br></br>
      
-         <button type="button" className="btn btn-primary" style={{marginLeft:"38%"}}>View More</button>
-      
-       
-      
-     </div>
-   </div>
- 
-             
-   <br></br>
-      <br></br>       
-             </div>
-             <div className="col-lg-3" style={{marginLeft:"5%"}}>
-               
-               <div className="tile">
-               <div className="profile_pic" style={{backgroundColor:"white"}}>
-       <img src="https://images.unsplash.com/photo-1563199611-373f88ed91ff?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"></img>
-       <p className="title">Gus Agung</p>
-       <br></br>
-     
-         <button type="button" className="btn btn-primary" style={{marginLeft:"38%"}}>View More</button>
-      
-       
-      
-     </div>
-   </div>
- 
-             
-   <br></br>
-      <br></br>  
-           
-             </div>
-             <div className="col-lg-3" style={{marginLeft:"5%"}}>
-               
-               <div className="tile">
-               <div className="profile_pic" style={{backgroundColor:"white"}}>
-       <img src="https://images.unsplash.com/photo-1563199611-373f88ed91ff?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"></img>
-       <p className="title">Gus Agung</p>
-       <br></br>
-     
-         <button type="button" className="btn btn-primary" style={{marginLeft:"38%"}}>View More</button>
-      
-       
-      
-     </div>
-   </div>
- 
-             
-   <br></br>
-      <br></br>       
-             </div>
-             <div className="col-lg-3" style={{marginLeft:"5%"}}>
-               
-               <div className="tile">
-               <div className="profile_pic" style={{backgroundColor:"white"}}>
-       <img src="https://images.unsplash.com/photo-1563199611-373f88ed91ff?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"></img>
-       <p className="title">Gus Agung</p>
-       <br></br>
-     
-         <button type="button" className="btn btn-primary" style={{marginLeft:"38%"}}>View More</button>
-      
-       
-      
-     </div>
-   </div>
- 
-             
-   <br></br>
-      <br></br>       
-             </div>
-             <div className="col-lg-3" style={{marginLeft:"5%"}}>
-               
-               <div className="tile">
-               <div className="profile_pic" style={{backgroundColor:"white"}}>
-       <img src="https://images.unsplash.com/photo-1563199611-373f88ed91ff?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"></img>
-       <p className="title">Gus Agung</p>
-       <br></br>
-     
-         <button type="button" className="btn btn-primary" style={{marginLeft:"38%"}}>View More</button>
-      
-       
-      
-     </div>
-   </div>
- 
-             
-   <br></br>
-      <br></br>       
-             </div>
+    </div>
+  </div>
+
+            
+  <br></br>
+     <br></br>       
+            </div>
+            )
+        })} 
+   
+
 
   
 

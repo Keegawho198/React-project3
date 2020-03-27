@@ -16,10 +16,13 @@ module.exports = {
     // }
     db.Program
       .create({
+        userId: req.body.select,
         dayNum: req.body.dayNum,
         focus: req.body.focus,
-        exercise: req.body.exercise
+        exercise: req.body.exercise,
+        
       })
+      .then(({_id}) => db.User.findOneAndUpdate({_id: req.body.userId}, { $push: { programs: _id } }, { new: true }))
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
     // res.send('item saved');

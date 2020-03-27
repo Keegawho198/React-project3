@@ -6,55 +6,55 @@ import './style.css';
 
 import FormInput from '../FormInput';
 import TableDisplay from '../TableDisplay'
+import ProgramSelected from "../Forms/ProgramSelectedInput";
 
 
 const Form = () => {
-  // console.log(TableDisplay);
-  //const [name, setName] = useState("");
-  // const [password, setPassword] = useState("");
+
   const [formData, setFormData] = useState({
     dayNum: "",
-    //exerciseId: 0,
     focus: "",
     exerciseName: "",
     sets: "",
     reps: "",
     tempo: "",
-    rest: ""
+    rest: "",
+    select:""
   });
 
   const [tableData, setTableData] = useState({
     exerciseName: "",
-    //exerciseId: 0,
     focus: "",
     sets: "",
     reps: "",
     tempo: "",
-    rest: ""
+    rest: "",
+    select:""
+
   });
+
+  const handleChange = (e) => {
+    let key = e.target.name;
+    let value = e.target.value;
+    console.log(key,value);
+
+    setFormData({ ...formData, [key]: value })
+  }
+
 
 
   const handleSave = (e) => {
     e.preventDefault();
     console.log(formData);
     console.log('saved')
-    // var exerciseId = 0;
-    // console.log(exerciseId);
-    // exerciseId++;
-    // console.log(exerciseId);
-
-    
-    //var exerciseDat = _.omit(formData, 'dayNum')
+   
     setTableData({ ...formData });
+    
+    
   }
 
 
-  const handleChange = (e) => {
-    let key = e.target.name;
-    let value = e.target.value;
 
-    setFormData({ ...formData, [key]: value })
-  }
 
 
   return (
@@ -68,6 +68,9 @@ const Form = () => {
         <FormInput label="Reps" type="number" name="reps" value={formData.reps} onChange={handleChange} />
         <FormInput label="Tempo" type="text" name="tempo" value={formData.tempo} onChange={handleChange} />
         <FormInput label="Rest" type="number" name="rest" value={formData.rest} onChange={handleChange} />
+        <ProgramSelected
+        onChange={handleChange}
+        />
         <button type="button" className="btn btn-lg btn-primary " onClick={handleSave}>Save</button>
     </div>
 

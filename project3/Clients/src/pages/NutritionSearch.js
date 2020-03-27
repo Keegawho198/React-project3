@@ -90,7 +90,7 @@ function NutritionSearch(){
             <h4 style={{textAlign:"center"}}>{foods.food.label}</h4>
            
                  <div class="d-inline"><h5>Calories:{foods.food.nutrients.ENERC_KCAL}</h5></div>
-            <div class="d-inline"><h5>Ingredients:{foods.food.foodContentsLabel}</h5></div>
+           
               
                 </div>
               

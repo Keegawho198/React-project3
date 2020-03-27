@@ -1,23 +1,83 @@
 import React, { useEffect, useState } from 'react';
-// import Form from '../Form/Form';
-//import DeleteBtn from "../DeleteBtn";
+
 import API from '../../utils/api'
 import _ from 'lodash';
-// import './style.css';
 
-// import { MDBDropdown, MDBDropdownToggle, MDBDropdownMenu, MDBDropdownItem } from "mdbreact";
 import { Form, Col } from 'react-bootstrap';
 import { MDBDataTable } from 'mdbreact';
-import { MDBBtn, MDBTable, MDBTableBody, MDBTableHead  } from 'mdbreact';
+import { MDBBtn, MDBTable, MDBTableBody, MDBTableHead } from 'mdbreact';
 
-//import {  MDBTableEditable } from "mdbreact";
-
-// import DropdownButton from 'react-bootstrap/DropdownButton'
 
 
 const Viewprogram = (props) => {
   const [tableData, setTableData] = useState([]);
-  const [filterData, setFilterData] = useState([]);
+  const [userProgram, setUserprogram] = useState({
+    id: "",
+    tag: "",
+    name: "",
+    age: "",
+    programs: [
+
+    ],
+
+  });
+
+
+
+  //const [dayNum, setDayNum] = useState(0);
+  useEffect(() => {
+    console.log("useEffect hit")
+    loaduserPrograms();
+    // setDayNum(props.dayNum);
+    //setTableData([...tableData, props.data])
+    //console.log(props.data)
+  }, []);
+
+  function loadPrograms() {
+    //console.log(tableData)
+    let task = []
+    API.getPrograms()
+      .then(res => {
+        res.data.map((value, index) => {
+          value.exercise.map((exercise) => {
+            console.log(exercise);
+            exercise._id = exercise._id;
+            exercise.dayNum = value.dayNum;
+            exercise.focus = value.focus;
+            task.push(exercise);
+          })
+        }
+        )
+        setTableData(task);
+        console.log(task)
+      }
+      )
+      .catch(err => console.log(err));
+  };
+
+
+  function loaduserPrograms() {
+    let task = []
+    API.getUser("5e7d85ea5c04ae499851c956")
+      .then(res => {
+        res.data.programs.map((value, index) => {
+          value.exercise.map((exercise) => {
+            console.log(exercise);
+            exercise._id = exercise._id;
+            exercise.dayNum = value.dayNum;
+            exercise.focus = value.focus;
+            task.push(exercise);
+          })
+        }
+        )
+        setTableData(task);
+        console.log(task)
+      }
+      )
+      .catch(err => console.log(err));
+  };
+
+
 
   const data = {
     columns: [{
@@ -69,65 +129,25 @@ const Viewprogram = (props) => {
       width: 100
     },
     ],
-    
-      rows: tableData.map(tableData => {
-        return {
-          dayNum: tableData.dayNum,
-          focus: tableData.focus,
-          exerciseName: tableData.exerciseName,
-          sets: tableData.sets,
-          reps: tableData.reps,
-          tempo: tableData.tempo,
-          rest: tableData.rest,
-          'Handle': <MDBBtn className="btn-red" style={{backgroundColor:"green", color:"white"}}
-          color="red" size="sm" onClick={() => deleteProgram(tableData._id)} >Complete</MDBBtn>
 
-          // clickEvent: () => this.handleClick(params)
-        }  
-        // <MDBBtn color="purple" size="sm">Button</MDBBtn>
-      })
-      
-    
+    rows: tableData.map(tableData => {
+      return {
+        dayNum: tableData.dayNum,
+        focus: tableData.focus,
+        exerciseName: tableData.exerciseName,
+        sets: tableData.sets,
+        reps: tableData.reps,
+        tempo: tableData.tempo,
+        rest: tableData.rest,
+        'Handle': <MDBBtn className="btn-red" style={{ backgroundColor: "green", color: "white" }}
+          color="red" size="sm" onClick={() => deleteProgram(tableData._id)} >Complete</MDBBtn>
+      }
+      // <MDBBtn color="purple" size="sm">Button</MDBBtn>
+    })
+
+
 
   }
-
-  //const [dayNum, setDayNum] = useState(0);
-  useEffect(() => {
-    console.log("useEffect hit")
-    loadPrograms();
-    // setDayNum(props.dayNum);
-    //setTableData([...tableData, props.data])
-    //console.log(props.data)
-  }, []);
-
-  function loadPrograms() {
-    //console.log(tableData)
-    let task = []
-    API.getPrograms()
-      .then(res => {
-        res.data.map((value, index) => {
-          value.exercise.map((exercise) => {
-            console.log(exercise);
-            exercise._id = exercise._id;
-            exercise.dayNum = value.dayNum;
-            exercise.focus = value.focus;
-            task.push(exercise);
-          })
-        }
-        )
-        setTableData(task);
-        console.log(task)
-        setFilterData(task);
-        //here setfilterData(task)
-      }
-        //loop through res.data
-        //loop through row.exercise
-        //add daynum to all exercise
-        //set exerciese to tableData
-
-      )
-      .catch(err => console.log(err));
-  };
 
 
   function deleteProgram(id) {
@@ -150,40 +170,40 @@ const Viewprogram = (props) => {
   //   setFilterData({ dayNum: event.target.name });
   //   console.log(setFilterData);
 
-    // console.log(event);
-    // console.log(event.traget.name);
+  // console.log(event);
+  // console.log(event.traget.name);
 
-    // event.data.map((value, index) => {
-    //   console.log(value);
-    // })
-    // return (
-    //   <div>
-    //   {
-    //     tableData
-    //         .map(row => (
-    //       <tr key={row._id == event.target.value}>
-    //         {/* //only return data where tableData.dayNum == value */}
-    //           <ul>
-    //             {filterData}
-    //             </ul>
-    //         <td>{row.dayNum == event.target.value}</td>
-    //         <td>{row.focus}</td>
-    //         <td>{row.exerciseName}</td>
-    //         <td>{row.sets}</td>
-    //         <td>{row.reps}</td>
-    //         <td>{row.tempo}</td>
-    //         <td>{row.rest}</td>
-    //         <td><DeleteBtn onClick={() => deleteProgram(row._id)} /></td>
-    //       </tr>)
+  // event.data.map((value, index) => {
+  //   console.log(value);
+  // })
+  // return (
+  //   <div>
+  //   {
+  //     tableData
+  //         .map(row => (
+  //       <tr key={row._id == event.target.value}>
+  //         {/* //only return data where tableData.dayNum == value */}
+  //           <ul>
+  //             {filterData}
+  //             </ul>
+  //         <td>{row.dayNum == event.target.value}</td>
+  //         <td>{row.focus}</td>
+  //         <td>{row.exerciseName}</td>
+  //         <td>{row.sets}</td>
+  //         <td>{row.reps}</td>
+  //         <td>{row.tempo}</td>
+  //         <td>{row.rest}</td>
+  //         <td><DeleteBtn onClick={() => deleteProgram(row._id)} /></td>
+  //       </tr>)
 
-    //     )
+  //     )
 
-    //   }
-    //   </div>
-    // )
+  //   }
+  //   </div>
+  // )
 
 
-    //console.log(tableData);
+  //console.log(tableData);
   //};
 
   console.log(tableData);
@@ -228,7 +248,7 @@ const Viewprogram = (props) => {
         hover
         data={data}
         sorting={false}
-        
+
       />
       {/* {tableData
             .map(row => (

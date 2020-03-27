@@ -47,7 +47,7 @@ export default {
 
   getNutrition: function(query){
     return axios.get(BASEURL + query + APIKEY);
-  }
+  },
 
 
 

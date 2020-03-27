@@ -61,18 +61,29 @@ const UserSchema = new Schema({
     data: Buffer,
     type: String
   },
+  programs:[
+    {
+      type: Schema.Types.ObjectId,
+      ref: "Program"
+    }
+  ]
+
 }, {
   toJSON: {
     virtuals: true
-  }
+  },
+
+
 })
 
 
 UserSchema.virtual('calories').get(function() {  
-  if(this.gender==="Female"){
-    return (((10*this.currentWeight) + (6.25*this.height)- (5*this.age)-161)*this.energyExpenditure) + " Cals"
-  }
-  return (Math.round((10*this.currentWeight) + (6.25*this.height)- (5*this.age)+5)*this.energyExpenditure) + " Cals"
+  if(this.gender==="Female" || "female"){
+    return parseInt(((10*this.currentWeight) + (6.25*this.height)- (5*this.age)-161)*this.energyExpenditure) + " Cals"
+}else{
+  return parseInt(((10*this.currentWeight) + (6.25*this.height)- (5*this.age)+5)*this.energyExpenditure) + " Cals"
+}
+  
 });
 
 const User = mongoose.model("User", UserSchema);
