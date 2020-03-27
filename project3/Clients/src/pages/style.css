@@ -149,6 +149,15 @@ nav {
   /* alignItems: 'center' */
 }
 
+@font-face {
+  src: url(fonts/Moderat-Regular.ttf);
+  font-family: "moderat";
+}
+
+div{
+  font-family: moderat;
+}
+
 @media (min-width: 400px) {
   .mainNav{
     display: inline-block;
