@@ -32,9 +32,9 @@ const ViewExercise = (props) => {
     },
     {
       label: 'Img',
-      field: 'img',
+      field: 'imgField',
       sort: 'asc',
-      width: 100
+      width: 100,
     },
     {
       label: 'Delete',
@@ -46,12 +46,9 @@ const ViewExercise = (props) => {
     
       rows: tableData.map(tableData => {
         return {
-          
           exerciseName: tableData.exerciseName,
           instructions: tableData.instructions,
-          img: tableData.img.slice(5),
-
-          
+          'imgField': <img src={tableData.img} className="exerciseImg" style={{height:"200px", width:"200px"}}></img>,
           'Handle': <MDBBtn className="btn-red" style={{backgroundColor:"red", color:"white"}}
           color="red" size="sm" onClick={() => deleteExercise(tableData._id)} >Delete</MDBBtn>
 
@@ -117,7 +114,8 @@ const ViewExercise = (props) => {
 
       <br></br>
 
-      <MDBDataTable
+      <MDBDataTable className="tableDisplay" 
+        responsive="sm"
         noBottomColumns
         striped
         bordered

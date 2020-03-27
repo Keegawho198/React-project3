@@ -22,7 +22,7 @@ function Chart() {
 
   function loadUser() {
      
-      API.getUser("5e7c88c6b0c5b99b942bd00c")
+      API.getUser("5e7e13815cea466c9c97dbe5")
         .then(res => {
           console.log(res);
           setUser(res.data);

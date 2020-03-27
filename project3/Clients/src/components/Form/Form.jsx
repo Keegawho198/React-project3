@@ -61,6 +61,9 @@ const Form = () => {
   const handleChange = (e) => {
     console.log(e);
     console.log(e.value);
+    
+    alert("Day Number " + e.value +" Selected"); 
+    //daynumber not showing on input when selected
 
     setFormData({ ...formData, dayNum: e.value })
   }
@@ -80,8 +83,8 @@ const Form = () => {
       <br></br>
 
       <div className="row">
-        <div className="Form col-sm-4 col-lg-4">
-
+        <div className="Form col-sm-4 col-lg-4 formInput">
+          <p>Day Number</p>
           <Select label="DayNum" name="dayNum" value={formData.dayNum} options={options}
             onChange={handleChange} />
 
@@ -94,7 +97,7 @@ const Form = () => {
           <button type="button" className="btn btn-lg btn-primary " onClick={handleSave}>Save</button>
         </div>
 
-        <div class="col-sm-8 col-md col-lg-8">
+        <div class="col-sm-6 col-md col-lg-6 tableDisplay">
           <TableDisplay dayNum={formData.dayNum} data={tableData}>
           </TableDisplay>
         </div>

@@ -132,11 +132,6 @@ const Viewprogram = (props) => {
 
 
   function deleteProgram(id) {
-    //new array 
-    //loop through old array
-    //return everything in old array in new array except for 
-    // chosen .id
-
     console.log("delete hitting");
     console.log(id);
     API.deleteProgram(id)
@@ -144,56 +139,14 @@ const Viewprogram = (props) => {
       .catch(err => console.log(err));
   }
 
-  // function handleChange(event) {
-
-  //   console.log(event.target.value);
-
-  //   setFilterData({ dayNum: event.target.name });
-  //   console.log(setFilterData);
-
-  // console.log(event);
-  // console.log(event.traget.name);
-
-  // event.data.map((value, index) => {
-  //   console.log(value);
-  // })
-  // return (
-  //   <div>
-  //   {
-  //     tableData
-  //         .map(row => (
-  //       <tr key={row._id == event.target.value}>
-  //         {/* //only return data where tableData.dayNum == value */}
-  //           <ul>
-  //             {filterData}
-  //             </ul>
-  //         <td>{row.dayNum == event.target.value}</td>
-  //         <td>{row.focus}</td>
-  //         <td>{row.exerciseName}</td>
-  //         <td>{row.sets}</td>
-  //         <td>{row.reps}</td>
-  //         <td>{row.tempo}</td>
-  //         <td>{row.rest}</td>
-  //         <td><DeleteBtn onClick={() => deleteProgram(row._id)} /></td>
-  //       </tr>)
-
-  //     )
-
-  //   }
-  //   </div>
-  // )
-
-
-  //console.log(tableData);
-  //};
-
   //console.log(tableData);
   return (
     <div>
       <br></br>
       <br></br>
 
-      <MDBDataTable
+      <MDBDataTable className="tableDisplay"
+      responsive="sm"
         noBottomColumns
         striped
         bordered

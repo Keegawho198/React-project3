@@ -38,7 +38,7 @@ function Dashboard() {
 
 
   function loadUsers() {
-    API.getUser("5e7c88c6b0c5b99b942bd00c")
+    API.getUser("5e7e13815cea466c9c97dbe5")
       .then(res =>
         setUser(res.data)
 
@@ -94,7 +94,7 @@ function Dashboard() {
 
       <>
 
-        <Modal show={show} onHide={handleClose} size="lg"
+        <Modal className="Modal" show={show} onHide={handleClose} size="lg"
           aria-labelledby="contained-modal-title-vcenter"
           centered >
           <Modal.Header closeButton>
@@ -129,15 +129,17 @@ function Dashboard() {
 
         <TodaysIntake>
           <div className="row">
-            <div className="col">
-              <h2>Hello {user.name}  </h2>
+            <div className="col-lg-10">
+              <h2>Hello {user.name}</h2>
+              <h4>You're currently on track with the progress keep it up!</h4>
+
             </div>
+
             <div className="col">
               <img src={user.image} style={{ borderRadius: "50%", height: "350%", marginTop: "-45px", marginLeft: "900px", position: "absolute" }}></img>
             </div>
           </div>
 
-          <h4>You're currently on track with the progress keep it up!</h4>
         </TodaysIntake>
 
 
@@ -162,7 +164,7 @@ function Dashboard() {
               <p style={{ fontSize: "20px", color: "#c2c2c2", textAlign: "center" }}>Search Food</p>
             </FoodToday>
             <TodaysWorkout>
-              <p style={{ fontSize: "20px", textAlign: "center" }}>Todays Workout</p>
+              <p  className="cardp" style={{ fontSize: "20px", textAlign: "center" }}>Todays Workout</p>
               <p style={{ fontSize: "40px", color: "#c5d3c1", textAlign: "center" }}>Push Day</p>
               <p style={{ fontSize: "20px", color: "#c2c2c2", textAlign: "center" }}>View all Workout</p>
             </TodaysWorkout>
