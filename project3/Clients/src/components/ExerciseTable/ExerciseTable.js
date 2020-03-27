@@ -38,7 +38,7 @@ const ExerciseTable = (props) => {
     var apiData = {
       exerciseName: tableData[1].exerciseName,
       instructions: tableData[1].instructions,
-      img: tableData[1].img
+      img: tableData[1].image
       //_.omit(tableData, "dayNum"),
     }
 
@@ -47,7 +47,7 @@ const ExerciseTable = (props) => {
     API.saveExercise(apiData)
       .catch(err => console.log(err));
 
-      window.location.reload(false);
+    window.location.reload(false);
 
   };
 
@@ -75,7 +75,7 @@ const ExerciseTable = (props) => {
               <tr>
                 <td>{row.exerciseName}</td>
                 <td>{row.instructions}</td>
-                <td>{row.img}</td>
+                <td><img src={row.image}></img></td>
                 {/* <DeleteBtn onClick={() => deleteProgram(program._id)} /> */}
               </tr>)
             )}
@@ -84,13 +84,13 @@ const ExerciseTable = (props) => {
       </table>
 
       <br></br>
-              
+
       <div className="text-align text-center">
-      <button type="button" className="btn btn-lg btn-primary " onClick={handleSubmit}>Submit</button>
+        <button type="button" className="btn btn-lg btn-primary " onClick={handleSubmit}>Submit</button>
       </div>
 
       {/* <button type="button" className="btn btn-lg btn-primary text-center" onClick={handleSubmit}>Submit</button> */}
-      
+
 
     </div>
   );

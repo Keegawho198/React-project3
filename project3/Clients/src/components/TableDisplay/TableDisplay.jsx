@@ -17,7 +17,7 @@ const TableDisplay = (props) => {
     setFocus(props.focus);
     setTableData([...tableData, props.data])
 
-   console.log(tableData);
+    console.log(tableData);
     //console.log(props.data)
   }, [props.data]);
 
@@ -26,16 +26,18 @@ const TableDisplay = (props) => {
     console.log("submit btn work");
 
     let test = tableData.map((data) => {
-      return _.omit(data, "dayNum", "focus","select")
+      return _.omit(data, "dayNum", "focus", "select")
       //return _.omit(data, "focus")
     });
-    console.log(test)
+    console.log(valuesAdded[1])
     var apiData = {
-      userId:tableData[1].select,
+      userId: tableData[1].select,
       dayNum: tableData[1].dayNum,
       focus: tableData[1].focus,
-      exercise: test
-      //_.omit(tableData, "dayNum"),
+      //animals.slice(2)
+
+      exercise: valuesAdded.slice(1)
+      //will ignore empty array value
     }
     console.log(tableData);
 
@@ -59,14 +61,14 @@ const TableDisplay = (props) => {
   //     .catch(err => console.log(err));
   // }
 
-  
+
   return (
     <div>
 
-      <table className="table-form">
+      <table className="table-form" >
         <thead>
           <tr>
-          <th scope="col">User Id</th>
+            <th scope="col">User Id</th>
             <th scope="col">Day Number</th>
             <th scope="col">Focus</th>
             <th scope="col">Exercise Name</th>
@@ -81,7 +83,7 @@ const TableDisplay = (props) => {
           {tableData
             .map(row => (
               <tr>
-                 <td>{row.select}</td>
+                <td>{row.select}</td>
                 <td>{row.dayNum}</td>
                 <td>{row.focus}</td>
                 <td>{row.exerciseName}</td>
@@ -96,10 +98,10 @@ const TableDisplay = (props) => {
         </tbody>
       </table>
 
-              <br></br>
+      <br></br>
 
       <div className="text-align text-center">
-      <button type="button" className="btn btn-lg btn-primary text-center" onClick={handleSubmit}>Submit</button>
+        <button type="button" className="btn btn-lg btn-primary text-center" onClick={handleSubmit}>Submit</button>
       </div>
 
     </div>

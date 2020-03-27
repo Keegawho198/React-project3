@@ -12,24 +12,24 @@ import { Modal, Button } from 'react-bootstrap'
 function Dashboard() {
 
   const [user, setUser] = useState({
-    id:"",
-    name:"",
-    email:"",
-    age:"",
-    gender:"",
-    height:"",
-    energyExpenditure:"",
-    currentWeight:"",
-    image:"",
-    week:[],
-    weights:[],
-    programs:[],
-    calories:""
+    id: "",
+    name: "",
+    email: "",
+    age: "",
+    gender: "",
+    height: "",
+    energyExpenditure: "",
+    currentWeight: "",
+    image: "",
+    week: [],
+    weights: [],
+    programs: [],
+    calories: ""
 
   });
   const [show, setShow] = useState(false);
   const [tempweight, SetTempWeight] = useState("");
- 
+
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -39,17 +39,17 @@ function Dashboard() {
     handleShow();
   }, [])
 
-  
+
 
   function handleInputChange(event) {
     const { name, value } = event.target;
     console.log(event.target);
     console.log(name, value);
 
-    
-      SetTempWeight(parseInt(value));
-    }
-   
+
+    SetTempWeight(parseInt(value));
+  }
+
 
 
   function loadUsers() {
@@ -71,18 +71,18 @@ function Dashboard() {
   }
 
 
-   async function saveWeight() {
-var today = new Date();
-var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
-var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
-var dateTime = date+' '+time;
+  async function saveWeight() {
+    var today = new Date();
+    var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
+    var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+    var dateTime = date + ' ' + time;
     console.log(tempweight);
     console.log(dateTime);
     const newUser = {
       ...user,
       currentWeight: tempweight,
       weights: [...user.weights, tempweight],
-      week:[...user.week,dateTime]
+      week: [...user.week, dateTime]
     };
     setUser(newUser);
 
@@ -92,7 +92,8 @@ var dateTime = date+' '+time;
 
     console.log(user);
 
-    
+
+    window.location.reload(false);
 
 
   }
@@ -116,17 +117,17 @@ var dateTime = date+' '+time;
           centered >
           <Modal.Header closeButton>
             <Modal.Title id="contained-modal-title-vcenter">
-              Update Your Weight 
+              Update Your Weight
         </Modal.Title>
           </Modal.Header>
           <Modal.Body>
-          <div className="form-group">
-            Enter Your Weight in (Kg)
+            <div className="form-group">
+              Enter Your Weight in (Kg)
             <input className="form-control" id="exampleInput" type="number" name="currentWeight" onChange={handleInputChange}></input>
             </div>
           </Modal.Body>
           <Modal.Footer>
-            <Button variant="primary" onClick={saveWeight} style={{marginRight:"28%"}}>
+            <Button variant="primary" onClick={saveWeight} style={{ marginRight: "28%" }}>
               Save Changes
           </Button>
           </Modal.Footer>
@@ -138,19 +139,18 @@ var dateTime = date+' '+time;
 
 
         <TodaysIntake>
-        <div className="row">
-          <div className="col">
-          <h2>Hello {user.name} ! </h2>
+          <div className="row">
+            <div className="col">
+              <h2>Hello {user.name} ! </h2>
+            </div>
+            <div className="col">
+              <img src={user.image} style={{ borderRadius: "50%", height: "350%", marginTop: "-27px", marginLeft: "900px", position: "absolute" }}></img>
+            </div>
           </div>
-          <div className="col">
-          <img src={user.image} style={{ borderRadius: "50%", height:"350%",marginTop:"-27px", marginLeft:"900px", position:"absolute"}}></img>
-          </div>
-          </div>
-         
-          <h4>You're currently on track with the progress keep it up!</h4>
-          </TodaysIntake>
-          
-     
+
+        </TodaysIntake>
+
+
 
 
       </div>
@@ -167,21 +167,21 @@ var dateTime = date+' '+time;
         <div class="col">
           <div className="row">
             <FoodToday>
-            <p style={{fontSize:"20px",textAlign:"center"}}>Todays Nutrition</p>
-  <p style={{fontSize:"40px", color:"#c5d3c1",textAlign:"center"}}>{user.calories}</p>
-              <p style={{ fontSize:"20px",color:"#c2c2c2",textAlign:"center"}}><Link to={"/nutrition-search"} style={{ fontSize:"20px",color:"#c2c2c2",textAlign:"center"}}>Search Food</Link></p>
+              <p style={{ fontSize: "20px", textAlign: "center" }}>Todays Nutrition</p>
+              <p style={{ fontSize: "40px", color: "#c5d3c1", textAlign: "center" }}>{user.calories}</p>
+              <p style={{ fontSize: "20px", color: "#c2c2c2", textAlign: "center" }}><Link to={"/nutrition-search"} style={{ fontSize: "20px", color: "#c2c2c2", textAlign: "center" }}>Search Food</Link></p>
             </FoodToday>
 
             <TodaysWorkout>
-            <p style={{fontSize:"20px",textAlign:"center"}}>Todays Workout</p>
-            
-              
-                <p style={{fontSize:"40px", color:"#c5d3c1",textAlign:"center"}}><Link to={"/user/viewprogram/" + user.id} style={{fontSize:"40px", color:"#c5d3c1",textAlign:"center"}}>Start</Link></p>
-              
-              
-        
-              
-              <p style={{ fontSize:"20px",color:"#c2c2c2",textAlign:"center"}}><Link to={"/viewExercise"} style={{ fontSize:"20px",color:"#c2c2c2",textAlign:"center"}}>View Excercise Database</Link></p>
+              <p style={{ fontSize: "20px", textAlign: "center" }}>Todays Workout</p>
+
+
+              <p style={{ fontSize: "40px", color: "#c5d3c1", textAlign: "center" }}><Link to={"/user/viewprogram/" + user.id} style={{ fontSize: "40px", color: "#c5d3c1", textAlign: "center" }}>Start</Link></p>
+
+
+
+
+              <p style={{ fontSize: "20px", color: "#c2c2c2", textAlign: "center" }}><Link to={"/viewExercise"} style={{ fontSize: "20px", color: "#c2c2c2", textAlign: "center" }}>View Excercise Database</Link></p>
             </TodaysWorkout>
             <br></br>
 
