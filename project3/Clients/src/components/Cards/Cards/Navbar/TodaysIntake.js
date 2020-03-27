@@ -3,7 +3,7 @@ import './style.css'
 
 export function TodaysIntake({children}){
     return(
-<div class="card" id="intake">
+<div class="card" id="intake" style={{height:"148px"}}>
   <div class="card-body" id="mainSection">
     <div className="row">
     <div className="col">

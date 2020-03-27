@@ -6,14 +6,30 @@ import { TodaysIntake } from '../components/Cards/Cards/Navbar/TodaysIntake'
 import { TodaysWorkout } from '../components/Cards/Cards/Navbar/TodaysWorkout'
 import { FoodToday } from '../components/Cards/Cards/Navbar/FoodToday'
 import API from '../utils/api'
+import { Link } from "react-router-dom";
 import { Modal, Button } from 'react-bootstrap'
 
 function Dashboard() {
 
-  const [user, setUser] = useState({});
+  const [user, setUser] = useState({
+    id:"",
+    name:"",
+    email:"",
+    age:"",
+    gender:"",
+    height:"",
+    energyExpenditure:"",
+    currentWeight:"",
+    image:"",
+    week:[],
+    weights:[],
+    programs:[],
+    calories:""
+
+  });
   const [show, setShow] = useState(false);
   const [tempweight, SetTempWeight] = useState("");
-  const [newWeek, SetnewWeek]= useState("");
+ 
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -23,22 +39,21 @@ function Dashboard() {
     handleShow();
   }, [])
 
+  
 
   function handleInputChange(event) {
     const { name, value } = event.target;
     console.log(event.target);
     console.log(name, value);
 
-    if(name==="currentWeight"){
+    
       SetTempWeight(parseInt(value));
     }
-    SetnewWeek(value);
-
-  }
+   
 
 
   function loadUsers() {
-    API.getUser("5e7b51fd7790450918cc9539")
+    API.getUser("5e7d85ea5c04ae499851c956")
       .then(res =>
         setUser(res.data)
 
@@ -57,14 +72,17 @@ function Dashboard() {
 
 
    async function saveWeight() {
-   
+var today = new Date();
+var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+var dateTime = date+' '+time;
     console.log(tempweight);
-    console.log(newWeek);
+    console.log(dateTime);
     const newUser = {
       ...user,
       currentWeight: tempweight,
       weights: [...user.weights, tempweight],
-      week:[...user.week,newWeek]
+      week:[...user.week,dateTime]
     };
     setUser(newUser);
 
@@ -93,12 +111,12 @@ function Dashboard() {
 
       <>
 
-        <Modal show={show} onHide={handleClose} size="lg"
+        <Modal show={show} onHide={handleClose} size="sm"
           aria-labelledby="contained-modal-title-vcenter"
           centered >
           <Modal.Header closeButton>
             <Modal.Title id="contained-modal-title-vcenter">
-              Update Your Weight !
+              Update Your Weight 
         </Modal.Title>
           </Modal.Header>
           <Modal.Body>
@@ -106,16 +124,9 @@ function Dashboard() {
             Enter Your Weight in (Kg)
             <input className="form-control" id="exampleInput" type="number" name="currentWeight" onChange={handleInputChange}></input>
             </div>
-            <div className="form-group">
-              Enter the Week
-            <input className="form-control" id="exampleInput" type="text" name="currentWeek" onChange={handleInputChange}></input>
-            </div>
           </Modal.Body>
           <Modal.Footer>
-            <Button variant="secondary" onClick={handleClose}>
-              Close
-          </Button>
-            <Button variant="primary" onClick={saveWeight}>
+            <Button variant="primary" onClick={saveWeight} style={{marginRight:"28%"}}>
               Save Changes
           </Button>
           </Modal.Footer>
@@ -132,7 +143,7 @@ function Dashboard() {
           <h2>Hello {user.name} ! </h2>
           </div>
           <div className="col">
-          <img src="https://images.unsplash.com/photo-1563199611-373f88ed91ff?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" style={{ borderRadius: "50%", height:"350%",marginTop:"-45px", marginLeft:"900px", position:"absolute"}}></img>
+          <img src={user.image} style={{ borderRadius: "50%", height:"350%",marginTop:"-27px", marginLeft:"900px", position:"absolute"}}></img>
           </div>
           </div>
          
@@ -158,12 +169,19 @@ function Dashboard() {
             <FoodToday>
             <p style={{fontSize:"20px",textAlign:"center"}}>Todays Nutrition</p>
   <p style={{fontSize:"40px", color:"#c5d3c1",textAlign:"center"}}>{user.calories}</p>
-              <p style={{ fontSize:"20px",color:"#c2c2c2",textAlign:"center"}}>Search Food</p>
+              <p style={{ fontSize:"20px",color:"#c2c2c2",textAlign:"center"}}><Link to={"/nutrition-search"} style={{ fontSize:"20px",color:"#c2c2c2",textAlign:"center"}}>Search Food</Link></p>
             </FoodToday>
+
             <TodaysWorkout>
-              <p style={{fontSize:"20px",textAlign:"center"}}>Todays Workout</p>
-              <p style={{fontSize:"40px", color:"#c5d3c1",textAlign:"center"}}>Push Day</p>
-              <p style={{ fontSize:"20px",color:"#c2c2c2",textAlign:"center"}}>View all Workout</p>
+            <p style={{fontSize:"20px",textAlign:"center"}}>Todays Workout</p>
+            
+              
+                <p style={{fontSize:"40px", color:"#c5d3c1",textAlign:"center"}}><Link to={"/user/viewprogram/" + user.id} style={{fontSize:"40px", color:"#c5d3c1",textAlign:"center"}}>Start</Link></p>
+              
+              
+        
+              
+              <p style={{ fontSize:"20px",color:"#c2c2c2",textAlign:"center"}}><Link to={"/viewExercise"} style={{ fontSize:"20px",color:"#c2c2c2",textAlign:"center"}}>View Excercise Database</Link></p>
             </TodaysWorkout>
             <br></br>
 
