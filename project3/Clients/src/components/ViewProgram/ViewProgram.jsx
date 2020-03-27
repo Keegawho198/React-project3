@@ -1,24 +1,84 @@
 import React, { useEffect, useState } from 'react';
-// import Form from '../Form/Form';
-//import DeleteBtn from "../DeleteBtn";
+
 import API from '../../utils/api'
 import _ from 'lodash';
-// import './style.css';
 
-// import { MDBDropdown, MDBDropdownToggle, MDBDropdownMenu, MDBDropdownItem } from "mdbreact";
 import { Form, Col } from 'react-bootstrap';
 import { MDBDataTable } from 'mdbreact';
 import { MDBBtn, MDBTable, MDBTableBody, MDBTableHead } from 'mdbreact';
 
-//import {  MDBTableEditable } from "mdbreact";
-
-// import DropdownButton from 'react-bootstrap/DropdownButton'
 
 
 
 const Viewprogram = (props) => {
   const [tableData, setTableData] = useState([]);
-  //const [filterData, setFilterData] = useState([]);
+  const [userProgram, setUserprogram] = useState({
+    id: "",
+    tag: "",
+    name: "",
+    age: "",
+    programs: [
+
+    ],
+
+  });
+
+
+
+  //const [dayNum, setDayNum] = useState(0);
+  useEffect(() => {
+    console.log("useEffect hit")
+    loaduserPrograms();
+    // setDayNum(props.dayNum);
+    //setTableData([...tableData, props.data])
+    //console.log(props.data)
+  }, []);
+
+  function loadPrograms() {
+    //console.log(tableData)
+    let task = []
+    API.getPrograms()
+      .then(res => {
+        res.data.map((value, index) => {
+          value.exercise.map((exercise) => {
+            console.log(exercise);
+            exercise._id = exercise._id;
+            exercise.dayNum = value.dayNum;
+            exercise.focus = value.focus;
+            task.push(exercise);
+          })
+        }
+        )
+        setTableData(task);
+        console.log(task)
+      }
+      )
+      .catch(err => console.log(err));
+  };
+
+
+  function loaduserPrograms() {
+    let task = []
+    API.getUser("5e7d85ea5c04ae499851c956")
+      .then(res => {
+        res.data.programs.map((value, index) => {
+          value.exercise.map((exercise) => {
+            console.log(exercise);
+            exercise._id = exercise._id;
+            exercise.dayNum = value.dayNum;
+            exercise.focus = value.focus;
+            task.push(exercise);
+          })
+        }
+        )
+        setTableData(task);
+        console.log(task)
+      }
+      )
+      .catch(err => console.log(err));
+  };
+
+
 
   const data = {
     columns: [{
@@ -82,8 +142,6 @@ const Viewprogram = (props) => {
         rest: tableData.rest,
         'Handle': <MDBBtn className="btn-red" style={{ backgroundColor: "green", color: "white" }}
           color="red" size="sm" onClick={() => deleteProgram(tableData._id)} >Complete</MDBBtn>
-
-        // clickEvent: () => this.handleClick(params)
       }
       // <MDBBtn color="purple" size="sm">Button</MDBBtn>
     })
@@ -91,44 +149,6 @@ const Viewprogram = (props) => {
 
 
   }
-
-  //const [dayNum, setDayNum] = useState(0);
-  useEffect(() => {
-    console.log("useEffect hit")
-    loadPrograms();
-    // setDayNum(props.dayNum);
-    //setTableData([...tableData, props.data])
-    //console.log(props.data)
-  }, []);
-
-  function loadPrograms() {
-    //console.log(tableData)
-    let task = []
-    API.getPrograms()
-      .then(res => {
-        res.data.map((value, index) => {
-          value.exercise.map((exercise) => {
-            // console.log(exercise);
-            exercise._id = exercise._id;
-            exercise.dayNum = value.dayNum;
-            exercise.focus = value.focus;
-            task.push(exercise);
-          })
-        }
-        )
-        setTableData(task);
-        console.log(task)
-        //setFilterData(task);
-        //here setfilterData(task)
-      }
-        //loop through res.data
-        //loop through row.exercise
-        //add daynum to all exercise
-        //set exerciese to tableData
-
-      )
-      .catch(err => console.log(err));
-  };
 
 
   function deleteProgram(id) {

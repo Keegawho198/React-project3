@@ -6,6 +6,7 @@ import './style.css';
 
 import FormInput from '../FormInput';
 import TableDisplay from '../TableDisplay'
+import ProgramSelected from "../Forms/ProgramSelectedInput";
 
 // import { Dropdown, DropdownButton, InputGroup } from 'react-bootstrap';
 //import Select from 'react-select';
@@ -28,32 +29,43 @@ const options = [
 const Form = () => {
   const [formData, setFormData] = useState({
     dayNum: "",
-    //exerciseId: 0,
     focus: "",
     exerciseName: "",
     sets: "",
     reps: "",
     tempo: "",
-    rest: ""
+    rest: "",
+    select:""
   });
 
   const [tableData, setTableData] = useState({
     exerciseName: "",
-    //exerciseId: 0,
     focus: "",
     sets: "",
     reps: "",
     tempo: "",
-    rest: ""
+    rest: "",
+    select:""
+
   });
+
+  const handleChange = (e) => {
+    let key = e.target.name;
+    let value = e.target.value;
+    console.log(key,value);
+
+    setFormData({ ...formData, [key]: value })
+  }
+
 
 
   const handleSave = (e) => {
     e.preventDefault();
     console.log(formData);
     console.log('saved')
-
     setTableData({ ...formData });
+    
+    
   }
 
 
