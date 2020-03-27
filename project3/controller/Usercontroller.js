@@ -5,45 +5,40 @@ module.exports = {
   findAll: function(req, res) {
     db.User
       .find(req.query)
-     
+      .populate("programs")
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
   findById: function(req, res) {
     db.User
       .findById(req.params.id)
-     
+      .populate("programs")
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
   create: function(req, res) {
-    console.log(req.body);
-    db.User
-      .create({
-        email: req.body.email,
-        password: req.body.password,
-        name: req.body.name,
-        age: req.body.age,
-        gender: req.body.gender,
-        height: req.body.height,
-        currentWeight: req.body.currentWeight,
-        image: req.body.image,
-        energyExpenditure: req.body.energyExpenditure,
-        goalWeight: req.body.goalWeight,
-        
+    console.log(req.body, req.body.masterId);
 
-      })
-      // .then(({_id}) => db.Master.findOneAndUpdate({_id: req.body.masterId}, { $push: { User: _id } }, { new: true }))
+    db.User
+      .create(req.body)
+      .then(({_id}) => db.Master.findOneAndUpdate({_id: req.body.masterId}, { $push: { users: _id } }, { new: true }))
       .then(dbModel => res.json(dbModel))
       .catch(err => {
         console.log(err);
         res.status(422).json(err)
       });
   },
+
+
+
   update: function(req, res) {
+    console.log(req.body);
+   
     db.User
-      .findOneAndUpdate({ _id: req.params.id }, req.body)
-      .then(dbModel => res.json(dbModel))
+      .findOneAndUpdate({ _id: req.params.id }, req.body,{new: true})
+
+      .then(dbModel => {console.log(dbModel)
+        res.json(dbModel)})
       .catch(err => res.status(422).json(err));
   },
   remove: function(req, res) {
@@ -53,4 +48,8 @@ module.exports = {
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   }
+
+
+
+
 };

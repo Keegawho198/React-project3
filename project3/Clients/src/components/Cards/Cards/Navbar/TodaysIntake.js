@@ -1,14 +1,14 @@
 import React from 'react';
 import './style.css'
 
-export function TodaysIntake(props){
+export function TodaysIntake({children}){
     return(
-<div class="card" id="intake">
+<div class="card" id="intake" style={{height:"148px"}}>
   <div class="card-body" id="mainSection">
     <div className="row">
     <div className="col">
-    <h2>Hello {props.child}!</h2>
-  <h4>You're currently on track with the progress keep it up!</h4>
+    <h2>{children}</h2>
+
   </div>
 <div className="col">
   
