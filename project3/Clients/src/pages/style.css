@@ -225,6 +225,17 @@ div {
     margin-left: 1px;
     margin-right: 1px;
 }
+
+.Form{
+  position: relative;
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 40px;
+}
+
+.formInput {
+  margin-left: 0px;
+}
 }
 
 

@@ -145,7 +145,8 @@ const Viewprogram = (props) => {
       <br></br>
       <br></br>
 
-      <MDBDataTable
+      <MDBDataTable className="tableDisplay"
+      responsive="sm"
         noBottomColumns
         striped
         bordered
