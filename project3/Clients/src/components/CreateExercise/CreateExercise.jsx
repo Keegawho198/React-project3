@@ -77,7 +77,7 @@ const Form = () => {
       <br></br>
 
       <div className="row">
-        <div className="col-sm-5">
+        <div className="col-sm-4 formInput">
           <FormInput label="Exercise Name" type="Text" name="exerciseName" value={formData.exerciseName} onChange={handleChange} />
           <FormInput label="Instructions" type="text" name="instructions" value={formData.instructions} onChange={handleChange} />
           <FormInput label="Image" type="file" name="image" value={formData.img} onChange={handleChange} />
@@ -90,7 +90,7 @@ const Form = () => {
           </ExerciseTable>
         </div>
       </div>
-      <p>Submited programs might go down here?</p>
+      {/* <p>Submited programs might go down here?</p> */}
 
 
 

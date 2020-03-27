@@ -139,12 +139,6 @@ const Viewprogram = (props) => {
       .catch(err => console.log(err));
   }
 
-  //new array 
-    //loop through old array
-    //return everything in old array in new array except for 
-    // chosen .id
-
-
   //console.log(tableData);
   return (
     <div>

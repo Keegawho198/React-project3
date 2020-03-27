@@ -114,7 +114,7 @@ const ViewExercise = (props) => {
 
       <br></br>
 
-      <MDBDataTable
+      <MDBDataTable className="tableDisplay"
         noBottomColumns
         striped
         bordered

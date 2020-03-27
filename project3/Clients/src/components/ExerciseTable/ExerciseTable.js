@@ -47,7 +47,7 @@ const ExerciseTable = (props) => {
     API.saveExercise(apiData)
       .catch(err => console.log(err));
 
-     // window.location.reload(false);
+    window.location.reload(false);
 
   };
 
@@ -84,13 +84,13 @@ const ExerciseTable = (props) => {
       </table>
 
       <br></br>
-              
+
       <div className="text-align text-center">
-      <button type="button" className="btn btn-lg btn-primary " onClick={handleSubmit}>Submit</button>
+        <button type="button" className="btn btn-lg btn-primary " onClick={handleSubmit}>Submit</button>
       </div>
 
       {/* <button type="button" className="btn btn-lg btn-primary text-center" onClick={handleSubmit}>Submit</button> */}
-      
+
 
     </div>
   );
