@@ -34,7 +34,7 @@ const ViewExercise = (props) => {
       label: 'Img',
       field: 'img',
       sort: 'asc',
-      width: 200
+      width: 100
     },
     {
       label: 'Delete',
@@ -49,7 +49,7 @@ const ViewExercise = (props) => {
           
           exerciseName: tableData.exerciseName,
           instructions: tableData.instructions,
-          img: tableData.img,
+          img: tableData.img.slice(5),
 
           
           'Handle': <MDBBtn className="btn-red" style={{backgroundColor:"red", color:"white"}}
@@ -57,7 +57,7 @@ const ViewExercise = (props) => {
 
           // clickEvent: () => this.handleClick(params)
         }  
-        // <MDBBtn color="purple" size="sm">Button</MDBBtn>
+        // <MDBBtn color="purple" size="sm">Button</MDBBtn>//
       })
       
     
