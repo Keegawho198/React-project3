@@ -94,7 +94,7 @@ function Dashboard() {
 
       <>
 
-        <Modal show={show} onHide={handleClose} size="lg"
+        <Modal className="Modal" show={show} onHide={handleClose} size="lg"
           aria-labelledby="contained-modal-title-vcenter"
           centered >
           <Modal.Header closeButton>

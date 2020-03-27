@@ -214,9 +214,17 @@ div {
 }
 
 @media screen and (max-width: 400px) {
+  .modal{
+    size: 300px;
+  }
+
+  .modal-open{
+    size: 300px;
+  }
+
   body{
-    height: 500px;
-    width: 300px;
+    height: auto;
+    width: auto;
 
   }
 
