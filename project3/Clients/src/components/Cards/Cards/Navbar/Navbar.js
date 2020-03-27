@@ -31,7 +31,7 @@ export function Navbar() {
     </form>
 </nav> */}
       <NavbarI bg="" expand="lg">
-        <NavbarI.Brand href="#home">  <a class="navbar-brand" href="#"><img id="navImg" src={require('../../../../img/logo.jpg')} alt="" style={{ height: "5rem" }} id="logo"></img></a>
+        <NavbarI.Brand href="#home"><a class="navbar-brand" href="#"><img id="navImg" src={require('../../../../img/logo.jpg')} alt="" style={{ height: "5rem" }} id="logo"></img></a>
         </NavbarI.Brand>
 
         <NavbarI.Toggle aria-controls="basic-navbar-nav" />
@@ -43,14 +43,7 @@ export function Navbar() {
             <Nav.Link href="#link"><a className="nav-link" href="#" id="navA">Blog</a></Nav.Link>
             <Nav.Link href="#link"><a className="nav-link" href="#" id="navA">Store</a></Nav.Link>
             <Nav.Link href="#link"><a className="nav-link" href="#" id="navA">Members</a></Nav.Link>
-
-
-
-
-
-
           </Nav>
-
         </NavbarI.Collapse>
       </NavbarI>
     </div>

@@ -189,19 +189,42 @@ div {
   font-size: 17px;
 }
 
+.exerciseImg{
+  width: 150px;
+}
+
 @media screen and (max-width: 600px) {
   .topnav a:not(:first-child) {display: none;}
   .topnav a.icon {
     float: right;
     display: block;
   }
+
+  .dataTables_wrapper {
+    margin-left: 20px;
+    margin-right: 20px;
+}
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 400px) {
   #logo {
     margin-right: 11%;
-    margin-left: -26%;
+    margin-left: -25%;
+    margin-top: -15px;
   }
+
+  .tableDisplay{
+    margin-left: 1px;
+  }
+
+  .exerciseImg{
+    width: 100px;
+  }
+
+  .dataTables_wrapper {
+    margin-left: 1px;
+    margin-right: 1px;
+}
 }
 
 
