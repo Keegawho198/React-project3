@@ -3,61 +3,57 @@
  * Copyright 2013-2019 Start Bootstrap
  * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-simple-sidebar/blob/master/LICENSE)
  */
- body {
-   background-color: #f3f2f0;
-    
-    
-  }
-  #logo{
-    margin-right: 20%;
-    background-blend-mode:lighten;
-  }
-  
-  nav{
-    background-color: #f3f2f0;
 
-  }
-#link{
- margin-left: 60%; 
- 
+body {
+  background-color: #f3f2f0;
 }
 
-.nav-link{
+#logo {
+  margin-right: 20%;
+  background-blend-mode: lighten;
+}
+
+nav {
+  background-color: #f3f2f0;
+}
+
+#link {
+  margin-left: 60%;
+}
+
+.nav-link {
   color: #113040;
   font-size: 25px
-
 }
-.navbar-brand{
+
+.navbar-brand {
   margin-left: 8.3%;
 }
-#mainSection{
-color: white;
-background-color: #c6d1c1;
-border-radius: 15px;
 
+#mainSection {
+  color: white;
+  background-color: #c6d1c1;
+  border-radius: 15px;
 }
-  
- 
 
-  #sport{
-    width: 700px;
+#sport {
+  width: 700px;
   height: 100%;
-  }
+}
 
-  #intake{
-    margin-left: 10%;
-    margin-top:5%;
-    width: 80%;
-    height:100px;
-    border-radius: 25px;
+#intake {
+  margin-left: 10%;
+  margin-top: 5%;
+  width: 80%;
+  height: 100px;
+  border-radius: 25px;
+}
 
-  }
-
-#caloricDetails{
+#caloricDetails {
   margin-left: 19%;
 }
 
-#daysWorkout{
+#daysWorkout {
   width: 60%;
   margin-left: 22%;
   height: 230px;
@@ -67,70 +63,60 @@ border-radius: 15px;
   margin-top: 2%;
 }
 
-
-#daysFood{
+#daysFood {
   margin-left: 22%;
   width: 60%;
   height: 226px;
   background-color: white;
   color: black;
   border-radius: 25px;
-
 }
 
-#projected{
+#projected {
   margin-left: 19%;
   height: 100%;
   border-radius: 15px;
   width: 98%;
 }
 
-#searchBar{
+#searchBar {
   margin-left: 35%;
 }
 
-#jumboSearch{
+#jumboSearch {
   background-image: url("https://images.unsplash.com/photo-1490818387583-1baba5e638af?ixlib=rb-1.2.1&w=2000&q=80");
- /* Full height */
- height: 100%;
-
- /* Center and scale the image nicely */
-
- background-repeat: no-repeat;
- 
+  /* Full height */
+  height: 100%;
+  /* Center and scale the image nicely */
+  background-repeat: no-repeat;
 }
 
-#foodImage{
+#foodImage {
   background-image: url("https://www.flavcity.com/wp-content/uploads/2018/05/healthy-meal-prep-recipes-500x500.jpg");
- /* Full height */
- height: 100%;
-width:100%;
- /* Center and scale the image nicely */
-
- background-repeat: no-repeat;
- 
+  /* Full height */
+  height: 100%;
+  width: 100%;
+  /* Center and scale the image nicely */
+  background-repeat: no-repeat;
 }
 
 @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
-
-#clientHeader{
- text-align: center;
-  border-bottom: 0.5px solid  gray;
+#clientHeader {
+  text-align: center;
+  border-bottom: 0.5px solid gray;
   padding-bottom: 3%;
 }
 
-.tile{
-    overflow: hidden;
-    height: 400px;
-    width: 90%;
-    position: relative;
-    margin: auto;
-    margin-top:60px;
-    /* margin-left: 20%; */
-    border-radius: 10px;
+.tile {
+  overflow: hidden;
+  height: 400px;
+  width: 90%;
+  position: relative;
+  margin: auto;
+  margin-top: 60px;
+  /* margin-left: 20%; */
+  border-radius: 10px;
 }
-
-
 
 /* .profile_pic{
     position: absolute;
@@ -139,30 +125,32 @@ width:100%;
     width: 100%;
 } */
 
-.profile_pic img{
-    width: 60%;
-    height: 60%;
-    border-radius: 100px;
-    border: 2px solid white;
-    filter: none;
-    margin-left: 20%;
-    margin-top:40px;
+.profile_pic img {
+  width: 60%;
+  height: 60%;
+  border-radius: 100px;
+  border: 2px solid white;
+  filter: none;
+  margin-left: 20%;
+  margin-top: 40px;
 }
 
-.title{
-    color:black;
-    
-    margin-top:10px;
-    font-size: 1.3rem;
-    font-weight: 400;
-    margin-bottom:0px;
-    text-align: center;
+.title {
+  color: black;
+  margin-top: 10px;
+  font-size: 1.3rem;
+  font-weight: 400;
+  margin-bottom: 0px;
+  text-align: center;
 }
 
-.text-center{
+.text-center {
   align-items: center;
   /* alignItems: 'center' */
 }
 
-
-
+@media (min-width: 400px) {
+  .mainNav{
+    display: inline-block;
+  }
+}

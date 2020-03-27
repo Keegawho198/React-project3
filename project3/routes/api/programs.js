@@ -9,7 +9,7 @@ router.route("/")
 
 // Matches with "/api/books/:id"
 // /api/program/id
-router.route("/:program_id")
+router.route("/:program_id/:exercise_id")
   .get(programController.findById)
   .put(programController.update)
   .delete(programController.remove);

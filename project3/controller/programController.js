@@ -70,9 +70,6 @@ module.exports = {
       { $pull: { 'exercise': { exerciseName: req.params.exercise_id } } },{ multi: true }, function (err, model) {
         //console.log(req.params.exercise_id);
         console.log(req.params.program_id);
-        
-
-
         if (err) {
           console.log(err);
           return res.send(err);
