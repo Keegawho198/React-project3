@@ -57,7 +57,7 @@ const ViewExercise = (props) => {
 
           // clickEvent: () => this.handleClick(params)
         }  
-        // <MDBBtn color="purple" size="sm">Button</MDBBtn>
+        // <MDBBtn color="purple" size="sm">Button</MDBBtn>//
       })
       
     
