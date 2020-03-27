@@ -39,10 +39,6 @@ function UserCreate() {
     
     setFormObject({ ...formObject, [name]: value })
   }
-
-
-
-
   }
 
 

@@ -32,12 +32,12 @@ const ViewExercise = (props) => {
     },
     {
       label: 'Img',
-      field: 'img',
+      field: 'imgField',
       sort: 'asc',
-      width: 200
+      width: 100,
     },
     {
-      label: 'Complete',
+      label: 'Delete',
       field: 'Handle',
       sort: 'asc',
       width: 100
@@ -46,18 +46,15 @@ const ViewExercise = (props) => {
     
       rows: tableData.map(tableData => {
         return {
-          
           exerciseName: tableData.exerciseName,
           instructions: tableData.instructions,
-          img: tableData.img,
-
-          
+          'imgField': <img src={tableData.img} className="exerciseImg" style={{height:"200px", width:"200px"}}></img>,
           'Handle': <MDBBtn className="btn-red" style={{backgroundColor:"red", color:"white"}}
           color="red" size="sm" onClick={() => deleteExercise(tableData._id)} >Delete</MDBBtn>
 
           // clickEvent: () => this.handleClick(params)
         }  
-        // <MDBBtn color="purple" size="sm">Button</MDBBtn>
+        // <MDBBtn color="purple" size="sm">Button</MDBBtn>//
       })
       
     
@@ -109,91 +106,25 @@ const ViewExercise = (props) => {
       .catch(err => console.log(err));
   }
 
-  // function handleChange(event) {
-  //   // event: event.target.value;
-  //   console.log(event.target.value);
-  //   console.log(event.target.name);
 
-  //   setFilterData({ dayNum: event.target.name });
-  //   //console.log(setFilterData);
-
-
-  //   // event.value.map((value, index) => {
-  //   //   console.log(value);
-  //   // })
-
-  //   // {tableData
-  //   //   .map(row => (
-  //   //     <tr key={row._id}>
-  //   //       <td>{row.exerciseName}</td>
-  //   //       <td>{row.instructions}</td>
-  //   //       <td>{row.img}</td>
-  //   //       <td><DeleteBtn onClick={() => deleteExercise(row.id)} /></td>
-  //   //     </tr>)
-  //   //   )}
-
-  // };
 
   return (
     <div>
-      {/* <DropdownMenu id="dropdown-basic-button" title="Dropdown button">
-        <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
-        <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
-        <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
-      </DropdownMenu> */}
-
-    {/* <div className="form-group">
-    <label htmlFor="exampleInputEmail1">Filter Exercise Name</label>
-    <input type="text" className="form-control" id="inputExercise" placeholder="Enter Exercise Filter"/>
-      </div> */}
-
-      {/* <MDBDropdown size="lg" className="text-center" onChange={handleChange}>
-        <MDBDropdownToggle caret color="primary" >
-          Filter Exercise
-        </MDBDropdownToggle>
-        <MDBDropdownMenu color="danger" >
-          <MDBDropdownItem value="1" >1</MDBDropdownItem>
-          <MDBDropdownItem value="2" >2</MDBDropdownItem>
-        
-        </MDBDropdownMenu>
-      </MDBDropdown> */}
+    
 
       <br></br>
 
-      <MDBDataTable
+      <MDBDataTable className="tableDisplay" 
+        responsive="sm"
         noBottomColumns
         striped
         bordered
         hover
         data={data}
         sorting={false}
-        
       />
 
-      {/* <table className="table-form">
-        <thead>
-          <tr>
-            <th scope="col">Exercise Name</th>
-            <th scope="col">Instructions</th>
-            <th scope="col">Image</th>
-
-            <th scope="col"></th>
-          </tr>
-        </thead>
-        <tbody>
-
-          {tableData
-            .map(row => (
-              <tr key={row._id}>
-                <td>{row.exerciseName}</td>
-                <td>{row.instructions}</td>
-                <td>{row.img}</td>
-                <td><DeleteBtn onClick={() => deleteExercise(row.id)} /></td>
-              </tr>)
-            )}
-
-        </tbody>
-      </table> */}
+    
     </div>
   );
 }

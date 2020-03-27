@@ -5,8 +5,8 @@ import Chart from './SubComponents/Chart'
 
 function ProjectedWeight(){
     return(
-    <div class="card" id="projected">
-  <div class="card-body" id="projectBody">
+    <div className="card projected" id="">
+  <div className="card-body" id="projectBody">
  <Chart/>
   </div>
 </div>
