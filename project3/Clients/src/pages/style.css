@@ -56,7 +56,7 @@ nav {
 #daysWorkout {
   width: 60%;
   margin-left: 22%;
-  height: 230px;
+  height: 200px;
   background-color: white;
   color: black;
   border-radius: 25px;
@@ -160,23 +160,23 @@ div {
   font-family: moderat;
 }
 
-.dataTables_wrapper{
+.dataTables_wrapper {
   margin-left: 100px;
   margin-right: 100px;
 }
 
-.formInput{
+.formInput {
   margin-left: 30px;
 }
 
-.tableDisplay{
+.tableDisplay {
   margin-left: 45px;
 }
 
-
 /* .topnav {
   overflow: hidden; */
-  /* background-color: #333;
+
+/* background-color: #333;
 } */
 
 .topnav a {
@@ -189,56 +189,121 @@ div {
   font-size: 17px;
 }
 
-.exerciseImg{
+.exerciseImg {
   width: 150px;
 }
 
+.chartjs-render-monitor {
+  display: block;
+  height: 227px;
+  width: 455px;
+}
+
 @media screen and (max-width: 600px) {
-  .topnav a:not(:first-child) {display: none;}
+  .topnav a:not(:first-child) {
+    display: none;
+  }
   .topnav a.icon {
     float: right;
     display: block;
   }
-
   .dataTables_wrapper {
     margin-left: 20px;
     margin-right: 20px;
-}
+  }
 }
 
 @media screen and (max-width: 400px) {
+  body{
+    height: 500px;
+    width: 300px;
+
+  }
+
   #logo {
     margin-right: 11%;
     margin-left: -25%;
     margin-top: -15px;
   }
-
-  .tableDisplay{
+  .tableDisplay {
     margin-left: 1px;
   }
-
-  .exerciseImg{
+  .exerciseImg {
     width: 100px;
   }
+  h2 {
+    font-size: 1.5rem;
+  }
+  h4 {
+    font-size: 1rem;
+  }
+  #daysFood {
+    margin-left: 22%;
+    margin-top: 25px;
+    width: 64%;
+    height: 320px;
+    background-color: white;
+    color: black;
+    border-radius: 25px;
+  }
 
+  #daysWorkout {
+    width: 64%;
+    margin-left: 22%;
+    height: 200px;
+    background-color: white;
+    color: black;
+    border-radius: 25px;
+    margin-top: 2%;
+  }
+  .card {
+    position: relative;
+    display: flex;
+    margin-top: 10px;
+    margin-bottom: 50px;
+    flex-direction: column;
+    min-width: 17px;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 0px solid rgba(0, 0, 0, .125);
+    border-radius: .25rem;
+  }
+  .cardp {
+    font-size: 50px;
+  }
+  .card-body {
+    flex: 1 1 auto;
+    /* //height: 230px; */
+    height: 191px;
+    min-height: auto;
+    padding: 1.25rem;
+  }
+  #projected {
+    margin-left: 2%;
+    height: 100%;
+    border-radius: 15px;
+    width: 98%;
+  }
+  .chartjs-render-monitor {
+    display: block;
+    height: 200px;
+    width: 215px;
+  }
   .dataTables_wrapper {
     margin-left: 1px;
     margin-right: 1px;
+  }
+  .Form {
+    position: relative;
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 40px;
+  }
+  .formInput {
+    margin-left: 0px;
+  }
 }
-
-.Form{
-  position: relative;
-  width: 100%;
-  padding-right: 15px;
-  padding-left: 40px;
-}
-
-.formInput {
-  margin-left: 0px;
-}
-}
-
-
 
 /* @media (min-width: 400px) {
   .mainNav {
