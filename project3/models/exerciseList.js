@@ -9,7 +9,8 @@ const ExerciseSchema = new Schema({
     type: String
   },
   img:{
-    type: String
+    type: String,
+    data: Buffer, 
   }
     
 });

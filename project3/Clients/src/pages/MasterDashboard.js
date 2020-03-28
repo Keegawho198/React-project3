@@ -32,7 +32,7 @@ function MasterDashboard() {
 
 
   function loadMaster() {
-    API.getMaster("5e7d85ab5c04ae499851c955")
+    API.getMaster("5e7e90f018bec020a43b85eb")
       .then(res =>
         Setmaster({
           id:res.data._id,
@@ -55,12 +55,12 @@ function MasterDashboard() {
 console.log(master);
 
   return (
-   
+
     <div >
       <Navbar />
-      
-     
-     
+
+
+
       <div className="row">
        
       <TodaysIntake><h2>Hello {master.name} ! </h2>
@@ -75,10 +75,10 @@ console.log(master);
       <br></br>
       <br></br>
       <br></br>
-      
+
       <div className="container">
 
-      <h2 id="clientHeader">  Clients</h2>
+        <h2 id="clientHeader">  Clients</h2>
       </div>
       
      
@@ -118,8 +118,8 @@ console.log(master);
 
       
     </div>
-  
-    
+
+
 
 
 

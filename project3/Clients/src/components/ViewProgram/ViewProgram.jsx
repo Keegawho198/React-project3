@@ -9,6 +9,7 @@ import { MDBBtn, MDBTable, MDBTableBody, MDBTableHead } from 'mdbreact';
 
 
 
+
 const Viewprogram = (props) => {
   const [tableData, setTableData] = useState([]);
   const [userProgram, setUserprogram] = useState({
@@ -140,22 +141,14 @@ const Viewprogram = (props) => {
         tempo: tableData.tempo,
         rest: tableData.rest,
         'Handle': <MDBBtn className="btn-red" style={{ backgroundColor: "green", color: "white" }}
-          color="red" size="sm" onClick={() => deleteProgram(tableData._id)} >Complete</MDBBtn>
+          color="red" size="sm" onClick={() => deleteProgram(id)} >Complete</MDBBtn>
       }
       // <MDBBtn color="purple" size="sm">Button</MDBBtn>
     })
-
-
-
   }
-
+//test
 
   function deleteProgram(id) {
-    //new array 
-    //loop through old array
-    //return everything in old array in new array except for 
-    // chosen .id
-
     console.log("delete hitting");
     console.log(id);
     API.deleteProgram(id)
@@ -163,85 +156,14 @@ const Viewprogram = (props) => {
       .catch(err => console.log(err));
   }
 
-  // function handleChange(event) {
-
-  //   console.log(event.target.value);
-
-  //   setFilterData({ dayNum: event.target.name });
-  //   console.log(setFilterData);
-
-  // console.log(event);
-  // console.log(event.traget.name);
-
-  // event.data.map((value, index) => {
-  //   console.log(value);
-  // })
-  // return (
-  //   <div>
-  //   {
-  //     tableData
-  //         .map(row => (
-  //       <tr key={row._id == event.target.value}>
-  //         {/* //only return data where tableData.dayNum == value */}
-  //           <ul>
-  //             {filterData}
-  //             </ul>
-  //         <td>{row.dayNum == event.target.value}</td>
-  //         <td>{row.focus}</td>
-  //         <td>{row.exerciseName}</td>
-  //         <td>{row.sets}</td>
-  //         <td>{row.reps}</td>
-  //         <td>{row.tempo}</td>
-  //         <td>{row.rest}</td>
-  //         <td><DeleteBtn onClick={() => deleteProgram(row._id)} /></td>
-  //       </tr>)
-
-  //     )
-
-  //   }
-  //   </div>
-  // )
-
-
   //console.log(tableData);
-  //};
-
-  console.log(tableData);
   return (
     <div>
-      {/* <Form.Group as={Col} controlId="formGridState">
-      <Form.Label>Filter by Day Number</Form.Label>
-      <Form.Control as="select" value="Choose..." onChange={handleChange}>
-        <option value="0"></option>
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
-        <option value="6">6</option>
-        <option value="7">7</option>
-      </Form.Control>
-    </Form.Group> */}
-
+      <br></br>
       <br></br>
 
-      {/* <table className="table-form">
-        <thead>
-          <tr>
-            <th scope="col">Day Number</th>
-            <th scope="col">Focus</th>
-            <th scope="col">Exercise Name</th>
-            <th scope="col">Sets</th>
-            <th scope="col">Reps</th>
-            <th scope="col">Tempo</th>
-            <th scope="col">Rest</th>
-            <th scope="col"></th>
-          </tr>
-        </thead>
-        <tbody> */}
-
-
-      <MDBDataTable
+      <MDBDataTable className="tableDisplay"
+      responsive="sm"
         noBottomColumns
         striped
         bordered
@@ -264,8 +186,6 @@ const Viewprogram = (props) => {
               </tr>)
             )} */}
 
-      {/* </tbody>
-      </table> */}
     </div>
   );
 }
@@ -273,9 +193,3 @@ const Viewprogram = (props) => {
 export default Viewprogram;
 
 //deletebtn not working
-
-// onchange on dropdown, loop through tabledata. 
-//only return data where tableData.dayNum == value
-// set value to filtered data array, filter data to display instead of table data.
-
-//
