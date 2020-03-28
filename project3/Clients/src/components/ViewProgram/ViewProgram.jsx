@@ -39,9 +39,10 @@ const Viewprogram = (props) => {
     let task = []
     API.getPrograms()
       .then(res => {
+        console.log(res);
         res.data.map((value, index) => {
           value.exercise.map((exercise) => {
-            console.log(exercise);
+            console.log(exercise, value._id);
             exercise._id = exercise._id;
             exercise.dayNum = value.dayNum;
             exercise.focus = value.focus;
@@ -140,14 +141,14 @@ const Viewprogram = (props) => {
         reps: tableData.reps,
         tempo: tableData.tempo,
         rest: tableData.rest,
-        'Handle': <MDBBtn className="btn-red" style={{ backgroundColor: "green", color: "white" }}
-          color="red" size="sm" onClick={() => deleteProgram(tableData._id)} >Complete</MDBBtn>
+        Handle: (<MDBBtn className="btn-red" style={{ backgroundColor: "green", color: "white" }}
+          color="red" size="sm" onClick={() => deleteProgram(tableData._id)} >Done</MDBBtn>)
       }
       // <MDBBtn color="purple" size="sm">Button</MDBBtn>
     })
   }
 
-  console.log(tableData._id);
+  //console.log(tableData._id);
 
   function deleteProgram(id) {
     console.log("delete hitting");

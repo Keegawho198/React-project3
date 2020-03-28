@@ -42,11 +42,14 @@ import { MDBBtn, MDBTable, MDBTableBody, MDBTableHead } from 'mdbreact';
 
   function loaduserPrograms() {
     let task = []
+
     API.getUser(props.match.params.id)
       .then(res => {
+        console.log(res)
         res.data.programs.map((value, index) => {
           value.exercise.map((exercise) => {
             console.log(exercise);
+            exercise.p_id = value._id;
             exercise._id = exercise._id;
             exercise.dayNum = value.dayNum;
             exercise.focus = value.focus;
@@ -124,13 +127,21 @@ import { MDBBtn, MDBTable, MDBTableBody, MDBTableHead } from 'mdbreact';
         tempo: tableData.tempo,
         rest: tableData.rest,
         'Handle': <MDBBtn className="btn-red" style={{ backgroundColor: "green", color: "white" }}
-          color="red" size="sm" >Complete</MDBBtn>
+          color="red" size="sm" onClick={() => deleteProgram(tableData.p_id, tableData._id)}>Done</MDBBtn>
       }
       
     })
 
 
 
+  }
+
+  function deleteProgram(p_id, e_id) {
+    console.log("delete hitting");
+    console.log(p_id, e_id);
+    API.deleteProgram(p_id, e_id)
+      .then(res => loaduserPrograms())
+      .catch(err => console.log(err));
   }
   
     return (
