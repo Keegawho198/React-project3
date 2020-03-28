@@ -72,15 +72,19 @@ function MasterDashboard() {
       <br></br>
       <br></br>
       <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
+
 
       <div className="container">
 
         <h2 id="clientHeader">  Clients</h2>
+        
       </div>
 
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      
 
 
       <div className="row">
@@ -91,21 +95,53 @@ function MasterDashboard() {
 
             //   </div>
             //   </div>
+            <div class="container">
+              <div class="row tile" key={userList._id}>
+                
+                    <img id="tileImgID" src={userList.image}></img>
+                
 
-            <div className="col-lg-12">
-
-              <div className="tile" key={userList._id}>
-                <div className="profile_pic" style={{ backgroundColor: "white" }} >
-                  <img src={userList.image}></img>
+                <div class="col-lg-2 col-sm-2">
                   <p className="title">{userList.name}</p>
-                  <br></br>
-                  
-                  <button type="button" className="viewMorebtn btn btn-primary">
-                    <Link to={"/viewClient/" + userList._id} style={{ color: "white" }}>View More</Link></button>
                 </div>
-              </div>
+
+                <div class="col-lg-2 col-sm-2">
+                  <p className="title">{userList.email}</p>
+                </div>
+                
+                <div class="col-lg-2 col-sm-2">
+                  <p className="title">Height: {userList.height}cm</p>
+                </div>
+                <div class="col-lg-2 col-sm-2">
+                  <p className="title">Weight: {userList.currentWeight} Kg</p>
+                </div>
               
+                <div class="col-lg-2 col-sm-2">
+                <button type="button" className="viewMorebtn btn btn-primary">
+                  <Link to={"/viewClient/" + userList._id} style={{ color: "white" }}>View More</Link></button>
+                </div>
+                
+              </div>
+              <br></br>
+              <br></br>
+              <br></br>
+
             </div>
+
+
+
+
+            //     <div className="profile_pic" style={{ backgroundColor: "white" }} >
+            //       <img id="tileImgID" src={userList.image}></img>
+            //     </div>
+
+            
+
+            //     <button type="button" className="viewMorebtn btn btn-primary">
+            //       <Link to={"/viewClient/" + userList._id} style={{ color: "white" }}>View More</Link></button>
+            //   </div>
+
+            //</div>
           )
         })}
 

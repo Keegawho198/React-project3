@@ -152,15 +152,16 @@ tr:hover {
   padding-bottom: 3%;
 }
 
-.tile {
-  overflow: hidden;
-  height: 400px;
-  width: 90%;
-  position: relative;
-  margin: auto;
-  margin-top: 60px;
-  /* margin-left: 20%; */
-  border-radius: 10px;
+#heightID {
+  margin-left: 475px;
+  margin-top: -160px;
+  font-size: 1.3rem;
+}
+
+#tileImgID {
+  border-radius: 50%;
+  height: 100px;
+  width: 100px;
 }
 
 /* .profile_pic{
@@ -170,42 +171,85 @@ tr:hover {
     width: 100%;
 } */
 
+/* 
+
+
+#emailId {
+  margin-left: 400px;
+  font-size: 1.2rem;
+}
+
+#calID {
+  margin-left: 400px;
+  font-size: 1.2rem;
+}
+
+#weightID {
+  margin-left: 400px;
+  margin-top: -50px;
+  font-size: 1.2rem;
+} */
+
+/* .profile_pic{
+  margin-top: 10px;
+} */
+
 .profile_pic img {
-  width: 150px;
-  height: 150px;
+  width: 120px;
+  height: 120px;
   border-radius: 100px;
   border: 2px solid white;
-  filter: none;
   margin-left: 2%;
   margin-top: 0px;
 }
 
 .title {
+  color: #6e7279;
+  height: 5px;
+  margin-bottom: 55px;
+  margin-left: 205px;
+  font-size: 1rem;
+  font-weight: 200;
+  margin-bottom: 25px;
+  margin-top: 25px;
+  text-align: left;
+}
+
+.secondtitle {
+  margin-left: 206px;
+}
+
+/* .title {
   color: black;
-  height: 17px;
-  margin-top: -94px;
+  height: 0px;
+  margin-top: -110px;
   margin-bottom: 55px;
   margin-left: 205px;
   font-size: 1.3rem;
   font-weight: 400;
   margin-bottom: 25px;
   text-align: left;
-}
+} */
 
 .viewMorebtn {
-  margin-left: 80%;
-  margin-top: -120px;
+  margin-left: 84%;
+  margin-top: 35px;
+  height: 50px;
 }
 
 .tile {
   overflow: hidden;
-  height: 160px;
-  width: 880px;
+  height: 107px;
+  width: 1180px;
   position: relative;
   margin: auto;
-  margin-top: 50px;
-  /* margin-left: 20%; */
+  margin-left: -3%;
   border-radius: 10px;
+  background-color: white;
+}
+
+p .title {
+  font-size: 1.1rem;
 }
 
 .text-center {
@@ -292,9 +336,7 @@ img {
 }
 
 @media screen and (max-width: 400px) {
-
   /*master dashboard css  */
-
   .profile_pic img {
     width: 100px;
     height: 100px;
@@ -304,37 +346,32 @@ img {
     margin-left: 0%;
     margin-top: 0px;
   }
-  
   .title {
     color: black;
-    height: 17px;
-    margin-top: -94px;
-    margin-bottom: 55px;
+    height: 11px;
+    margin-top: -75px;
+    /* margin-bottom: 55px; */
     margin-left: 105px;
     font-size: 1rem;
     font-weight: 400;
-    margin-bottom: 25px;
+    margin-bottom: 87px;
     text-align: left;
   }
-  
   .viewMorebtn {
-    margin-left: 29%;
-    margin-top: -78px;
+    margin-left: -1%;
+    margin-top: -200px;
   }
-  
   .tile {
     overflow: hidden;
     height: 160px;
-    width: 880px;
+    width: 315px;
     position: relative;
     margin: auto;
     margin-top: 50px;
-    /* margin-left: 20%; */
+    margin-left: 0%;
     border-radius: 10px;
   }
   /* master Dashboard css end */
-
-  
   .space {
     margin-top: 10px;
   }
