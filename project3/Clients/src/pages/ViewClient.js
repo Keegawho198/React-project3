@@ -2,40 +2,40 @@
 
 
 
-  import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 
-  import './style.css';
-  
-  import API from '../utils/api'
-  import _ from 'lodash';
-  import { Link } from "react-router-dom";
+import './style.css';
+
+import API from '../utils/api'
+import _ from 'lodash';
+import { Link } from "react-router-dom";
 import { Form, Col } from 'react-bootstrap';
 import { MDBDataTable } from 'mdbreact';
 import { MDBBtn, MDBTable, MDBTableBody, MDBTableHead } from 'mdbreact';
-  
- 
-  
-  
-  const ViewClient = (props) => {
-  
-    const [tableData, setTableData] = useState([]);
-    const [Client,Setclient]= useState({});
-  
+
+
+
+
+const ViewClient = (props) => {
+
+  const [tableData, setTableData] = useState([]);
+  const [Client, Setclient] = useState({});
+
   useEffect(() => {
-     
-      console.log("useEffect hit")
-     loadClient();
-     loaduserPrograms();
-     
-    }, []);
-  
-  function loadClient(){
+
+    console.log("useEffect hit")
+    loadClient();
+    loaduserPrograms();
+
+  }, []);
+
+  function loadClient() {
     API.getUser(props.match.params.id)
-    .then(res => 
-      
-      Setclient(res.data)
-      
+      .then(res =>
+
+        Setclient(res.data)
+
       )
       .catch(err => console.log(err));
   }
@@ -129,7 +129,7 @@ import { MDBBtn, MDBTable, MDBTableBody, MDBTableHead } from 'mdbreact';
         'Handle': <MDBBtn className="btn-red" style={{ backgroundColor: "green", color: "white" }}
           color="red" size="sm" onClick={() => deleteProgram(tableData.p_id, tableData._id)}>Done</MDBBtn>
       }
-      
+
     })
 
 
@@ -143,84 +143,84 @@ import { MDBBtn, MDBTable, MDBTableBody, MDBTableHead } from 'mdbreact';
       .then(res => loaduserPrograms())
       .catch(err => console.log(err));
   }
-  
-    return (
-      <div>
-        <div className="text-center">
-          <div className="color text-center">
-            <br></br>
-            <img src={Client.image} alt="placeholder" />
-  
-            <h1 className="white">Name: {Client.name}</h1>
-            <p className="white">Email: {Client.email}</p>
-            <br></br>
-  
-            <p className="white">Weight: {Client.weight}</p>
-            <br></br>
-  
-    <p className="white">Weight Goal: {Client.goalWeight}</p>
-            <br></br>
-  
-            <div class="container">
-              <div class="row">
-                <div class="col-sm-3">
-                  <p className="white"> Age: {Client.age} </p>
-                </div>
-  
-                <div class="col-sm-3">
-                  <p className="white">Gender: {Client.gender} </p>
-                </div>
-  
-                <div class="col-sm-3">
-    <p className="white">Height: {Client.height}</p>
-                </div>
-  
-                <div class="col-sm-3">
-                  <p className="white">Energy Expenditure: {Client.energyExpenditure} </p>
-                </div>
-  
+
+  return (
+    <div>
+      <div className="text-center">
+        <div className="color text-center">
+          <br></br>
+          <img src={Client.image} alt="placeholder" />
+
+          <h1 className="white">Name: {Client.name}</h1>
+          <p className="white">Email: {Client.email}</p>
+          <br></br>
+
+          <p className="white">Weight: {Client.weight}</p>
+          <br></br>
+
+          <p className="white">Weight Goal: {Client.goalWeight}</p>
+          <br></br>
+
+          <div class="container">
+            <div class="row">
+              <div class="col-sm-3">
+                <p className="white"> Age: {Client.age} </p>
               </div>
+
+              <div class="col-sm-3">
+                <p className="white">Gender: {Client.gender} </p>
+              </div>
+
+              <div class="col-sm-3">
+                <p className="white">Height: {Client.height}</p>
+              </div>
+
+              <div class="col-sm-3">
+                <p className="white">Energy Expenditure: {Client.energyExpenditure} </p>
+              </div>
+
             </div>
-            <br></br>
-            <br></br>
-            <br></br>
-  
-  
           </div>
-  
-  
-          <br></br>
-  
-  
-          <h1>Current Workout</h1>
-  <br></br>
-          <button type="button" className="btn btn-lg btn-primary text-center" ><Link to={"/program"} style={{color:'white'}}>Set Workout for Today</Link></button>
-          <br></br>
-  
-  
           <br></br>
           <br></br>
-  
-  
-  
-          <MDBDataTable
+          <br></br>
+
+
+        </div>
+
+
+        <br></br>
+
+
+        <h1>Current Workout</h1>
+        <br></br>
+        <button type="button" className="btn btn-lg btn-primary text-center" ><Link to={"/program"} style={{ color: 'white' }}>Set Workout for Today</Link></button>
+        <br></br>
+
+
+        <br></br>
+        <br></br>
+
+
+
+        <MDBDataTable
           noBottomColumns
           striped
           bordered
           hover
           data={data}
           sorting={false}
-  
+
         />
-  
-        </div>
-        <br></br>
-  
-        
+
       </div>
-    );
-  }
-  
- 
+      <br></br>
+
+
+    </div>
+  );
+}
+
+
 
 export default ViewClient;
