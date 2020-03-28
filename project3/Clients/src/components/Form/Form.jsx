@@ -80,7 +80,7 @@ const Form = () => {
     <>
       <div className="row">
         <div className="Form col-sm-4 col-lg-4">
-
+          <p>Day Number</p>
           <Select label="DayNum" name="dayNum" value={formData.dayNum} options={options}
             onChange={handleChange} />
 
@@ -114,7 +114,7 @@ const Form = () => {
           </TableDisplay>
         </div>
       </div>
-      <p>Submited programs might go down here?</p>
+      <p>Only Submit Programs For A Single Day</p>
 
 
     </>

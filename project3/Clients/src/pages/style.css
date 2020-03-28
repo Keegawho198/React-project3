@@ -11,6 +11,10 @@ body {
 #logo {
   margin-right: 20%;
   background-blend-mode: lighten;
+  border-radius: 0%;
+  margin-right: 11%;
+  margin-left: -25%;
+  margin-top: -15px;
 }
 
 nav {
@@ -80,9 +84,9 @@ nav {
   border-radius: 15px;
   width: 100%;
 }
-img {
+/* img {
   border-radius: 50%;
-}
+} */
 
 table {
   border-collapse: collapse;
@@ -230,7 +234,9 @@ div {
 }
 
 
-
+img {
+  border-radius: 50%;
+}
 
 
 @media screen and (max-width: 600px) {
@@ -255,6 +261,9 @@ div {
 }
 
 @media screen and (max-width: 400px) {
+  .space{
+    margin-top: 10px;
+  }
 /* Background image for signup */
   img #sport {
     width: 300px;
@@ -275,16 +284,12 @@ div {
 
   }
 
-  #logo {
-    margin-right: 11%;
-    margin-left: -25%;
-    margin-top: -15px;
-  }
   .tableDisplay {
     margin-left: 1px;
   }
   .exerciseImg {
     width: 100px;
+    border-radius: 0%;  
   }
   h2 {
     font-size: 1.5rem;
