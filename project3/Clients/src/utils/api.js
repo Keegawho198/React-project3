@@ -69,9 +69,9 @@ export default {
 
   },
 
-  deleteProgram: function(_id) {
-    return axios.delete("/api/programs/" + _id);
-    // return axios.delete("/api/programs/:" + _id + "exercise/:" + _id );
+  deleteProgram: function(p_id, e_id) {
+    // return axios.delete("/api/programs/" + _id);
+    return axios.delete("/api/programs/" + p_id + "/" + e_id );
   },
 
   ////api/comments/:articleid/:commentid

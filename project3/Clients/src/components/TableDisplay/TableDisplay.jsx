@@ -10,6 +10,7 @@ const TableDisplay = (props) => {
   const [dayNum, setDayNum] = useState(0);
   const [focus, setFocus] = useState([]);
   const [select, setSelect] = useState([]);
+  
   useEffect(() => {
     console.log("useEffect hit")
     setSelect(props.select);
@@ -46,18 +47,8 @@ const TableDisplay = (props) => {
     API.saveProgram(apiData)
       .catch(err => console.log(err));
 
+      window.location.reload()
   };
-
-  //this.setTableData("");
-
-  // this.setState({
-  //   city: ''
-  // })
-  //  function deleteProgram(id) {
-  //   API.deleteBook(id)
-  //     .then(res => loadPrograms())
-  //     .catch(err => console.log(err));
-  // }
 
 
   return (

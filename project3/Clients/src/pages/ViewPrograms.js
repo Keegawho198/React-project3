@@ -40,6 +40,7 @@ const ViewPrograms = (props) => {
           res.data.programs.map((value, index) => {
             value.exercise.map((exercise) => {
               console.log(exercise);
+              exercise.p_id = value._id;
               exercise._id = exercise._id;
               exercise.dayNum = value.dayNum;
               exercise.focus = value.focus;
@@ -117,7 +118,7 @@ const ViewPrograms = (props) => {
           tempo: tableData.tempo,
           rest: tableData.rest,
           'Handle': <MDBBtn className="btn-red" style={{ backgroundColor: "green", color: "white" }}
-            color="red" size="sm" >Complete</MDBBtn>
+            color="red" size="sm" onClick={() => deleteProgram(tableData.p_id, tableData._id)}>Complete</MDBBtn>
         }
         
       })
@@ -127,61 +128,15 @@ const ViewPrograms = (props) => {
     }
   
   
-    // function deleteProgram(id) {
-    //   //new array 
-    //   //loop through old array
-    //   //return everything in old array in new array except for 
-    //   // chosen .id
+    function deleteProgram(p_id, e_id) {
   
-    //   console.log("delete hitting");
-    //   console.log(id);
-    //   API.deleteProgram(id)
-    //     .then(res => loadPrograms())
-    //     .catch(err => console.log(err));
-    // }
+      console.log("delete hitting");
+      //console.log(id);
+      API.deleteProgram(p_id, e_id)
+        .then(res => loaduserPrograms())
+        .catch(err => console.log(err));
+    }
   
-    // function handleChange(event) {
-  
-    //   console.log(event.target.value);
-  
-    //   setFilterData({ dayNum: event.target.name });
-    //   console.log(setFilterData);
-  
-    // console.log(event);
-    // console.log(event.traget.name);
-  
-    // event.data.map((value, index) => {
-    //   console.log(value);
-    // })
-    // return (
-    //   <div>
-    //   {
-    //     tableData
-    //         .map(row => (
-    //       <tr key={row._id == event.target.value}>
-    //         {/* //only return data where tableData.dayNum == value */}
-    //           <ul>
-    //             {filterData}
-    //             </ul>
-    //         <td>{row.dayNum == event.target.value}</td>
-    //         <td>{row.focus}</td>
-    //         <td>{row.exerciseName}</td>
-    //         <td>{row.sets}</td>
-    //         <td>{row.reps}</td>
-    //         <td>{row.tempo}</td>
-    //         <td>{row.rest}</td>
-    //         <td><DeleteBtn onClick={() => deleteProgram(row._id)} /></td>
-    //       </tr>)
-  
-    //     )
-  
-    //   }
-    //   </div>
-    // )
-  
-  
-    //console.log(tableData);
-    //};
   
     console.log(tableData);
     return (
