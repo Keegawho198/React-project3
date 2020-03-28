@@ -3,6 +3,8 @@ import API from '../../utils/api'
 import _ from 'lodash';
 import './style.css';
 
+import { Table, Thead, Tbody, Tr, Th, Td } from 'react-super-responsive-table'
+import 'react-super-responsive-table/dist/SuperResponsiveTableStyle.css'
 
 
 const TableDisplay = (props) => {
@@ -53,39 +55,40 @@ const TableDisplay = (props) => {
 
   return (
     <div>
+      <br></br>
+      <Table className="table-form" >
+        <Thead>
+          <Tr>
+            <Th scope="col">User Id</Th>
+            <Th scope="col">Day Number</Th>
+            <Th scope="col">Focus</Th>
+            <Th scope="col">Exercise Name</Th>
+            <Th scope="col">Sets</Th>
+            <Th scope="col">Reps</Th>
+            <Th scope="col">Tempo</Th>
+            <Th scope="col">Rest</Th>
+          </Tr>
+        </Thead>
 
-      <table className="table-form" >
-        <thead>
-          <tr>
-            <th scope="col">User Id</th>
-            <th scope="col">Day Number</th>
-            <th scope="col">Focus</th>
-            <th scope="col">Exercise Name</th>
-            <th scope="col">Sets</th>
-            <th scope="col">Reps</th>
-            <th scope="col">Tempo</th>
-            <th scope="col">Rest</th>
-          </tr>
-        </thead>
-        <tbody>
-
+        <Tbody>
+          
           {tableData
             .map(row => (
-              <tr>
-                <td>{row.select}</td>
-                <td>{row.dayNum}</td>
-                <td>{row.focus}</td>
-                <td>{row.exerciseName}</td>
-                <td>{row.sets}</td>
-                <td>{row.reps}</td>
-                <td>{row.tempo}</td>
-                <td>{row.rest}</td>
+              <Tr>
+                <Td>{row.select}</Td>
+                <Td>{row.dayNum}</Td>
+                <Td>{row.focus}</Td>
+                <Td>{row.exerciseName}</Td>
+                <Td>{row.sets}</Td>
+                <Td>{row.reps}</Td>
+                <Td>{row.tempo}</Td>
+                <Td>{row.rest}</Td>
                 {/* <DeleteBtn onClick={() => deleteProgram(program._id)} /> */}
-              </tr>)
+              </Tr>)
             )}
 
-        </tbody>
-      </table>
+        </Tbody>
+      </Table>
 
       <br></br>
 

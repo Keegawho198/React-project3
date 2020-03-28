@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 
 import API from '../utils/api'
 import _ from 'lodash';
+import { Navbar } from '../components/Cards/Cards/Navbar/Navbar';
 
 import { Form, Col } from 'react-bootstrap';
 import { MDBDataTable } from 'mdbreact';
@@ -142,7 +143,8 @@ const ViewPrograms = (props) => {
   return (
     <div>
 
-
+<Navbar/>
+      <br></br>
 
       <MDBDataTable className="tableDisplay"
         responsive="sm"

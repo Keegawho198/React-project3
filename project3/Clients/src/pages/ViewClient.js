@@ -152,6 +152,7 @@ const ViewClient = (props) => {
           <img src={Client.img} alt="placeholder" />
 
           <h1 className="white">Name: {Client.name}</h1>
+          <br></br>
           <p className="white">Email: {Client.email}</p>
           <br></br>
 

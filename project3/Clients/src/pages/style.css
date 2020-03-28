@@ -255,6 +255,9 @@ div {
 }
 
 @media screen and (max-width: 400px) {
+  .space{
+    margin-top: 10px;
+  }
 /* Background image for signup */
   img #sport {
     width: 300px;
