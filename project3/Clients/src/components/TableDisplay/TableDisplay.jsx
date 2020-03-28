@@ -25,7 +25,7 @@ const TableDisplay = (props) => {
     e.preventDefault();
     console.log("submit btn work");
 
-    let test = tableData.map((data) => {
+    let valuesAdded = tableData.map((data) => {
       return _.omit(data, "dayNum", "focus", "select")
       //return _.omit(data, "focus")
     });
@@ -45,8 +45,6 @@ const TableDisplay = (props) => {
 
     API.saveProgram(apiData)
       .catch(err => console.log(err));
-
-
 
   };
 

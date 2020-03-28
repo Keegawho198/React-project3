@@ -53,7 +53,7 @@ function Dashboard() {
 
 
   function loadUsers() {
-    API.getUser("5e7d85ea5c04ae499851c956")
+    API.getUser("5e7e913118bec020a43b85ec")
       .then(res =>
         setUser(res.data)
 

@@ -1,11 +1,6 @@
 import React,  { useState, useEffect } from 'react';
 import API from "../../utils/api";
-
-
-
-
 function ProgramSelected(props){
-
     const [userList,setUserList] = useState({
         id:"",
         tag:"",
@@ -18,15 +13,13 @@ function ProgramSelected(props){
         users: [],
         
        })
-
     useEffect(() => {
         loaduserList()
        
       }, [])
     
-
       function loaduserList() {
-        API.getMaster("5e7d85ab5c04ae499851c955")
+        API.getMaster("5e7e90f018bec020a43b85eb")
           .then(res => 
             setUserList({
                users:res.data.users
@@ -38,7 +31,6 @@ function ProgramSelected(props){
           
           .catch(err => console.log(err));
       };
-
      
 return(
     <div class="form-group">
@@ -55,7 +47,5 @@ return(
   </div>
 )
 }
-
-
 export default ProgramSelected;
 
