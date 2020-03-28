@@ -82,7 +82,7 @@ const Form = () => {
         <div className="Form col-sm-4 col-lg-4">
           <p>Day Number</p>
           <Select label="DayNum" name="dayNum" value={formData.dayNum} options={options}
-            onChange={handleChange} />
+            onChange={handleChange} ></Select>
 
           <Modal show={show} onHide={handleClose}>
             <Modal.Header closeButton>

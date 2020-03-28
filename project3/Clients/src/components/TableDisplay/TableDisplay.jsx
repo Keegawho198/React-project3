@@ -7,12 +7,23 @@ import { Table, Thead, Tbody, Tr, Th, Td } from 'react-super-responsive-table'
 import 'react-super-responsive-table/dist/SuperResponsiveTableStyle.css'
 //Link to the above
 //https://www.npmjs.com/package/react-super-responsive-table
+//import Select from 'react-select'
+import Modal from 'react-bootstrap/Modal'
+import Button from 'react-bootstrap/Button'
 
 const TableDisplay = (props) => {
   const [tableData, setTableData] = useState([]);
   const [dayNum, setDayNum] = useState(0);
   const [focus, setFocus] = useState([]);
   const [select, setSelect] = useState([]);
+
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => {
+    setShow(false);
+    window.location.reload()
+  }
+  const handleShow = () => setShow(true);
   
   useEffect(() => {
     console.log("useEffect hit")
@@ -50,7 +61,8 @@ const TableDisplay = (props) => {
     API.saveProgram(apiData)
       .catch(err => console.log(err));
 
-      window.location.reload()
+      handleShow();
+      //shows model appear after submit is clicked
   };
 
 
@@ -96,7 +108,18 @@ const TableDisplay = (props) => {
       <div className="text-align text-center">
         <button type="button" className="btn btn-lg btn-primary text-center" onClick={handleSubmit}>Submit</button>
       </div>
-
+      <Modal show={show} onHide={handleClose}>
+            <Modal.Header closeButton>
+              <Modal.Title>Program Submitted</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>Program Submitted Success</Modal.Body>
+            <Modal.Footer>
+              <Button variant="primary" onClick={handleClose}>
+                Close
+          </Button>
+              
+            </Modal.Footer>
+          </Modal>
     </div>
   );
 }
