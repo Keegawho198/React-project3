@@ -99,10 +99,10 @@ const Form = () => {
 
           <FormInput label="Focus" type="text" name="focus" value={formData.focus} onChange={handleChangeSecond} />
           <FormInput label="Exercise Name" type="text" name="exerciseName" value={formData.exerciseName} onChange={handleChangeSecond} />
-          <FormInput label="Sets" type="number" name="sets" value={formData.sets} onChange={handleChangeSecond} />
-          <FormInput label="Reps" type="number" name="reps" value={formData.reps} onChange={handleChangeSecond} />
+          <FormInput label="Sets" type="text" name="sets" value={formData.sets} onChange={handleChangeSecond} />
+          <FormInput label="Reps" type="text" name="reps" value={formData.reps} onChange={handleChangeSecond} />
           <FormInput label="Tempo" type="text" name="tempo" value={formData.tempo} onChange={handleChangeSecond} />
-          <FormInput label="Rest" type="number" name="rest" value={formData.rest} onChange={handleChangeSecond} />
+          <FormInput label="Rest" type="text" name="rest" value={formData.rest} onChange={handleChangeSecond} />
 
           <ProgramSelected
             onChange={handleChangeSecond}

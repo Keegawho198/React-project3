@@ -7,10 +7,10 @@ const ProgramSchema = new Schema({
     exercise: [{
      // exerciseId: Number,
       exerciseName: String,
-      sets: Number,
-      reps: Number,
+      sets: String,
+      reps: String,
       tempo: String,
-      rest: Number
+      rest: String
     }]
 });
 

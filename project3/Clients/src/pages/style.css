@@ -35,10 +35,12 @@ nav {
   background-color: #c6d1c1;
   border-radius: 15px;
 }
-
+/* Background image for signup */
 #sport {
   width: 700px;
   height: 100%;
+  border-radius: 0%;
+
 }
 
 #intake {
@@ -227,6 +229,10 @@ div {
   width: 455px;
 }
 
+
+
+
+
 @media screen and (max-width: 600px) {
   .topnav a:not(:first-child) {
     display: none;
@@ -239,9 +245,22 @@ div {
     margin-left: 20px;
     margin-right: 20px;
   }
+  #sport {
+    width: 300px;
+    height: 120%;
+    border-radius: 0%;
+    margin-top: 17px;
+
+}
 }
 
 @media screen and (max-width: 400px) {
+/* Background image for signup */
+  img #sport {
+    width: 300px;
+    height: 120%;
+}
+
   .modal{
     size: 300px;
   }
