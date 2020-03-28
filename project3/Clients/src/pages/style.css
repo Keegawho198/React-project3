@@ -79,11 +79,18 @@ nav {
 }
 
 #projected {
-  margin-left: 19%;
+  margin-left: 150px;
   height: 98%;
   border-radius: 15px;
   width: 100%;
 }
+
+/* #projectBody {
+  margin-left: 35px;
+  height: 280px;
+  border-radius: 16px;
+  width: 67%;
+} */
 /* img {
   border-radius: 50%;
 } */
@@ -233,6 +240,9 @@ div {
   width: 455px;
 }
 
+/* .chartjs-size-monitor{
+
+} */
 
 img {
   border-radius: 50%;
