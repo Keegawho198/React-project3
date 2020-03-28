@@ -39,12 +39,13 @@ nav {
   background-color: #c6d1c1;
   border-radius: 15px;
 }
+
 /* Background image for signup */
+
 #sport {
   width: 700px;
   height: 100%;
   border-radius: 0%;
-
 }
 
 #intake {
@@ -91,6 +92,7 @@ nav {
   border-radius: 16px;
   width: 67%;
 } */
+
 /* img {
   border-radius: 50%;
 } */
@@ -108,15 +110,17 @@ th, td {
   background-color: whitesmoke;
 }
 
-tr:hover {background-color:gray;}
+tr:hover {
+  background-color: gray;
+}
 
-.color{
+.color {
   background-color: #c6d1c1;
   /* box-sizing: border-box;  */
   /* margin: auto; */
 }
 
-.white{
+.white {
   color: white;
 }
 
@@ -167,22 +171,41 @@ tr:hover {background-color:gray;}
 } */
 
 .profile_pic img {
-  width: 60%;
-  height: 60%;
+  width: 150px;
+  height: 150px;
   border-radius: 100px;
   border: 2px solid white;
   filter: none;
-  margin-left: 20%;
-  margin-top: 40px;
+  margin-left: 21%;
+  margin-top: 0px;
 }
 
 .title {
   color: black;
-  margin-top: 10px;
+  height: 17px;
+  margin-top: -94px;
+  margin-bottom: 55px;
+  margin-left: 25px;
   font-size: 1.3rem;
   font-weight: 400;
-  margin-bottom: 0px;
-  text-align: center;
+  margin-bottom: 25px;
+  text-align: left;
+}
+
+.viewMorebtn {
+  margin-left: 80%;
+  margin-top: -120px;
+}
+
+.tile {
+  overflow: hidden;
+  height: 160px;
+  width: 880px;
+  position: relative;
+  margin: auto;
+  margin-top: 50px;
+  /* margin-left: 20%; */
+  border-radius: 10px;
 }
 
 .text-center {
@@ -248,7 +271,6 @@ img {
   border-radius: 50%;
 }
 
-
 @media screen and (max-width: 600px) {
   .topnav a:not(:first-child) {
     display: none;
@@ -266,40 +288,34 @@ img {
     height: 120%;
     border-radius: 0%;
     margin-top: 17px;
-
-}
+  }
 }
 
 @media screen and (max-width: 400px) {
-  .space{
+  .space {
     margin-top: 10px;
   }
-/* Background image for signup */
+  /* Background image for signup */
   img #sport {
     width: 300px;
     height: 120%;
-}
-
-  .modal{
+  }
+  .modal {
     size: 300px;
   }
-
-  .modal-open{
+  .modal-open {
     size: 300px;
   }
-
-  body{
+  body {
     height: auto;
     width: auto;
-
   }
-
   .tableDisplay {
     margin-left: 1px;
   }
   .exerciseImg {
     width: 100px;
-    border-radius: 0%;  
+    border-radius: 0%;
   }
   h2 {
     font-size: 1.5rem;
@@ -316,7 +332,6 @@ img {
     color: black;
     border-radius: 25px;
   }
-
   #daysWorkout {
     width: 64%;
     margin-left: 22%;
