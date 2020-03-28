@@ -149,7 +149,7 @@ const ViewClient = (props) => {
       <div className="text-center">
         <div className="color text-center">
           <br></br>
-          <img src={Client.image} alt="placeholder" />
+          <img src={Client.img} alt="placeholder" />
 
           <h1 className="white">Name: {Client.name}</h1>
           <p className="white">Email: {Client.email}</p>
@@ -203,7 +203,8 @@ const ViewClient = (props) => {
 
 
 
-        <MDBDataTable
+        <MDBDataTable className="tableDisplay"
+          responsive="sm"
           noBottomColumns
           striped
           bordered

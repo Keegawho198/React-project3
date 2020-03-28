@@ -93,7 +93,7 @@ function Dashboard() {
     console.log(user);
 
 
-    window.location.reload(false);
+    //window.location.reload(false);
 
 
   }
