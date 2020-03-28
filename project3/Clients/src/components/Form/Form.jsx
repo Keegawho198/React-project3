@@ -7,8 +7,7 @@ import TableDisplay from '../TableDisplay'
 import ProgramSelected from "../Forms/ProgramSelectedInput";
 
 import Select from 'react-select'
-import Modal from 'react-bootstrap/Modal'
-import Button from 'react-bootstrap/Button'
+
 
 
 //Options for Dropdown list in form
@@ -43,19 +42,11 @@ const Form = () => {
     rest: "",
     select: ""
   });
-  const [show, setShow] = useState(false);
-
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
 
   //This function Handles changes for the dropdown only!!!!
   const handleChange = (e) => {
     console.log(e);
     console.log(e.value);
-
-    //alert("Day Number " + e.value + " Selected");
-    handleShow();
-    //daynumber not showing on input when selected
 
     setFormData({ ...formData, dayNum: e.value })
   }
@@ -83,19 +74,6 @@ const Form = () => {
           <p>Day Number</p>
           <Select label="DayNum" name="dayNum" value={options.selected} options={options}
             onChange={handleChange} ></Select>
-
-          <Modal show={show} onHide={handleClose}>
-            <Modal.Header closeButton>
-              <Modal.Title>Day Number Chosen</Modal.Title>
-            </Modal.Header>
-            <Modal.Body>Day Number {formData.dayNum} chosen</Modal.Body>
-            <Modal.Footer>
-              <Button variant="primary" onClick={handleClose}>
-                Close
-          </Button>
-              
-            </Modal.Footer>
-          </Modal>
 
           <FormInput label="Focus" type="text" name="focus" value={formData.focus} onChange={handleChangeSecond} />
           <FormInput label="Exercise Name" type="text" name="exerciseName" value={formData.exerciseName} onChange={handleChangeSecond} />
