@@ -8,6 +8,9 @@ body {
   background-color: #f3f2f0;
 }
 
+
+
+
 #logo {
   margin-right: 20%;
   background-blend-mode: lighten;
@@ -103,15 +106,7 @@ nav {
   border-radius: 25px;
 }
 
-.card-projected {
-  margin-left: 100px;
-  margin-top: -18px;
-  height: 430px;
-  border-radius: 15px;
-  border-right-color: black;
-  width: 650px;
-  background-color: white;
-}
+
 
 .dashCard {
   position: relative;
@@ -129,6 +124,11 @@ nav {
   border-radius: 16%;
 }
 
+#chartImage{
+  width:"300px"
+}
+
+
 .card-body {
   flex: 1 1 auto;
   min-height: 1px;
@@ -137,12 +137,7 @@ nav {
   margin-top: 20px;
 }
 
-#projectBody {
-  margin-left: 35px;
-  height: 280px;
-  border-radius: 16px;
-  width: 67%;
-}
+
 
 /* img {
   border-radius: 50%;
@@ -246,6 +241,8 @@ tr:hover {
 /* .profile_pic{
   margin-top: 10px;
 } */
+
+
 
 .profile_pic img {
   width: 120px;
@@ -504,12 +501,7 @@ img {
   #moveThis {
     margin-left: 10px;
   }
-  #projected {
-    margin-left: 2%;
-    height: 100%;
-    border-radius: 15px;
-    width: 98%;
-  }
+ 
   .chartjs-render-monitor {
     display: block;
     height: 200px;
