@@ -20,8 +20,8 @@ if (process.env.NODE_ENV === "production") {
 app.use(routes);
 
 // Connect to the Mongo DB
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/peakConditiondb");
-
+mongoose.connect(process.env.MONGODB_URI || "mongodb://user:password123@ds139072.mlab.com:39072/heroku_fk9bgj1g");
+// mongodb://localhost/peakConditiondb
 
 // Start the API server
 app.listen(PORT, function() {
