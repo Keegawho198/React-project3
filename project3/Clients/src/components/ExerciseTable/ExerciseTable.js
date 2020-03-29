@@ -22,7 +22,7 @@ const ExerciseTable = (props) => {
     setShow(false);
     //window.location.reload()
 
-    history.push("/master-dashboard");
+    history.push("/viewExercise");
   }
   const handleShow = () => setShow(true);
 
