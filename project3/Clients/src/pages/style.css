@@ -104,7 +104,24 @@ nav {
   position: relative;
   /* margin-left: 323px; */
   margin: auto;
+  margin-top: 10%;
   /* align-items: center; */
+  float: center;
+  width: 598px;
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: #fff;
+  background-clip: border-box;
+  border: 1px solid rgba(0, 0, 0, .125);
+  border-radius: .25rem;
+}
+
+.dashCard {
+  position: relative;
+  margin: auto;
   float: center;
   width: 598px;
   height: 300px;

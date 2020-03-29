@@ -18,7 +18,7 @@ const UserLogin = () => {
                 'url(https://image.winudf.com/v2/image1/Y29tLnNnbS5oZHNwb3J0d2FsbHBhcGVyX3NjcmVlbl8xNl8xNTY3MDc4NTIxXzA4OQ/screen-16.jpg?fakeurl=1&type=.jpg)',
               width: '28rem',
               marginLeft:"64%",
-              marginTop:"32%"
+              marginTop:"10%"
             }}
           >
             <div className='text-white rgba-stylish-strong py-5 px-5 z-depth-4'>

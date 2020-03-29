@@ -131,7 +131,7 @@ function MasterDashboard() {
             // </div>
 
 
-            <MDBCard className="my-5 px-5 pb-1 text-center" key={userList._id}>
+            <MDBCard className="dashCard my-5 px-5 pb-1 text-center" key={userList._id}>
               <MDBCardBody>
                 <MDBRow className="text-md-center">
                   <MDBCol lg="12" md="12" sm="12" className="mb-5 float-left">
