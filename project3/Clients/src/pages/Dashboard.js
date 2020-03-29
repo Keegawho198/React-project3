@@ -174,7 +174,7 @@ function Dashboard(props) {
           <ProjectedWeight user={user}/>
 
         </div>
-        <div className="col">
+        <div className="col-lg-6">
           <div className="row">
             <FoodToday>
               <p style={{ fontSize: "20px", textAlign: "center" }}>Todays Nutrition</p>
