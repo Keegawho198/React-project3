@@ -114,7 +114,7 @@ function Dashboard(props) {
 
     <div >
       <Navbar />
-
+      <br></br>
       <>
 
         <Modal show={show} onHide={handleClose} size="sm"
@@ -161,7 +161,6 @@ function Dashboard(props) {
 
 
       </div>
-      <br></br>
       <br></br>
       <br></br>
       <br></br>
