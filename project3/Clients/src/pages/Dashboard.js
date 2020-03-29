@@ -161,7 +161,7 @@ function Dashboard() {
 
       <br></br>
       <div className="row">
-        <div class="col">
+        <div class="col-lg-6">
           <ProjectedWeight />
         </div>
         <div class="col">
