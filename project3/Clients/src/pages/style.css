@@ -34,17 +34,44 @@ nav {
   margin-left: 8.3%;
 }
 
-#mainSection {
+/* .card-head {
+  flex: 1 1 auto;
+  min-height: 1px;
+  padding: 1.25rem;
+  margin-left: 72px;
+  margin-right: 72px;
   color: white;
   background-color: #c6d1c1;
-  border-radius: 15px;
+  height: 160px;
+  border-radius: 0%;
+} */
+
+.card-head {
+  flex: 1 1 auto;
+  min-height: 1px;
+  padding: 0.25rem;
+  margin-left: 72px;
+  margin-right: 72px;
+  color: white;
+  background-color: #c6d1c1;
+  height: 160px;
+  border-radius: 11%;
 }
+
+#intake {
+  margin-left: 10%;
+  margin-top: 5%;
+  width: 80%;
+  height: 100px;
+  border-radius: 25px;
+}
+
 /* Background image for signup */
+
 #sport {
   width: 700px;
   height: 100%;
   border-radius: 0%;
-
 }
 
 #intake {
@@ -71,18 +98,63 @@ nav {
 
 #daysFood {
   margin-left: 22%;
+  margin-top: 20px;
   width: 60%;
-  height: 226px;
+  height: 220px;
   background-color: white;
   color: black;
   border-radius: 25px;
 }
 
-#projected {
+.card-projected {
   margin-left: 150px;
-  height: 98%;
+  height: 60%;
   border-radius: 15px;
-  width: 100%;
+  width: 80%;
+  background-color: white;
+}
+
+.card {
+  position: relative;
+  /* margin-left: 323px; */
+  margin: auto;
+  margin-top: 10%;
+  /* align-items: center; */
+  float: center;
+  width: 598px;
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: #fff;
+  background-clip: border-box;
+  border: 1px solid rgba(0, 0, 0, .125);
+  border-radius: .25rem;
+}
+
+.dashCard {
+  position: relative;
+  margin: auto;
+  float: center;
+  width: 598px;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: #fff;
+  background-clip: border-box;
+  border: 1px solid rgba(0, 0, 0, .125);
+  border-radius: 16%;
+}
+
+.card-body {
+  flex: 1 1 auto;
+  min-height: 1px;
+  padding: 1.25rem;
+  width: 410px;
+  margin-top: 20px;
 }
 
 /* #projectBody {
@@ -91,6 +163,7 @@ nav {
   border-radius: 16px;
   width: 67%;
 } */
+
 /* img {
   border-radius: 50%;
 } */
@@ -108,15 +181,17 @@ th, td {
   background-color: whitesmoke;
 }
 
-tr:hover {background-color:gray;}
+tr:hover {
+  background-color: gray;
+}
 
-.color{
+.color {
   background-color: #c6d1c1;
   /* box-sizing: border-box;  */
   /* margin: auto; */
 }
 
-.white{
+.white {
   color: white;
 }
 
@@ -148,15 +223,18 @@ tr:hover {background-color:gray;}
   padding-bottom: 3%;
 }
 
-.tile {
-  overflow: hidden;
-  height: 400px;
-  width: 90%;
-  position: relative;
-  margin: auto;
-  margin-top: 60px;
-  /* margin-left: 20%; */
-  border-radius: 10px;
+#heightID {
+  margin-left: 475px;
+  margin-top: -160px;
+  font-size: 1.3rem;
+}
+
+#tileImgID {
+  border-radius: 50%;
+  height: 230px;
+  width: 230px;
+  /* margin-right: 28px; */
+  margin-left: -70px;
 }
 
 /* .profile_pic{
@@ -166,23 +244,85 @@ tr:hover {background-color:gray;}
     width: 100%;
 } */
 
+/* 
+
+
+#emailId {
+  margin-left: 400px;
+  font-size: 1.2rem;
+}
+
+#calID {
+  margin-left: 400px;
+  font-size: 1.2rem;
+}
+
+#weightID {
+  margin-left: 400px;
+  margin-top: -50px;
+  font-size: 1.2rem;
+} */
+
+/* .profile_pic{
+  margin-top: 10px;
+} */
+
 .profile_pic img {
-  width: 60%;
-  height: 60%;
+  width: 120px;
+  height: 120px;
   border-radius: 100px;
   border: 2px solid white;
-  filter: none;
-  margin-left: 20%;
-  margin-top: 40px;
+  margin-left: 2%;
+  margin-top: 0px;
 }
 
 .title {
+  color: #6e7279;
+  height: 5px;
+  margin-bottom: 55px;
+  margin-left: 205px;
+  font-size: 1rem;
+  font-weight: 200;
+  margin-bottom: 25px;
+  margin-top: 25px;
+  text-align: left;
+}
+
+.secondtitle {
+  margin-left: 206px;
+}
+
+/* .title {
   color: black;
-  margin-top: 10px;
+  height: 0px;
+  margin-top: -110px;
+  margin-bottom: 55px;
+  margin-left: 205px;
   font-size: 1.3rem;
   font-weight: 400;
-  margin-bottom: 0px;
-  text-align: center;
+  margin-bottom: 25px;
+  text-align: left;
+} */
+
+.viewMorebtn {
+  margin-left: 7%;
+  margin-top: 8px;
+  height: 42px;
+}
+
+.tile {
+  overflow: hidden;
+  height: 107px;
+  width: 1180px;
+  position: relative;
+  margin: auto;
+  margin-left: -3%;
+  border-radius: 10px;
+  background-color: white;
+}
+
+p .title {
+  font-size: 1.1rem;
 }
 
 .text-center {
@@ -237,7 +377,7 @@ div {
 .chartjs-render-monitor {
   display: block;
   height: 227px;
-  width: 455px;
+  width: 450px;
 }
 
 /* .chartjs-size-monitor{
@@ -247,7 +387,6 @@ div {
 img {
   border-radius: 50%;
 }
-
 
 @media screen and (max-width: 600px) {
   .topnav a:not(:first-child) {
@@ -266,40 +405,70 @@ img {
     height: 120%;
     border-radius: 0%;
     margin-top: 17px;
-
-}
+  }
 }
 
 @media screen and (max-width: 400px) {
-  .space{
+  /*master dashboard css  */
+  .profile_pic img {
+    width: 100px;
+    height: 100px;
+    border-radius: 100px;
+    border: 2px solid white;
+    filter: none;
+    margin-left: 0%;
+    margin-top: 0px;
+  }
+  .title {
+    color: black;
+    height: 11px;
+    margin-top: -75px;
+    /* margin-bottom: 55px; */
+    margin-left: 105px;
+    font-size: 1rem;
+    font-weight: 400;
+    margin-bottom: 87px;
+    text-align: left;
+  }
+  .viewMorebtn {
+    margin-left: -1%;
+    margin-top: -200px;
+  }
+  .tile {
+    overflow: hidden;
+    height: 160px;
+    width: 315px;
+    position: relative;
+    margin: auto;
+    margin-top: 50px;
+    margin-left: 0%;
+    border-radius: 10px;
+  }
+  /* master Dashboard css end */
+  .space {
     margin-top: 10px;
   }
-/* Background image for signup */
+  /* Background image for signup */
   img #sport {
     width: 300px;
     height: 120%;
-}
-
-  .modal{
+  }
+  .modal {
     size: 300px;
   }
-
-  .modal-open{
+  .modal-open {
     size: 300px;
   }
-
-  body{
+  body {
     height: auto;
     width: auto;
-
   }
-
   .tableDisplay {
     margin-left: 1px;
   }
   .exerciseImg {
     width: 100px;
-    border-radius: 0%;  
+    border-radius: 0%;
   }
   h2 {
     font-size: 1.5rem;
@@ -316,7 +485,6 @@ img {
     color: black;
     border-radius: 25px;
   }
-
   #daysWorkout {
     width: 64%;
     margin-left: 22%;
@@ -329,6 +497,7 @@ img {
   .card {
     position: relative;
     display: flex;
+    /* margin-left: 514px; */
     margin-top: 10px;
     margin-bottom: 50px;
     flex-direction: column;
@@ -348,6 +517,9 @@ img {
     height: 191px;
     min-height: auto;
     padding: 1.25rem;
+  }
+  #moveThis {
+    margin-left: 10px;
   }
   #projected {
     margin-left: 2%;
