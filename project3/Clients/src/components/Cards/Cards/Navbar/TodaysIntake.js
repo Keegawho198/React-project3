@@ -10,9 +10,7 @@ export function TodaysIntake({children}){
     <h2>{children}</h2>
 
   </div>
-<div className="col">
-  
-</div>
+
 </div>
    
   <div className="row"> 

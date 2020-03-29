@@ -145,15 +145,16 @@ function Dashboard(props) {
 
         <TodaysIntake>
           <div className="row">
-            <div className="col">
-              <h2>Hello {user.name} ! </h2>
+            <div className="col-lg-7">
+              <h1 className="hellotext">Hello {user.name} ! </h1>
+              <h4 className="hellotext">You're currently on track with progress. Keep going</h4>
             </div>
           
-            <div className="col">
+            <div className="col-lg-5">
               <img id="dashboardImg" src={user.image}></img>
             </div>
           </div>
-          <h2>You'r on track keep going</h2>
+          
 
         </TodaysIntake>
 
