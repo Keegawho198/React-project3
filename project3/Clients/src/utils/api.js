@@ -31,6 +31,16 @@ export default {
     return axios.put(`/api/User/${userData._id}`,userData)
   },
 
+  loginUser:function(userData){
+    console.log(userData)
+    return axios.post("/api/user/login",userData)
+  },
+
+  loginMaster:function(masterData){
+    console.log(masterData)
+    return axios.post("/api/master/login",masterData)
+  },
+
   getMasters: function() {
     return axios.get("/api/master");
   },

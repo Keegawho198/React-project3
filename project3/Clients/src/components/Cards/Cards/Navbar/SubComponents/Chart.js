@@ -2,43 +2,25 @@ import React, { useEffect, useState } from "react";
 import { Line } from 'react-chartjs-2';
 import API from '../../../../../utils/api'
 
-function Chart() {
+function Chart(props) {
 
-  const [chartData, setChartData] = useState({});
-  const [user, setUser] = useState({});
+const [chartData, setChartData] = useState({});
   
 
   useEffect(() => {
-    loadUser();
- 
-  }, [])
-
-  useEffect(() => {
-    console.log(user);
-    if (user) {
+    console.log(props.user);
+    if (props.user) {
       changeChart();
     }
-  }, [user])
+  }, [props.user])
 
-  function loadUser() {
-     
-      API.getUser("5e7e913118bec020a43b85ec")
-        .then(res => {
-          console.log(res);
-          setUser(res.data);
-         
-        }
-        )
-        .catch(err => console.log(err));
 
-  
-  };
 
   function changeChart() {
-    console.log(user);
+    console.log(props.user);
     let data = {
-      labels: user.week,
-      datasets: [
+      labels: props.user.week,
+      datasets  : [
         {
           label: 'Weight',
           fill: false,
@@ -54,24 +36,26 @@ function Chart() {
           pointBorderWidth: 1,
           pointHoverRadius: 5,
           responsive: true,
-          width:"100%",
+          width:"30%",
           pointHoverBackgroundColor: 'rgba(75,192,192,1)',
           pointHoverBorderColor: 'rgba(220,220,220,1)',
           pointHoverBorderWidth: 2,
           pointRadius: 1,
           pointHitRadius: 10,
-          data: user.weights
+          data: props.user.weights
         }
       ]
     };
     
     setChartData(data);
-    console.log(user.weights);
-    console.log(user.week);
+    console.log(props.user.weights);
+    console.log(props.user.week);
     console.log(data);
   }
 
-  return (
+
+
+return (
     <div>
       <Line
         data={chartData}

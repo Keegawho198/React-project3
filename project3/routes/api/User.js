@@ -2,10 +2,13 @@ const router = require("express").Router();
 const Usercontroller = require("../../controller/Usercontroller");
 const axios = require("axios");
 
-// Matches with "/api/User"
+router.route("/login")
+.post(Usercontroller.find)
+
 router.route("/")
   .get(Usercontroller.findAll)
   .post(Usercontroller.create);
+  
 
 // Matches with "/api/User/:id"
 router.route("/:id")

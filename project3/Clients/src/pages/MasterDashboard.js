@@ -1,8 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect,useContext } from "react";
 import "./style.css";
 import { Navbar } from '../components/Cards/Cards/Navbar/Navbar';
 import { Link } from "react-router-dom";
-import { TodaysIntake } from '../components/Cards/Cards/Navbar/TodaysIntake'
+
+import {TodaysIntake} from '../components/Cards/Cards/Navbar/TodaysIntake'
+import AuthContext from '../utils/auth.contect'
+
 
 import API from '../utils/api'
 
@@ -10,21 +13,24 @@ import { MDBRow, MDBCol, MDBCard, MDBAvatar, MDBCardBody, MDBIcon } from "mdbrea
 
 
 
-function MasterDashboard() {
-  const [master, Setmaster] = useState({
-    id: "",
-    tag: "",
-    email: "",
-    password: "",
-    name: "",
-    qualifications: "",
-    bio: "",
-    image: "",
-    users: [
 
-    ],
+function MasterDashboard(props) {
+ const [master,Setmaster]=useState({
+  id:"",
+  tag:"",
+  email: "",
+  password: "",
+  name: "",
+  qualifications: "",
+  bio: "",
+  image: "",
+  users: [
+    
+  ],
+});
 
-  });
+const {userId} = useContext(AuthContext);
+ 
 
   useEffect(() => {
     loadMaster()
@@ -33,7 +39,7 @@ function MasterDashboard() {
 
 
   function loadMaster() {
-    API.getMaster("5e7e90f018bec020a43b85eb")
+    API.getMaster(userId)
       .then(res =>
         Setmaster({
           id: res.data._id,
@@ -82,54 +88,19 @@ function MasterDashboard() {
 
       </div>
 
+
       <br></br>
       <br></br>
       <br></br>
       <br></br>
 
-
+  <button type="button" className="btn btn-lg btn-primary text-center" style={{marginLeft:"44%"}}><Link to={"/program/" + master.id} style={{color:'white'}}>Set Workout for Today</Link></button> 
 
       <div className="row">
         {master.users.map((userList) => {
           return (
-            // <div className="row">
-            // <div className="tile" key={userList._id} >
-
-            //   </div>
-            //   </div>
-            // <div class="container">
-            //   <div class="row tile" key={userList._id}>
-
-            //         <img id="tileImgID" src={userList.image}></img>
-
-
-            //     <div class="col-lg-2 col-sm-2">
-            //       <p className="title">{userList.name}</p>
-            //     </div>
-
-            //     <div class="col-lg-2 col-sm-2">
-            //       <p className="title">{userList.email}</p>
-            //     </div>
-
-            //     <div class="col-lg-2 col-sm-2">
-            //       <p className="title">Height: {userList.height}cm</p>
-            //     </div>
-            //     <div class="col-lg-2 col-sm-2">
-            //       <p className="title">Weight: {userList.currentWeight} Kg</p>
-            //     </div>
-
-            //     <div class="col-lg-2 col-sm-2">
-            //     <button type="button" className="viewMorebtn btn btn-primary">
-            //       <Link to={"/viewClient/" + userList._id} style={{ color: "white" }}>View More</Link></button>
-            //     </div>
-
-            //   </div>
-            //   <br></br>
-            //   <br></br>
-            //   <br></br>
-
-            // </div>
-
+     
+ 
 
             <MDBCard className="dashCard my-5 px-5 pb-1 text-center" key={userList._id}>
               <MDBCardBody>
@@ -157,7 +128,7 @@ function MasterDashboard() {
                       </p>
 
                       <button type="button" className="viewMorebtn btn btn-primary">
-                        <Link to={"/viewClient/" + userList._id} style={{ color: "white" }}>View More</Link></button>
+                        <Link to={"/viewClient/" + userList._id} style={{color:"white"}}>View More</Link></button>
 
                     </MDBCol>
                   </MDBCol>

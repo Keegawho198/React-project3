@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect,useContext } from "react";
 import "./style.css";
 import { Navbar } from '../components/Cards/Cards/Navbar/Navbar';
 import ProjectedWeight from '../components/Cards/Cards/Navbar/ProjectedWeight';
@@ -8,9 +8,11 @@ import { FoodToday } from '../components/Cards/Cards/Navbar/FoodToday'
 import API from '../utils/api'
 import { Link } from "react-router-dom";
 import { Modal, Button } from 'react-bootstrap'
+import AuthContext from '../utils/auth.contect'
 
-function Dashboard() {
+function Dashboard(props) {
 
+  const {userId} = useContext(AuthContext);
   const [user, setUser] = useState({
     id: "",
     name: "",
@@ -53,7 +55,7 @@ function Dashboard() {
 
 
   function loadUsers() {
-    API.getUser("5e7e913118bec020a43b85ec")
+    API.getUser(userId)
       .then(res =>
         setUser(res.data)
 
@@ -92,8 +94,9 @@ function Dashboard() {
 
     console.log(user);
 
+    loadUsers();
 
-    //window.location.reload(false);
+
 
 
   }
@@ -104,6 +107,8 @@ function Dashboard() {
   //close
 
   // await setUser({ ...user, weights: user.weights.push(tempweight) });
+
+  console.log(user);
 
   return (
 
@@ -143,10 +148,12 @@ function Dashboard() {
             <div className="col">
               <h2>Hello {user.name} ! </h2>
             </div>
+          
             <div className="col">
               <img src={user.image} style={{ borderRadius: "50%", height: "350%", marginTop: "-27px", marginLeft: "900px", position: "absolute" }}></img>
             </div>
           </div>
+          <h2>You'r on track keep going</h2>
 
         </TodaysIntake>
 
@@ -161,8 +168,11 @@ function Dashboard() {
 
       
       <div className="row">
+
+
         <div class="col-lg-6">
-          <ProjectedWeight />
+          <ProjectedWeight user={user}/>
+
         </div>
         <div className="col">
           <div className="row">

@@ -1,9 +1,69 @@
-import React from "react";
-
+import React, { useState, useEffect,useContext } from "react";
+import API from "../utils/api";
 import { MDBContainer, MDBRow, MDBCol, MDBBtn, MDBCard, MDBInput } from 'mdbreact';
 import { Link } from "react-router-dom";
+import AuthContext from '../utils/auth.contect'
 
-const UserLogin = () => {
+const UserLogin = (props) => {
+
+  const [formObject, setFormObject] = useState({})
+
+
+  const {login} = useContext(AuthContext);
+
+  function handleInputChange(event) {
+    const { name, value } = event.target;
+    console.log(event.target);
+    console.log(name,value);
+   
+    setFormObject({ ...formObject, [name]: value })
+  
+  }
+
+
+  
+  function handleFormSubmit(event) {
+    event.preventDefault();
+  
+    API.loginUser(
+      {
+        email: formObject.Email,
+        password: formObject.password,
+       
+      }
+     
+
+      )
+      .then(res=>{
+        
+        if(!res.data.token){
+          
+          throw new Error('Failed!');
+
+          
+          
+      }
+      else{
+        if(res.data.token){
+          
+
+        
+            login(res.data.token, res.data.userId, res.data.tokenExpiration);
+            console.log({login});
+            
+          
+        }
+
+    }
+        
+
+      })
+    
+   
+  };
+
+
+
 
 
 
@@ -31,12 +91,13 @@ const UserLogin = () => {
                 </h3>
               </div>
               <MDBInput
-                label='Your username'
+                label='Enter Your Email'
                 group
                 type='text'
                 validate
                 labelClass='white-text'
-                name="username"
+                name="Email"
+                onChange={handleInputChange}
                 
               />
               <MDBInput
@@ -46,6 +107,7 @@ const UserLogin = () => {
                 validate
                 labelClass='white-text'
                 name="password"
+                onChange={handleInputChange}
                
               />
              
@@ -56,9 +118,11 @@ const UserLogin = () => {
                     rounded
                     type='button'
                     className='btn-block z-depth-1'
+                    onClick={handleFormSubmit}
                     
                   >
-                    <Link to={"/dashboard"} style={{color :"white"}}>Sign In</Link>
+                  sign in  
+                    {/* <Link to={"/dashboard/" + userID} style={{color :"white"}}> Sign In</Link> */}
                   </MDBBtn>
                 </div>
               </MDBRow>

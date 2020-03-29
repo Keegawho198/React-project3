@@ -1,8 +1,64 @@
-import React from "react";
+import React, { useState, useEffect,useContext } from "react";
 import { MDBContainer, MDBRow, MDBCol, MDBBtn, MDBCard, MDBInput } from 'mdbreact';
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
+import API from "../utils/api";
+import AuthContext from '../utils/auth.contect'
 
 const MasterLogin = () => {
+
+  const [formObject, setFormObject] = useState({})
+  const {login} = useContext(AuthContext);
+  const history = useHistory();
+
+
+  function handleInputChange(event) {
+    const { name, value } = event.target;
+    console.log(event.target);
+    console.log(name,value);
+   
+    setFormObject({ ...formObject, [name]: value })
+  
+  }
+
+  
+  function handleFormSubmit(event) {
+    event.preventDefault();
+    API.loginMaster(
+      {
+        email: formObject.Email,
+        password: formObject.password,
+       
+      },
+      
+    )
+    .then(res=>{
+        
+      if(!res.data.token){
+        
+        throw new Error('Failed!');
+
+        
+        
+    }
+    else{
+      if(res.data.token){
+        
+
+        console.log("hello");
+          login(res.data.token, res.data.userId, res.data.tokenExpiration,true);
+          
+          history.push("/master-dashboard");
+      }
+
+  }
+      
+
+    })
+
+  };
+
+
+
   return (
     <MDBContainer>
       <MDBRow>
@@ -32,6 +88,8 @@ const MasterLogin = () => {
                 type='text'
                 validate
                 labelClass='white-text'
+                name="Email"
+                onChange={handleInputChange}
               />
               <MDBInput
                 label='Your password'
@@ -39,6 +97,8 @@ const MasterLogin = () => {
                 type='password'
                 validate
                 labelClass='white-text'
+                name="password"
+                onChange={handleInputChange}
               />
              
               <MDBRow className='d-flex align-items-center mb-4'>
@@ -48,8 +108,10 @@ const MasterLogin = () => {
                     rounded
                     type='button'
                     className='btn-block z-depth-1'
+                    onClick={handleFormSubmit}
                   >
-                   <Link to={"/master-dashboard"} style={{color :"white"}}>Sign in</Link>
+                    Sign in
+                   {/* <Link to={"/master-dashboard"} style={{color :"white"}}>Sign in</Link> */}
                   </MDBBtn>
                 </div>
               </MDBRow>
