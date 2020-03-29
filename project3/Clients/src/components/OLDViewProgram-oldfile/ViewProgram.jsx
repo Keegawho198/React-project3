@@ -1,14 +1,16 @@
 import React, { useEffect, useState } from 'react';
 
-import API from '../utils/api'
+import API from '../../utils/api'
 import _ from 'lodash';
-import { Navbar } from '../components/Cards/Cards/Navbar/Navbar';
 
 import { Form, Col } from 'react-bootstrap';
 import { MDBDataTable } from 'mdbreact';
 import { MDBBtn, MDBTable, MDBTableBody, MDBTableHead } from 'mdbreact';
-const ViewPrograms = (props) => {
 
+
+//OLD FILE!!!!!!
+sdcds
+const Viewprogram = (props) => {
   const [tableData, setTableData] = useState([]);
   const [userProgram, setUserprogram] = useState({
     id: "",
@@ -32,16 +34,37 @@ const ViewPrograms = (props) => {
     //console.log(props.data)
   }, []);
 
+  function loadPrograms() {
+    //console.log(tableData)
+    let task = []
+    API.getPrograms()
+      .then(res => {
+        console.log(res);
+        res.data.map((value, index) => {
+          value.exercise.map((exercise) => {
+            console.log(exercise, value._id);
+            exercise._id = exercise._id;
+            exercise.dayNum = value.dayNum;
+            exercise.focus = value.focus;
+            task.push(exercise);
+          })
+        }
+        )
+        setTableData(task);
+        console.log(task)
+      }
+      )
+      .catch(err => console.log(err));
+  };
 
 
   function loaduserPrograms() {
     let task = []
-    API.getUser(props.match.params.id)
+    API.getUser("5e7d85ea5c04ae499851c956")
       .then(res => {
         res.data.programs.map((value, index) => {
           value.exercise.map((exercise) => {
             console.log(exercise);
-            exercise.p_id = value._id;
             exercise._id = exercise._id;
             exercise.dayNum = value.dayNum;
             exercise.focus = value.focus;
@@ -118,36 +141,31 @@ const ViewPrograms = (props) => {
         reps: tableData.reps,
         tempo: tableData.tempo,
         rest: tableData.rest,
-        'Handle': <MDBBtn className="btn-red" style={{ backgroundColor: "green", color: "white" }}
-          color="red" size="sm" onClick={() => deleteProgram(tableData.p_id, tableData._id)}>Complete</MDBBtn>
+        Handle: (<MDBBtn className="btn-red" style={{ backgroundColor: "green", color: "white" }}
+          color="red" size="sm" onClick={() => deleteProgram(tableData._id)} >Done</MDBBtn>)
       }
-
+      // <MDBBtn color="purple" size="sm">Button</MDBBtn>
     })
-
-
-
   }
 
+  //console.log(tableData._id);
 
-  function deleteProgram(p_id, e_id) {
-
+  function deleteProgram(id) {
     console.log("delete hitting");
-    //console.log(id);
-    API.deleteProgram(p_id, e_id)
-      .then(res => loaduserPrograms())
+    console.log(id);
+    API.deleteProgram(id)
+      .then(res => loadPrograms())
       .catch(err => console.log(err));
   }
 
-
-  console.log(tableData);
+  //console.log(tableData);
   return (
     <div>
-
-<Navbar/>
+      <br></br>
       <br></br>
 
       <MDBDataTable className="tableDisplay"
-        responsive="sm"
+      responsive="sm"
         noBottomColumns
         striped
         bordered
@@ -156,10 +174,24 @@ const ViewPrograms = (props) => {
         sorting={false}
 
       />
+      {/* {tableData
+            .map(row => (
+              <tr key={row._id}>
+                <td>{row.dayNum}</td>
+                <td>{row.focus}</td>
+                <td>{row.exerciseName}</td>
+                <td>{row.sets}</td>
+                <td>{row.reps}</td>
+                <td>{row.tempo}</td>
+                <td>{row.rest}</td>
+                <td><DeleteBtn onClick={() => deleteProgram(row._id)} /></td>
+              </tr>)
+            )} */}
 
     </div>
   );
-
 }
 
-export default ViewPrograms;
+export default Viewprogram;
+
+//deletebtn not working

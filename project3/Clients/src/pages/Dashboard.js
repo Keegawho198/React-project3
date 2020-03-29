@@ -98,6 +98,7 @@ function Dashboard(props) {
 
 
 
+
   }
 
   //udpate function in save button to call handleSave
@@ -165,12 +166,15 @@ function Dashboard(props) {
       <br></br>
       <br></br>
 
-      <br></br>
+      
       <div className="row">
-        <div class="col">
+
+
+        <div class="col-lg-6">
           <ProjectedWeight user={user}/>
+
         </div>
-        <div class="col">
+        <div className="col">
           <div className="row">
             <FoodToday>
               <p style={{ fontSize: "20px", textAlign: "center" }}>Todays Nutrition</p>
@@ -189,10 +193,12 @@ function Dashboard(props) {
 
               <p style={{ fontSize: "20px", color: "#c2c2c2", textAlign: "center" }}><Link to={"/viewExercise"} style={{ fontSize: "20px", color: "#c2c2c2", textAlign: "center" }}>View Excercise Database</Link></p>
             </TodaysWorkout>
-            <br></br>
+            
 
 
           </div>
+          <br></br>
+            <br></br>
         </div>
 
       </div>

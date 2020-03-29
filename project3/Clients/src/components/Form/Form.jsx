@@ -8,7 +8,6 @@ import ProgramSelected from "../Forms/ProgramSelectedInput";
 
 import Select from 'react-select'
 
-
 //Options for Dropdown list in form
 const options = [
   { label: 'One', value: 'One' },
@@ -41,14 +40,11 @@ const Form = () => {
     rest: "",
     select: ""
   });
-  
+
   //This function Handles changes for the dropdown only!!!!
   const handleChange = (e) => {
     console.log(e);
     console.log(e.value);
-
-    alert("Day Number " + e.value + " Selected");
-    //daynumber not showing on input when selected
 
     setFormData({ ...formData, dayNum: e.value })
   }
@@ -73,14 +69,16 @@ const Form = () => {
     <>
       <div className="row">
         <div className="Form col-sm-4 col-lg-4">
-          <Select label="DayNum" name="dayNum" value={formData.dayNum} options={options}
-            onChange={handleChange} />  
+          <p>Day Number</p>
+          <Select label="DayNum" name="dayNum" value={options.selected} options={options}
+            onChange={handleChange} ></Select>
+
           <FormInput label="Focus" type="text" name="focus" value={formData.focus} onChange={handleChangeSecond} />
           <FormInput label="Exercise Name" type="text" name="exerciseName" value={formData.exerciseName} onChange={handleChangeSecond} />
-          <FormInput label="Sets" type="number" name="sets" value={formData.sets} onChange={handleChangeSecond} />
-          <FormInput label="Reps" type="number" name="reps" value={formData.reps} onChange={handleChangeSecond} />
+          <FormInput label="Sets" type="text" name="sets" value={formData.sets} onChange={handleChangeSecond} />
+          <FormInput label="Reps" type="text" name="reps" value={formData.reps} onChange={handleChangeSecond} />
           <FormInput label="Tempo" type="text" name="tempo" value={formData.tempo} onChange={handleChangeSecond} />
-          <FormInput label="Rest" type="number" name="rest" value={formData.rest} onChange={handleChangeSecond} />
+          <FormInput label="Rest" type="text" name="rest" value={formData.rest} onChange={handleChangeSecond} />
 
           <ProgramSelected
             onChange={handleChangeSecond}
@@ -92,7 +90,7 @@ const Form = () => {
           </TableDisplay>
         </div>
       </div>
-      <p>Submited programs might go down here?</p>
+      <p>Only Submit Programs For A Single Day</p>
 
 
     </>

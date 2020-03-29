@@ -3,13 +3,28 @@ import API from '../../utils/api'
 import _ from 'lodash';
 import './style.css';
 
-
+import { Table, Thead, Tbody, Tr, Th, Td } from 'react-super-responsive-table'
+import 'react-super-responsive-table/dist/SuperResponsiveTableStyle.css'
+//Link to the above
+//https://www.npmjs.com/package/react-super-responsive-table
+//import Select from 'react-select'
+import Modal from 'react-bootstrap/Modal'
+import Button from 'react-bootstrap/Button'
 
 const TableDisplay = (props) => {
   const [tableData, setTableData] = useState([]);
   const [dayNum, setDayNum] = useState(0);
   const [focus, setFocus] = useState([]);
   const [select, setSelect] = useState([]);
+
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => {
+    setShow(false);
+    window.location.reload()
+  }
+  const handleShow = () => setShow(true);
+  
   useEffect(() => {
     console.log("useEffect hit")
     setSelect(props.select);
@@ -46,62 +61,65 @@ const TableDisplay = (props) => {
     API.saveProgram(apiData)
       .catch(err => console.log(err));
 
+      handleShow();
+      //shows model appear after submit is clicked
   };
-
-  //this.setTableData("");
-
-  // this.setState({
-  //   city: ''
-  // })
-  //  function deleteProgram(id) {
-  //   API.deleteBook(id)
-  //     .then(res => loadPrograms())
-  //     .catch(err => console.log(err));
-  // }
 
 
   return (
     <div>
+      <br></br>
+      <Table className="table-form" >
+        <Thead>
+          <Tr>
+            <Th scope="col">User Id</Th>
+            <Th scope="col">Day Number</Th>
+            <Th scope="col">Focus</Th>
+            <Th scope="col">Exercise Name</Th>
+            <Th scope="col">Sets</Th>
+            <Th scope="col">Reps</Th>
+            <Th scope="col">Tempo</Th>
+            <Th scope="col">Rest</Th>
+          </Tr>
+        </Thead>
 
-      <table className="table-form" >
-        <thead>
-          <tr>
-            <th scope="col">User Id</th>
-            <th scope="col">Day Number</th>
-            <th scope="col">Focus</th>
-            <th scope="col">Exercise Name</th>
-            <th scope="col">Sets</th>
-            <th scope="col">Reps</th>
-            <th scope="col">Tempo</th>
-            <th scope="col">Rest</th>
-          </tr>
-        </thead>
-        <tbody>
-
+        <Tbody>
+          
           {tableData
             .map(row => (
-              <tr>
-                <td>{row.select}</td>
-                <td>{row.dayNum}</td>
-                <td>{row.focus}</td>
-                <td>{row.exerciseName}</td>
-                <td>{row.sets}</td>
-                <td>{row.reps}</td>
-                <td>{row.tempo}</td>
-                <td>{row.rest}</td>
+              <Tr>
+                <Td>{row.select}</Td>
+                <Td>{row.dayNum}</Td>
+                <Td>{row.focus}</Td>
+                <Td>{row.exerciseName}</Td>
+                <Td>{row.sets}</Td>
+                <Td>{row.reps}</Td>
+                <Td>{row.tempo}</Td>
+                <Td>{row.rest}</Td>
                 {/* <DeleteBtn onClick={() => deleteProgram(program._id)} /> */}
-              </tr>)
+              </Tr>)
             )}
 
-        </tbody>
-      </table>
+        </Tbody>
+      </Table>
 
       <br></br>
 
       <div className="text-align text-center">
         <button type="button" className="btn btn-lg btn-primary text-center" onClick={handleSubmit}>Submit</button>
       </div>
-
+      <Modal show={show} onHide={handleClose}>
+            <Modal.Header closeButton>
+              <Modal.Title>Program Submitted</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>Program Submitted Success</Modal.Body>
+            <Modal.Footer>
+              <Button variant="primary" onClick={handleClose}>
+                Close
+          </Button>
+              
+            </Modal.Footer>
+          </Modal>
     </div>
   );
 }

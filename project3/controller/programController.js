@@ -69,11 +69,13 @@ module.exports = {
 
 ///api/comments/:articleid/:commentid
   remove: function (req, res) {
+    console.log({pid: req.params.program_id, eid:req.params.exercise_id})
     db.Program.findByIdAndUpdate(
       req.params.program_id,
-      { $pull: { 'exercise': { exerciseName: req.params.exercise_id } } },{ multi: true }, function (err, model) {
+      { $pull: { 'exercise': { _id: req.params.exercise_id } } },{ multi: true, new: true }, function (err, model) {
         //console.log(req.params.exercise_id);
-        console.log(req.params.program_id);
+        
+        console.log(model);
         if (err) {
           console.log(err);
           return res.send(err);

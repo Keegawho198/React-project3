@@ -6,12 +6,22 @@ import _ from 'lodash';
 //var _ = require('lodash')
 import './style.css';
 
-
+import Modal from 'react-bootstrap/Modal'
+import Button from 'react-bootstrap/Button'
 
 const ExerciseTable = (props) => {
   const [tableData, setTableData] = useState([]);
   const [exerciseName, setExerciseName] = useState(0);
   const [instructions, setInstructions] = useState([]);
+
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => {
+    setShow(false);
+    window.location.reload()
+  }
+  const handleShow = () => setShow(true);
+
   useEffect(() => {
     console.log("useEffect hit")
     setExerciseName(props.exerciseName);
@@ -47,7 +57,7 @@ const ExerciseTable = (props) => {
     API.saveExercise(apiData)
       .catch(err => console.log(err));
 
-    window.location.reload(false);
+    handleShow();
 
   };
 
@@ -88,8 +98,18 @@ const ExerciseTable = (props) => {
       <div className="text-align text-center">
         <button type="button" className="btn btn-lg btn-primary " onClick={handleSubmit}>Submit</button>
       </div>
+      <Modal show={show} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>Exercise Submitted</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>Exercise Submitted Success</Modal.Body>
+        <Modal.Footer>
+          <Button variant="primary" onClick={handleClose}>
+            Close
+          </Button>
 
-      {/* <button type="button" className="btn btn-lg btn-primary text-center" onClick={handleSubmit}>Submit</button> */}
+        </Modal.Footer>
+      </Modal>
 
 
     </div>
