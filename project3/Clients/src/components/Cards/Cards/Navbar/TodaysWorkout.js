@@ -3,7 +3,7 @@ import './style.css'
 
 export function TodaysWorkout({children}){
     return(
-<div class="card" id="daysWorkout">
+<div class="cardDash" id="daysWorkout">
   <div class="card-body">
   {children}
   </div>

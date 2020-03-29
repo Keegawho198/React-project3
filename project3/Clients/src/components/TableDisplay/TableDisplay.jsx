@@ -105,11 +105,11 @@ const TableDisplay = (props) => {
       <br></br>
 
       <div className="text-align text-center">
-        <button type="button" className="btn btn-lg btn-primary text-center" onClick={handleSubmit}>Submit</button>
+        <button type="button" className="btn btn-lg btn-primary text-center" onClick={handleSubmit}>Save</button>
       </div>
       <Modal show={show} onHide={handleClose}>
             <Modal.Header closeButton>
-              <Modal.Title>Program Submitted</Modal.Title>
+            <Modal.Title>Program Submitted for {tableData.name}</Modal.Title>
             </Modal.Header>
             <Modal.Body>Program Submitted Success</Modal.Body>
             <Modal.Footer>

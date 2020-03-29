@@ -200,13 +200,7 @@ const ViewClient = (props) => {
 
         <h1>Current Workout</h1>
         <br></br>
-        <button type="button" className="btn btn-lg btn-primary text-center" ><Link to={"/program"} style={{ color: 'white' }}>Set Workout for Today</Link></button>
         <br></br>
-
-
-        <br></br>
-        <br></br>
-
 
 
         <MDBDataTable className="tableDisplay"
