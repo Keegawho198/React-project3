@@ -1,15 +1,16 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect,useContext } from "react";
 import "./style.css";
 import { Navbar } from '../components/Cards/Cards/Navbar/Navbar';
 import { Link } from "react-router-dom";
 import {TodaysIntake} from '../components/Cards/Cards/Navbar/TodaysIntake'
+import AuthContext from '../utils/auth.contect'
 
 import API from '../utils/api'
 
 
 
 
-function MasterDashboard() {
+function MasterDashboard(props) {
  const [master,Setmaster]=useState({
   id:"",
   tag:"",
@@ -22,8 +23,9 @@ function MasterDashboard() {
   users: [
     
   ],
-  
- });
+});
+
+const {userId} = useContext(AuthContext);
  
   useEffect(() => {
     loadMaster()
@@ -32,7 +34,7 @@ function MasterDashboard() {
 
 
   function loadMaster() {
-    API.getMaster("5e7e90f018bec020a43b85eb")
+    API.getMaster(userId)
       .then(res =>
         Setmaster({
           id:res.data._id,
@@ -80,8 +82,11 @@ console.log(master);
 
         <h2 id="clientHeader">  Clients</h2>
       </div>
-      
-     
+      <br>
+      </br>
+      <br>
+      </br>
+      <button type="button" className="btn btn-lg btn-primary text-center" style={{marginLeft:"44%"}}><Link to={"/program/" + master.id} style={{color:'white'}}>Set Workout for Today</Link></button> 
 
 <div className="row">
 {master.users.map((userList)=>{
@@ -90,13 +95,13 @@ console.log(master);
                
               <div className="tile" key={userList._id}>
               <div className="profile_pic" style={{backgroundColor:"white"}} >
-      <img src={userList.image}></img>
+      <img src={userList.image} style={{borderRadius:"1000px"}}></img>
             <p className="title">{userList.name}</p>
       <br></br>
     
-        <button type="button" className="btn btn-primary" style={{marginLeft:"38%"}}><Link to={"/viewClient/" + userList._id} style={{color:"white"}}>View More</Link></button>
+        <button type="button" className="btn btn-primary" style={{marginLeft:"37%"}}><Link to={"/viewClient/" + userList._id} style={{color:"white"}}>View More</Link></button>
      
-      
+        <br></br>
      
     </div>
   </div>

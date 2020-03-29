@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./style.css";
 import API from "../utils/api";
+import { Link, useHistory  } from "react-router-dom";
 import { UserForm, FormSubmit,EnergyInput} from '../components/Forms/Forms';
 import SelectedInput from '../components/Forms/SelectedInput'
 
@@ -8,7 +9,7 @@ import SelectedInput from '../components/Forms/SelectedInput'
 function UserCreate() {
   
   const [formObject, setFormObject] = useState({})
-
+  const history = useHistory();
 
 
 
@@ -61,7 +62,9 @@ function UserCreate() {
       },
       // formObject.select,
     )
-      .catch(err => console.log(err));
+
+    history.push("/login");
+      
 
   };
 

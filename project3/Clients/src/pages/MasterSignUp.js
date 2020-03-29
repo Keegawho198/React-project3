@@ -1,14 +1,15 @@
 import React, { useState, useEffect } from "react";
 import "./style.css";
 import API from "../utils/api";
-import { UserForm, FormSubmit, } from '../components/Forms/Forms';
+import {  useHistory  } from "react-router-dom";
+import { UserForm, FormSubmit } from '../components/Forms/Forms';
 
 
 
 function MasterCreate() {
   
   const [formObject, setFormObject] = useState({})
-
+  const history = useHistory();
   
 
 
@@ -61,7 +62,7 @@ function MasterCreate() {
     
     })
     
-      .catch(err => console.log(err));
+    history.push("/master-login");
 
   };
 

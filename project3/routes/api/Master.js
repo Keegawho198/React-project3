@@ -1,6 +1,13 @@
 const router = require("express").Router();
 const Mastercontroller = require('../../controller/Mastercontroller');
 
+
+
+router.route("/login")
+.post(Mastercontroller.find)
+
+
+
 // Matches with "/api/User"
 router.route("/")
   .get(Mastercontroller.findAll)
