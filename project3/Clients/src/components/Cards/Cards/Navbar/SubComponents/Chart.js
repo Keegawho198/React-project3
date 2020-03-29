@@ -58,8 +58,9 @@ function Chart(props) {
     <>
       <Line
         data={chartData}
-        width={100}
-        height={500}
+        width={1}
+        height={1}
+        
         options={{ maintainAspectRatio: false }}
       />
     </>

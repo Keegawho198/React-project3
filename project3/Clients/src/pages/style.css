@@ -1,11 +1,19 @@
 /*!
  * Start Bootstrap - Simple Sidebar (https://startbootstrap.com/template-overviews/simple-sidebar)
  * Copyright 2013-2019 Start Bootstrap
- * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-simple-sidebar/blob/master/LICENSE)
+ * Licensed under MIT (https://github.com/#384349rockDigital/startbootstrap-simple-sidebar/blob/master/LICENSE)
  */
 
 body {
   background-color: #f3f2f0;
+}
+
+ h4{
+  color: #384349;
+}
+
+.spec{
+  color: #384349;
 }
 
 #logo {
@@ -26,7 +34,7 @@ nav {
 }
 
 .nav-link {
-  color: #113040;
+  color: #384349;
   font-size: 25px
 }
 
@@ -43,19 +51,17 @@ nav {
   color: white;
   background-color: #c6d1c1;
   height: 160px;
-  border-radius: 8px;
+  border-radius: 25px;
 }
-
-
 
 .hellotext {
   margin-left: 63px;
-  margin-top: 15px;
+  margin-top: 16px;
 }
 
 #dashboardImg {
   border-radius: 50%;
-  height: 220%;
+  height: 180%;
   margin-top: -23px;
   margin-left: 174px;
   position: absolute;
@@ -94,7 +100,7 @@ nav {
   /* margin-left: 22%; */
   height: 200px;
   background-color: white;
-  color: black;
+  color: #384349;
   border-radius: 25px;
   margin-top: 2%;
 }
@@ -105,16 +111,16 @@ nav {
   width: 60%;
   height: 220px;
   background-color: white;
-  color: black;
+  color: #384349;
   border-radius: 25px;
 }
 
 .card-projected {
-  margin-left: 100px;
+  margin-left: 15%;
   margin-top: -18px;
   height: 430px;
   border-radius: 15px;
-  border-right-color: black;
+  border-right-color: #384349;
   width: 650px;
   background-color: white;
 }
@@ -223,6 +229,24 @@ tr:hover {
   margin-left: -70px;
 }
 
+.foodCard {
+  margin-left: -26%;
+}
+
+#chartId {
+  margin-left: 14%;
+  height: 90%;
+  width: 100%;
+  border-radius: 20px;
+}
+
+/* for chart sizing */
+canvas{
+  margin-top: 2% !important;
+  margin-left: 8% !important;
+  width:90% !important;
+  height:90% !important;
+}
 /* .profile_pic{
     position: absolute;
     z-index:2;
@@ -279,7 +303,7 @@ tr:hover {
 }
 
 /* .title {
-  color: black;
+  color: #384349;
   height: 0px;
   margin-top: -110px;
   margin-bottom: 55px;
@@ -349,7 +373,7 @@ div {
 .topnav a {
   float: left;
   display: block;
-  color: black;
+  color: #384349;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
@@ -369,11 +393,11 @@ div {
   margin-top: 10px;
 }
 
-.chartjs-render-monitor {
+/* .chartjs-render-monitor {
   display: block;
   height: 227px;
   width: 450px;
-}
+} */
 
 /* .chartjs-size-monitor{
 
@@ -415,7 +439,7 @@ img {
     margin-top: 0px;
   }
   .title {
-    color: black;
+    color: #384349;
     height: 11px;
     margin-top: -75px;
     /* margin-bottom: 55px; */
@@ -477,7 +501,7 @@ img {
     width: 64%;
     height: 320px;
     background-color: white;
-    color: black;
+    color: #384349;
     border-radius: 25px;
   }
   #daysWorkout {
@@ -485,7 +509,7 @@ img {
     margin-left: 22%;
     height: 200px;
     background-color: white;
-    color: black;
+    color: #384349;
     border-radius: 25px;
     margin-top: 2%;
   }
@@ -521,11 +545,11 @@ img {
     border-radius: 15px;
     width: 98%;
   }
-  .chartjs-render-monitor {
+  /* .chartjs-render-monitor {
     display: block;
     height: 200px;
     width: 215px;
-  }
+  } */
   .dataTables_wrapper {
     margin-left: 1px;
     margin-right: 1px;

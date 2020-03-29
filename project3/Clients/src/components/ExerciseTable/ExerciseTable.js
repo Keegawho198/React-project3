@@ -3,6 +3,9 @@ import API from '../../utils/api'
 import _ from 'lodash';
 import './style.css';
 
+import {Link, useHistory} from "react-router-dom"
+
+
 import Modal from 'react-bootstrap/Modal'
 import Button from 'react-bootstrap/Button'
 
@@ -13,9 +16,13 @@ const ExerciseTable = (props) => {
 
   const [show, setShow] = useState(false);
 
+  const history = useHistory();
+
   const handleClose = () => {
     setShow(false);
     //window.location.reload()
+
+    history.push("/master-dashboard");
   }
   const handleShow = () => setShow(true);
 
@@ -77,7 +84,7 @@ const ExerciseTable = (props) => {
       <br></br>
 
       <div className="text-align text-center">
-        <button type="button" className="btn btn-lg btn-primary " onClick={handleSubmit}>Submit</button>
+        <button type="button" className="btn btn-lg btn-primary " onClick={handleSubmit}>Save</button>
       </div>
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>

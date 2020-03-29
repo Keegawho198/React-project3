@@ -17,16 +17,16 @@ export function Navbar() {
     <div>
      
       <NavbarI bg="" expand="lg">
-        <NavbarI.Brand href="#home"><a class="navbar-brand" href="#"><img id="navImg" src={require('../../../../img/logo.jpg')} alt="" style={{ height: "5rem" }} id="logo"></img></a>
+        <NavbarI.Brand href="#home"><a class="navbar-brand" ><img id="navImg" src={require('../../../../img/logo.jpg')} alt="" style={{ height: "5rem" }} id="logo"></img></a>
         </NavbarI.Brand>
 
         <NavbarI.Toggle aria-controls="basic-navbar-nav" />
         <NavbarI.Collapse id="basic-navbar-nav">
           <Nav className="mr-auto">
-            <Link exact to="/" ><a className="nav-link" href="#" id="navA">Home</a></Link>
-            <Link exact to="/addExercise" ><a className="nav-link" href="#" id="navA">Excercise</a></Link>
-            <Link exact to="/nutrition-search"><a className="nav-link" href="#" id="navA">Nutrition</a></Link>
-            <Link exact to ="/login" onClick={logout}><a className="nav-link " href="#" id="navA">Logout</a></Link>
+            <Link exact to="/" ><a className="nav-link" style={{color:"#384349"}} id="navA">Home</a></Link>
+            <Link exact to="/addExercise" ><a className="nav-link" style={{color:"#384349"}} id="navA">Excercise</a></Link>
+            <Link exact to="/nutrition-search"><a className="nav-link" style={{color:"#384349"}} id="navA">Nutrition</a></Link>
+            <Link exact to ="/login" onClick={logout}><a className="nav-link " style={{color:"#384349"}} id="navA">Logout</a></Link>
           </Nav>
         </NavbarI.Collapse>
       </NavbarI>

@@ -6,11 +6,9 @@ import Chart from './SubComponents/Chart'
 function ProjectedWeight(props){
     return(
 
-      <div className="card-projected" id="">
-        <div className="card-body" id="projectBody">
+        <div className ="card" id="chartId">
           <Chart user={props.user}/>
-        </div>
-      </div>
+     </div>
 
     )
 }

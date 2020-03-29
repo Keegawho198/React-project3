@@ -83,7 +83,7 @@ function NutritionSearch(){
         {nutrition.hints  && nutrition.hints.map((foods)=>{
             return(
                 <div class="col-lg-6">
-                <div class="card" style={{width: "30rem"}}>
+                <div class="foodCard" style={{width: "30rem"}}>
                 <img class="card-img-top"  src={foods.food.image} style={{height: "17rem"}} id="foodImage"></img>
                 <div class="card-body"  style={{height: "10rem"}}>
                     <div>
