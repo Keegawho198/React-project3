@@ -36,7 +36,7 @@ const [chartData, setChartData] = useState({});
           pointBorderWidth: 1,
           pointHoverRadius: 5,
           responsive: true,
-          width:"30%",
+          width:"50%",
           pointHoverBackgroundColor: 'rgba(75,192,192,1)',
           pointHoverBorderColor: 'rgba(220,220,220,1)',
           pointHoverBorderWidth: 2,

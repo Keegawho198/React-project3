@@ -21,9 +21,10 @@ nav {
   background-color: #f3f2f0;
 }
 
-#link {
-  margin-left: 60%;
+#basic-navbar-nav{
+  margin-left: 300px;
 }
+
 
 .nav-link {
   color: #113040;
@@ -34,28 +35,24 @@ nav {
   margin-left: 8.3%;
 }
 
-/* .card-head {
-  flex: 1 1 auto;
-  min-height: 1px;
-  padding: 1.25rem;
-  margin-left: 72px;
-  margin-right: 72px;
-  color: white;
-  background-color: #c6d1c1;
-  height: 160px;
-  border-radius: 0%;
-} */
-
 .card-head {
   flex: 1 1 auto;
   min-height: 1px;
   padding: 0.25rem;
-  margin-left: 72px;
-  margin-right: 72px;
+  margin-left: 100px;
+  margin-right: 100px;
   color: white;
   background-color: #c6d1c1;
   height: 160px;
-  border-radius: 11%;
+  border-radius: 8px;
+}
+
+#dashboardImg {
+  border-radius: 50%;
+  height: 220%;
+  margin-top: -18px;
+  margin-left: 450px;
+  position: absolute;
 }
 
 #intake {
@@ -88,7 +85,7 @@ nav {
 
 #daysWorkout {
   width: 60%;
-  margin-left: 22%;
+  /* margin-left: 22%; */
   height: 200px;
   background-color: white;
   color: black;
@@ -97,8 +94,8 @@ nav {
 }
 
 #daysFood {
-  margin-left: 22%;
-  margin-top: 20px;
+  /* margin-left: 22%;
+  margin-top: 20px; */
   width: 60%;
   height: 220px;
   background-color: white;
@@ -107,30 +104,13 @@ nav {
 }
 
 .card-projected {
-  margin-left: 150px;
-  height: 60%;
+  margin-left: 100px;
+  margin-top: -18px;
+  height: 430px;
   border-radius: 15px;
-  width: 80%;
+  border-right-color: black;
+  width: 650px;
   background-color: white;
-}
-
-.card {
-  position: relative;
-  /* margin-left: 323px; */
-  margin: auto;
-  margin-top: 10%;
-  /* align-items: center; */
-  float: center;
-  width: 598px;
-  height: 500px;
-  display: flex;
-  flex-direction: column;
-  min-width: 0;
-  word-wrap: break-word;
-  background-color: #fff;
-  background-clip: border-box;
-  border: 1px solid rgba(0, 0, 0, .125);
-  border-radius: .25rem;
 }
 
 .dashCard {
@@ -157,12 +137,12 @@ nav {
   margin-top: 20px;
 }
 
-/* #projectBody {
+#projectBody {
   margin-left: 35px;
   height: 280px;
   border-radius: 16px;
   width: 67%;
-} */
+}
 
 /* img {
   border-radius: 50%;
@@ -374,6 +354,10 @@ div {
   width: 150px;
 }
 
+.card{
+  margin-left: 160px;
+}
+
 .chartjs-render-monitor {
   display: block;
   height: 227px;
@@ -498,18 +482,15 @@ img {
     position: relative;
     display: flex;
     /* margin-left: 514px; */
-    margin-top: 10px;
-    margin-bottom: 50px;
+    /* margin-top: 10px;
+    margin-bottom: 50px; */
     flex-direction: column;
     min-width: 17px;
     word-wrap: break-word;
     background-color: #fff;
     background-clip: border-box;
     border: 0px solid rgba(0, 0, 0, .125);
-    border-radius: .25rem;
   }
-
-
   .cardp {
     font-size: 50px;
   }

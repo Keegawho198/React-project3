@@ -114,7 +114,7 @@ function Dashboard(props) {
 
     <div >
       <Navbar />
-
+      <br></br>
       <>
 
         <Modal show={show} onHide={handleClose} size="sm"
@@ -150,7 +150,7 @@ function Dashboard(props) {
             </div>
           
             <div className="col">
-              <img src={user.image} style={{ borderRadius: "50%", height: "350%", marginTop: "-27px", marginLeft: "900px", position: "absolute" }}></img>
+              <img id="dashboardImg" src={user.image}></img>
             </div>
           </div>
           <h2>You'r on track keep going</h2>
@@ -164,7 +164,6 @@ function Dashboard(props) {
       <br></br>
       <br></br>
       <br></br>
-      <br></br>
 
       
       <div className="row">
@@ -174,7 +173,7 @@ function Dashboard(props) {
           <ProjectedWeight user={user}/>
 
         </div>
-        <div className="col">
+        <div className="col-lg-6">
           <div className="row">
             <FoodToday>
               <p style={{ fontSize: "20px", textAlign: "center" }}>Todays Nutrition</p>

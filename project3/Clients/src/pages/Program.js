@@ -83,7 +83,7 @@ const Program = (props) => {
     console.log(e);
     console.log(e.value);
 
-    alert("Day Number " + e.value + " Selected");
+
     //daynumber not showing on input when selected
 
     setFormData({ ...formData, dayNum: e.value })
@@ -111,14 +111,15 @@ const Program = (props) => {
      <h1 className="text-center">Program Page</h1> 
       <div className="row">
         <div className="Form col-sm-4 col-lg-4">
-          <Select label="DayNum" name="dayNum" value={formData.dayNum} options={options}
+        <p>Day Number</p>
+          <Select label="DayNum" name="dayNum" value={options.selected} options={options}
             onChange={handleChange} />  
           <FormInput label="Focus" type="text" name="focus" value={formData.focus} onChange={handleChangeSecond} />
           <FormInput label="Exercise Name" type="text" name="exerciseName" value={formData.exerciseName} onChange={handleChangeSecond} />
-          <FormInput label="Sets" type="number" name="sets" value={formData.sets} onChange={handleChangeSecond} />
-          <FormInput label="Reps" type="number" name="reps" value={formData.reps} onChange={handleChangeSecond} />
+          <FormInput label="Sets" type="text" name="sets" value={formData.sets} onChange={handleChangeSecond} />
+          <FormInput label="Reps" type="text" name="reps" value={formData.reps} onChange={handleChangeSecond} />
           <FormInput label="Tempo" type="text" name="tempo" value={formData.tempo} onChange={handleChangeSecond} />
-          <FormInput label="Rest" type="number" name="rest" value={formData.rest} onChange={handleChangeSecond} />
+          <FormInput label="Rest" type="text" name="rest" value={formData.rest} onChange={handleChangeSecond} />
 
        
        <div class="form-group">
