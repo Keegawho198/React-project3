@@ -18,7 +18,7 @@ const ExerciseTable = (props) => {
 
   const handleClose = () => {
     setShow(false);
-    window.location.reload()
+    //window.location.reload()
   }
   const handleShow = () => setShow(true);
 
@@ -37,14 +37,6 @@ const ExerciseTable = (props) => {
     console.log("submit btn work");
 
 
-    //connect to get/ backend get
-    // console.log(API);
-    // console.log(tableData);
-    // let test = tableData.map((data) => {
-    //   return _.omit(data, "dayNum", "focus")
-    //   //return _.omit(data, "focus")
-    // });
-    //console.log(test)
     var apiData = {
       exerciseName: tableData[1].exerciseName,
       instructions: tableData[1].instructions,

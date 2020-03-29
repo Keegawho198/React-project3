@@ -21,7 +21,7 @@ const TableDisplay = (props) => {
 
   const handleClose = () => {
     setShow(false);
-    window.location.reload()
+    //refresh taken out
   }
   const handleShow = () => setShow(true);
   
