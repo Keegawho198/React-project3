@@ -6,6 +6,7 @@ import { TodaysIntake } from '../components/Cards/Cards/Navbar/TodaysIntake'
 
 import API from '../utils/api'
 
+import { MDBRow, MDBCol, MDBCard, MDBAvatar, MDBCardBody, MDBIcon } from "mdbreact";
 
 
 
@@ -59,7 +60,8 @@ function MasterDashboard() {
     <div >
       <Navbar />
 
-
+      <br></br>
+      <br></br>
 
       <div className="row">
 
@@ -77,14 +79,14 @@ function MasterDashboard() {
       <div className="container">
 
         <h2 id="clientHeader">  Clients</h2>
-        
+
       </div>
 
       <br></br>
       <br></br>
       <br></br>
       <br></br>
-      
+
 
 
       <div className="row">
@@ -95,54 +97,84 @@ function MasterDashboard() {
 
             //   </div>
             //   </div>
-            <div class="container">
-              <div class="row tile" key={userList._id}>
-                
-                    <img id="tileImgID" src={userList.image}></img>
-                
+            // <div class="container">
+            //   <div class="row tile" key={userList._id}>
 
-                <div class="col-lg-2 col-sm-2">
-                  <p className="title">{userList.name}</p>
-                </div>
-
-                <div class="col-lg-2 col-sm-2">
-                  <p className="title">{userList.email}</p>
-                </div>
-                
-                <div class="col-lg-2 col-sm-2">
-                  <p className="title">Height: {userList.height}cm</p>
-                </div>
-                <div class="col-lg-2 col-sm-2">
-                  <p className="title">Weight: {userList.currentWeight} Kg</p>
-                </div>
-              
-                <div class="col-lg-2 col-sm-2">
-                <button type="button" className="viewMorebtn btn btn-primary">
-                  <Link to={"/viewClient/" + userList._id} style={{ color: "white" }}>View More</Link></button>
-                </div>
-                
-              </div>
-              <br></br>
-              <br></br>
-              <br></br>
-
-            </div>
+            //         <img id="tileImgID" src={userList.image}></img>
 
 
-
-
-            //     <div className="profile_pic" style={{ backgroundColor: "white" }} >
-            //       <img id="tileImgID" src={userList.image}></img>
+            //     <div class="col-lg-2 col-sm-2">
+            //       <p className="title">{userList.name}</p>
             //     </div>
 
-            
+            //     <div class="col-lg-2 col-sm-2">
+            //       <p className="title">{userList.email}</p>
+            //     </div>
 
+            //     <div class="col-lg-2 col-sm-2">
+            //       <p className="title">Height: {userList.height}cm</p>
+            //     </div>
+            //     <div class="col-lg-2 col-sm-2">
+            //       <p className="title">Weight: {userList.currentWeight} Kg</p>
+            //     </div>
+
+            //     <div class="col-lg-2 col-sm-2">
             //     <button type="button" className="viewMorebtn btn btn-primary">
             //       <Link to={"/viewClient/" + userList._id} style={{ color: "white" }}>View More</Link></button>
-            //   </div>
+            //     </div>
 
-            //</div>
+            //   </div>
+            //   <br></br>
+            //   <br></br>
+            //   <br></br>
+
+            // </div>
+
+
+            <MDBCard className="my-5 px-5 pb-1 text-center" key={userList._id}>
+              <MDBCardBody>
+                <MDBRow className="text-md-center">
+                  <MDBCol lg="12" md="12" sm="12" className="mb-5 float-left">
+                    <MDBCol md="4" lg="6" sm="12" className="float-left">
+                      <img
+                        src={userList.image}
+                        className=""
+                        id="tileImgID"
+                        tag="img"
+                        alt="Sample avatar"
+                      />
+                    </MDBCol>
+                    <MDBCol md="8" lg="6" className="float-right">
+                      <h4 className="font-weight-bold mb-3">{userList.name}</h4>
+                      <h6 className="font-weight-bold grey-text mb-3">
+                        {userList.email}
+                      </h6>
+                      <p className="grey-text">
+                        {userList.height}cm
+                      </p>
+                      <p className="grey-text">
+                        Weight {userList.currentWeight} Kg
+                      </p>
+
+                      <button type="button" className="viewMorebtn btn btn-primary">
+                        <Link to={"/viewClient/" + userList._id} style={{ color: "white" }}>View More</Link></button>
+
+                    </MDBCol>
+                  </MDBCol>
+
+
+
+
+
+
+                </MDBRow>
+              </MDBCardBody>
+            </MDBCard>
           )
+
+
+
+
         })}
 
 
@@ -154,7 +186,7 @@ function MasterDashboard() {
 
 
 
-    </div>
+    </div >
 
 
 
