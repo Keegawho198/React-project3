@@ -34,7 +34,7 @@ nav {
   margin-left: 8.3%;
 }
 
-.card-head {
+/* .card-head {
   flex: 1 1 auto;
   min-height: 1px;
   padding: 1.25rem;
@@ -44,6 +44,18 @@ nav {
   background-color: #c6d1c1;
   height: 160px;
   border-radius: 0%;
+} */
+
+.card-head {
+  flex: 1 1 auto;
+  min-height: 1px;
+  padding: 0.25rem;
+  margin-left: 72px;
+  margin-right: 72px;
+  color: white;
+  background-color: #c6d1c1;
+  height: 160px;
+  border-radius: 11%;
 }
 
 #intake {
@@ -134,7 +146,7 @@ nav {
   background-color: #fff;
   background-clip: border-box;
   border: 1px solid rgba(0, 0, 0, .125);
-  border-radius: .25rem;
+  border-radius: 16%;
 }
 
 .card-body {
