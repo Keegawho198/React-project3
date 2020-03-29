@@ -14,6 +14,7 @@ import { Form, Col } from 'react-bootstrap';
 import { MDBDataTable } from 'mdbreact';
 import { MDBBtn, MDBTable, MDBTableBody, MDBTableHead } from 'mdbreact';
 
+import { Navbar } from '../components/Cards/Cards/Navbar/Navbar';
 
 
 
@@ -144,12 +145,15 @@ const ViewClient = (props) => {
       .catch(err => console.log(err));
   }
 
+  console.log(Client);
+
   return (
     <div>
+      <Navbar />
       <div className="text-center">
         <div className="color text-center">
           <br></br>
-          <img src={Client.img} alt="placeholder" />
+          <img src={Client.image} alt="placeholder" />
 
           <h1 className="white">Name: {Client.name}</h1>
           <br></br>
