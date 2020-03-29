@@ -14,6 +14,7 @@ import { Form, Col } from 'react-bootstrap';
 import { MDBDataTable } from 'mdbreact';
 import { MDBBtn, MDBTable, MDBTableBody, MDBTableHead } from 'mdbreact';
 
+import { Navbar } from '../components/Cards/Cards/Navbar/Navbar';
 
 
 
@@ -144,12 +145,15 @@ const ViewClient = (props) => {
       .catch(err => console.log(err));
   }
 
+  console.log(Client);
+
   return (
     <div>
+      <Navbar />
       <div className="text-center">
         <div className="color text-center">
           <br></br>
-          <img src={Client.img} alt="placeholder" />
+          <img src={Client.image} alt="placeholder" />
 
           <h1 className="white">Name: {Client.name}</h1>
           <br></br>
@@ -196,13 +200,7 @@ const ViewClient = (props) => {
 
         <h1>Current Workout</h1>
         <br></br>
-        <button type="button" className="btn btn-lg btn-primary text-center" ><Link to={"/program"} style={{ color: 'white' }}>Set Workout for Today</Link></button>
         <br></br>
-
-
-        <br></br>
-        <br></br>
-
 
 
         <MDBDataTable className="tableDisplay"

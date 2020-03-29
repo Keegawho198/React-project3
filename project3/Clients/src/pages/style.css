@@ -21,10 +21,9 @@ nav {
   background-color: #f3f2f0;
 }
 
-#basic-navbar-nav{
+#basic-navbar-nav {
   margin-left: 300px;
 }
-
 
 .nav-link {
   color: #113040;
@@ -47,11 +46,18 @@ nav {
   border-radius: 8px;
 }
 
+
+
+.hellotext {
+  margin-left: 63px;
+  margin-top: 15px;
+}
+
 #dashboardImg {
   border-radius: 50%;
   height: 220%;
-  margin-top: -18px;
-  margin-left: 450px;
+  margin-top: -23px;
+  margin-left: 174px;
   position: absolute;
 }
 
@@ -354,8 +360,13 @@ div {
   width: 150px;
 }
 
-.card{
+.cardDash {
   margin-left: 160px;
+}
+
+.hello {
+  margin-left: 25px;
+  margin-top: 10px;
 }
 
 .chartjs-render-monitor {
