@@ -1,9 +1,6 @@
 import React, { useEffect, useState } from 'react';
-// import Form from '../Form/Form';
-// import DeleteBtn from "../components/DeleteBtn";
 import API from '../../utils/api'
 import _ from 'lodash';
-//var _ = require('lodash')
 import './style.css';
 
 import Modal from 'react-bootstrap/Modal'
@@ -50,18 +47,10 @@ const ExerciseTable = (props) => {
       .catch(err => console.log(err));
 
     handleShow();
-
   };
-
-  //  function deleteProgram(id) {
-  //   API.deleteBook(id)
-  //     .then(res => loadPrograms())
-  //     .catch(err => console.log(err));
-  // }
 
   return (
     <div>
-
       <table className="table-form">
         <thead>
           <tr>

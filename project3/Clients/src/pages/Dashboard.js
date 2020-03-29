@@ -150,7 +150,7 @@ function Dashboard(props) {
             </div>
           
             <div className="col">
-              <img src={user.image} style={{ borderRadius: "50%", height: "350%", marginTop: "-27px", marginLeft: "900px", position: "absolute" }}></img>
+              <img id="dashboardImg" src={user.image}></img>
             </div>
           </div>
           <h2>You'r on track keep going</h2>

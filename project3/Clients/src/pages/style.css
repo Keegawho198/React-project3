@@ -50,12 +50,20 @@ nav {
   flex: 1 1 auto;
   min-height: 1px;
   padding: 0.25rem;
-  margin-left: 72px;
-  margin-right: 72px;
+  margin-left: 100px;
+  margin-right: 100px;
   color: white;
   background-color: #c6d1c1;
   height: 160px;
-  border-radius: 11%;
+  border-radius: 5%;
+}
+
+#dashboardImg {
+  border-radius: 50%;
+  height: 250%;
+  margin-top: -27px;
+  margin-left: 450px;
+  position: absolute;
 }
 
 #intake {
@@ -88,7 +96,7 @@ nav {
 
 #daysWorkout {
   width: 60%;
-  margin-left: 22%;
+  /* margin-left: 22%; */
   height: 200px;
   background-color: white;
   color: black;
@@ -97,8 +105,8 @@ nav {
 }
 
 #daysFood {
-  margin-left: 22%;
-  margin-top: 20px;
+  /* margin-left: 22%;
+  margin-top: 20px; */
   width: 60%;
   height: 220px;
   background-color: white;
@@ -508,8 +516,6 @@ img {
     border: 0px solid rgba(0, 0, 0, .125);
     border-radius: .25rem;
   }
-
-
   .cardp {
     font-size: 50px;
   }

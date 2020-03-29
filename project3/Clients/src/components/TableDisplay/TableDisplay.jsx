@@ -7,7 +7,7 @@ import { Table, Thead, Tbody, Tr, Th, Td } from 'react-super-responsive-table'
 import 'react-super-responsive-table/dist/SuperResponsiveTableStyle.css'
 //Link to the above
 //https://www.npmjs.com/package/react-super-responsive-table
-//import Select from 'react-select'
+
 import Modal from 'react-bootstrap/Modal'
 import Button from 'react-bootstrap/Button'
 
@@ -42,7 +42,6 @@ const TableDisplay = (props) => {
 
     let valuesAdded = tableData.map((data) => {
       return _.omit(data, "dayNum", "focus", "select")
-      //return _.omit(data, "focus")
     });
     console.log(valuesAdded[1])
     var apiData = {
