@@ -8,6 +8,9 @@ import FormInput from '../components/FormInput/FormInput';
 import TableDisplay from '../components/TableDisplay/TableDisplay'
 // import ProgramSelected from "../components/Forms/ProgramSelectedInput";
 import { Navbar } from '../components/Cards/Cards/Navbar/Navbar';
+import Modal from 'react-bootstrap/Modal'
+import Button from 'react-bootstrap/Button'
+
 import API from "../utils/api"
 
 import Select from 'react-select'
@@ -61,9 +64,18 @@ const Program = (props) => {
 
   })
 
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => {
+    setShow(false);
+    //refresh taken out
+  }
+  const handleShow = () => setShow(true);
+
+
   useEffect(() => {
     loaduserList()
-
+    handleShow();
   }, [])
 
 
@@ -101,7 +113,7 @@ const Program = (props) => {
     let value = event.target.value;
     // console.log(key);
     // console.log(value);
-    setFormData({ ...formData, [key]: value})
+    setFormData({ ...formData, [key]: value })
   }
 
   const handleSave = (e) => {
@@ -114,7 +126,21 @@ const Program = (props) => {
   console.log(tableData);
   return (
     <>
+      <Modal show={show} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>Peak Condition</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>Please add all workouts for a client before saving.</Modal.Body>
+        <Modal.Footer>
+          <Button variant="primary" onClick={handleClose}>
+            Close
+          </Button>
+
+        </Modal.Footer>
+      </Modal>
       <Navbar />
+      <br></br>
+
       <h1 className="text-center">Program Page</h1>
       <div className="row">
         <div className="Form col-sm-4 col-lg-4">

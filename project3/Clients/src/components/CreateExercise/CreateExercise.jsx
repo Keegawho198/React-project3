@@ -82,7 +82,7 @@ const Form = () => {
           <FormInput label="Instructions" type="text" name="instructions" value={formData.instructions} onChange={handleChange} />
           <FormInput label="Image" type="file" name="image" value={formData.img} onChange={handleChange} />
 
-          <button type="button" className="btn btn-lg btn-primary " onClick={handleSave}>Save</button>
+          <button type="button" className="btn btn-lg btn-primary " onClick={handleSave}> Add</button>
         </div>
 
         <div class="col-sm">

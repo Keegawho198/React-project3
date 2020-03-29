@@ -127,7 +127,7 @@ function UserCreate() {
                 />
               </div>
               <div className="form-group">
-                Height
+                Height (Cm)
   <UserForm
                   onChange={handleInputChange}
                   name="height"
@@ -143,7 +143,7 @@ function UserCreate() {
  />
  </div>
               <div className="form-group">
-                Current Weight
+                Current Weight (Kg)
   <UserForm
                   onChange={handleInputChange}
                   name="currentWeight"
@@ -152,7 +152,7 @@ function UserCreate() {
                 />
               </div>
               <div className="form-group">
-                Weight Goal
+                Weight Goal (Kg)
   <UserForm
                   onChange={handleInputChange}
                   name="goalWeight"

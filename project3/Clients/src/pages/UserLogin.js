@@ -81,12 +81,12 @@ const UserLogin = (props) => {
               marginTop:"10%"
             }}
           >
-            <div className='text-white rgba-stylish-strong py-5 px-5 z-depth-4'>
+            <div className='text-black rgba-stylish-strong py-5 px-5 z-depth-4'>
               <div className='text-center'>
-                <h3 className='white-text mb-5 mt-4 font-weight-bold'>
-                  <strong>SIGN</strong>
+                <h3 className='black-text mb-5 mt-4 font-weight-bold'>
+                  <strong>User Sign In</strong>
                   <a href='#!' className='green-text font-weight-bold'>
-                    <strong> In</strong>
+                    <strong> </strong>
                   </a>
                 </h3>
               </div>

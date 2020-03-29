@@ -150,38 +150,43 @@ const ViewClient = (props) => {
   return (
     <div>
       <Navbar />
+      <br></br>
       <div className="text-center">
-        <div className="color text-center">
+        <div className="color spec text-center">
           <br></br>
           <img src={Client.image} alt="placeholder" />
-
-          <h1 className="white">Name: {Client.name}</h1>
           <br></br>
-          <p className="white">Email: {Client.email}</p>
+          <br></br>
+          <h1 className="">Name: {Client.name}</h1>
+          <br></br>
+          <br></br>
+          <h4 className="">Email: {Client.email}</h4>
+          <br></br>
+          <br></br>
+          <h4 className="">Weight: {Client.currentWeight} Kg</h4>
+          <br></br>
           <br></br>
 
-          <p className="white">Weight: {Client.weight}</p>
+          <h4 className="">Weight Goal: {Client.goalWeight} Kg</h4>
           <br></br>
-
-          <p className="white">Weight Goal: {Client.goalWeight}</p>
           <br></br>
 
           <div class="container">
             <div class="row">
               <div class="col-sm-3">
-                <p className="white"> Age: {Client.age} </p>
+                <h4 className=""> Age: {Client.age} </h4>
               </div>
 
               <div class="col-sm-3">
-                <p className="white">Gender: {Client.gender} </p>
+                <h4 className="">Gender: {Client.gender} </h4>
               </div>
 
               <div class="col-sm-3">
-                <p className="white">Height: {Client.height}</p>
+                <h4 className="">Height: {Client.height} Cm</h4>
               </div>
 
               <div class="col-sm-3">
-                <p className="white">Energy Expenditure: {Client.energyExpenditure} </p>
+                <h4 className="">Energy Expenditure: {Client.energyExpenditure} </h4>
               </div>
 
             </div>

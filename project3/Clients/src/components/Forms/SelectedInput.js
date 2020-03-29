@@ -27,8 +27,10 @@ function SelectedInput(props){
      
 return(
     <div class="form-group">
-    <label for="exampleFormControlSelect1">Example select</label>
+    <label for="exampleFormControlSelect1">Select Coach</label>
     <select className="form-control" id="exampleFormControlSelect1" onChange={props.onChange} name="select">
+    <option>Click to Select</option>
+
         {inputCoach.map((coach)=>{
             return(
             <option key={coach._id} value={coach._id}>{coach.name}</option>

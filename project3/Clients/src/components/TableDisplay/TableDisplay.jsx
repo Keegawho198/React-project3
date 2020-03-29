@@ -8,6 +8,9 @@ import 'react-super-responsive-table/dist/SuperResponsiveTableStyle.css'
 //Link to the above
 //https://www.npmjs.com/package/react-super-responsive-table
 
+import {Link, useHistory} from "react-router-dom"
+  
+
 import Modal from 'react-bootstrap/Modal'
 import Button from 'react-bootstrap/Button'
 
@@ -22,6 +25,9 @@ const TableDisplay = (props) => {
   const handleClose = () => {
     setShow(false);
     //refresh taken out
+
+    history.push("/master-dashboard");
+
   }
   const handleShow = () => setShow(true);
   
@@ -35,6 +41,8 @@ const TableDisplay = (props) => {
     console.log(tableData);
     //console.log(props.data)
   }, [props.data]);
+
+  const history = useHistory();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -62,7 +70,10 @@ const TableDisplay = (props) => {
 
       handleShow();
       //shows model appear after submit is clicked
+      
   };
+
+
 
 
   return (
@@ -71,7 +82,6 @@ const TableDisplay = (props) => {
       <Table className="table-form" >
         <Thead>
           <Tr>
-            <Th scope="col">User Id</Th>
             <Th scope="col">Day Number</Th>
             <Th scope="col">Focus</Th>
             <Th scope="col">Exercise Name</Th>
@@ -87,7 +97,6 @@ const TableDisplay = (props) => {
           {tableData
             .map(row => (
               <Tr>
-                <Td>{row.select}</Td>
                 <Td>{row.dayNum}</Td>
                 <Td>{row.focus}</Td>
                 <Td>{row.exerciseName}</Td>

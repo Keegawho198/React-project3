@@ -1,9 +1,9 @@
-import React, { useState, useEffect,useContext } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import "./style.css";
 import { Navbar } from '../components/Cards/Cards/Navbar/Navbar';
 import { Link } from "react-router-dom";
 
-import {TodaysIntake} from '../components/Cards/Cards/Navbar/TodaysIntake'
+import { TodaysIntake } from '../components/Cards/Cards/Navbar/TodaysIntake'
 import AuthContext from '../utils/auth.contect'
 
 
@@ -15,22 +15,22 @@ import { MDBRow, MDBCol, MDBCard, MDBAvatar, MDBCardBody, MDBIcon } from "mdbrea
 
 
 function MasterDashboard(props) {
- const [master,Setmaster]=useState({
-  id:"",
-  tag:"",
-  email: "",
-  password: "",
-  name: "",
-  qualifications: "",
-  bio: "",
-  image: "",
-  users: [
-    
-  ],
-});
+  const [master, Setmaster] = useState({
+    id: "",
+    tag: "",
+    email: "",
+    password: "",
+    name: "",
+    qualifications: "",
+    bio: "",
+    image: "",
+    users: [
 
-const {userId} = useContext(AuthContext);
- 
+    ],
+  });
+
+  const { userId } = useContext(AuthContext);
+
 
   useEffect(() => {
     loadMaster()
@@ -71,9 +71,16 @@ const {userId} = useContext(AuthContext);
 
       <div className="row">
 
-        <TodaysIntake><h2>Hello {master.name} ! </h2>
-          <h2>Please add the excercises for all your clients</h2>
-          <img src={master.image} style={{ borderRadius: "50%", height: "200%", marginTop: "-130px", marginLeft: "1200px", position: "absolute" }}></img>
+        <TodaysIntake><h1 className="hellotext">Hello {master.name}! </h1>
+          <h4 className="hellotext">Please add the excercises for all your clients</h4>
+          <img src={master.image} style={{
+            borderRadius: "50%", height: "200%",
+            marginTop: "-14%", marginLeft: "70%", position: "absolute"
+          }}>
+          </img>
+
+
+
         </TodaysIntake>
       </div>
       <br></br>
@@ -91,16 +98,15 @@ const {userId} = useContext(AuthContext);
 
       <br></br>
       <br></br>
-      <br></br>
-      <br></br>
+      
 
-  <button type="button" className="btn btn-lg btn-primary text-center" style={{marginLeft:"44%"}}><Link to={"/program/" + master.id} style={{color:'white'}}>Set Workout for Today</Link></button> 
+      <button type="button" className="btn btn-lg btn-primary text-center" style={{ marginLeft: "40%" }}><Link to={"/program/" + master.id} style={{ color: 'white' }}>Set Workout for Today</Link></button>
 
       <div className="row">
         {master.users.map((userList) => {
           return (
-     
- 
+
+
 
             <MDBCard className="dashCard my-5 px-5 pb-1 text-center" key={userList._id}>
               <MDBCardBody>
@@ -128,7 +134,7 @@ const {userId} = useContext(AuthContext);
                       </p>
 
                       <button type="button" className="viewMorebtn btn btn-primary">
-                        <Link to={"/viewClient/" + userList._id} style={{color:"white"}}>View More</Link></button>
+                        <Link to={"/viewClient/" + userList._id} style={{ color: "white" }}>View More</Link></button>
 
                     </MDBCol>
                   </MDBCol>
