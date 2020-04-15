@@ -1,4 +1,4 @@
-# project3 React
+# Project3 React
 
 ### Preak-Condition.
 
@@ -19,7 +19,7 @@ So that they can avoid the inconvenience of going back and fourth when view prog
 
 #### Wireframe/sketch of the design.
 Coach home page
-![](readMeimg/coach.JPG) 
+![](readMeImg/coach.JPG) 
 
 #### How to Use
 * Create a account as a coach if you are using it for the first time. (Remember your email and password that you use)
