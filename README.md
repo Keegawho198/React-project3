@@ -19,7 +19,10 @@ So that they can avoid the inconvenience of going back and fourth when view prog
 
 #### Wireframe/sketch of the design.
 Coach home page
-![](readMeImg/coach.JPG) 
+![Coach side](readMeImg/coach.JPG) 
+
+Client Side Home page
+![Client side](readMeImg/UserSide.JPG)
 
 #### How to Use
 * Create a account as a coach if you are using it for the first time. (Remember your email and password that you use)
