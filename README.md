@@ -1,36 +1,15 @@
-# project1
+# project3 React
 
-### Restaurants to avoid.
+### Preak-Condition.
 
 #### Project description 
-This application will display restaurants with known low ratings. The user can save time and money by using the application api database to make an educated decision on where NOT to eat. This application was also built with mobile in mind and is responsive.
+This application will allow trainers to provide a client with a workout program and also allow a client to view their work that has been assigned to them.
 
-The focus point of this application is the use of Javascript and Jquery DOM, third party APIs.
-
-
-Additionally, this application needed to adhere to the below restrictions: 
-
-* Use at least two server-side APIs - [x]
-
-* Must use a CSS framework _other than_ Bootstrap - [x]
-
-* Must be interactive - [x]
-
-* Use at least one new third-party API - [x]
-
-* Must have a polished UI - [x]
-
-* Must meet good quality coding standards - [x]
-
-* Does not use alerts, confirms or prompts - [x]
-
-* Must be deployed to GitHub Pages - [x]
+Overall, the focus point of this application was to create a applciation that would be able to allow trainers to assign workout programs more easier.
 
 
 #### Project Management
-This project was managed by utilizing scrum practices. Tasks were broken down by features and assigned to team members with deadlines. 
-* Jobs progression was tracked on a Kanban board.
-* scrum stand-up ceremony was practiced when the team was physically present.
+* Progression was tracked on a trello board.
 
 ##### User Story
 As a Trainer 
@@ -40,7 +19,7 @@ So that they can avoid the inconvenience of going back and fourth when view prog
 
 #### Wireframe/sketch of the design.
 Coach home page
-![coach](readMeimg/coach.JPG) 
+![](readMeimg/coach.JPG) 
 
 #### How to Use
 * Create a account as a coach if you are using it for the first time. (Remember your email and password that you use)
@@ -96,27 +75,24 @@ Project is created with:
 
 
 
-#### Limitations:
+<!-- #### Limitations:
 * The results rendered by the application are 100% dependant on the api used. As such we the developers are restricted by what is allowed by the api owner. 
 * Both third party API accounts are using the free version. These restrictions have been adhered to.
-* This application can be constituted as an MVP (minimum viable product). Therefore the options to customize search results are limited to two dynamic input felids. 
-
-
-#### Authors of Sections 
-* Charles - Zomato API, Google Maps API, Sass,
-* Keegan - Google Maps API, 
-* Tara - Zomato API, Opencage Data API, Css, scroll to top, noty modal
+* This application can be constituted as an MVP (minimum viable product). Therefore the options to customize search results are limited to two dynamic input felids.  -->
 
 
 #### Acknowledgments
 Monash coding Bootcamp academic staff
 
 
-###### Sources
+
 * 
 * 
-
-
+* 
+* 
+*  
+* 
+* 
 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
