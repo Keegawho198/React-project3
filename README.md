@@ -1,6 +1,7 @@
 # Project3 React
 
 ### Preak-Condition.
+DEPLOYED LINK ON HEROKU: https://peak-condition.herokuapp.com/login
 
 #### Project description 
 This application will allow trainers to provide a client with a workout program and also allow a client to view their work that has been assigned to them.
