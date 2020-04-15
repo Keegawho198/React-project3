@@ -1,3 +1,124 @@
+# project1
+
+### Restaurants to avoid.
+
+#### Project description 
+This application will display restaurants with known low ratings. The user can save time and money by using the application api database to make an educated decision on where NOT to eat. This application was also built with mobile in mind and is responsive.
+
+The focus point of this application is the use of Javascript and Jquery DOM, third party APIs.
+
+
+Additionally, this application needed to adhere to the below restrictions: 
+
+* Use at least two server-side APIs - [x]
+
+* Must use a CSS framework _other than_ Bootstrap - [x]
+
+* Must be interactive - [x]
+
+* Use at least one new third-party API - [x]
+
+* Must have a polished UI - [x]
+
+* Must meet good quality coding standards - [x]
+
+* Does not use alerts, confirms or prompts - [x]
+
+* Must be deployed to GitHub Pages - [x]
+
+
+#### Project Management
+This project was managed by utilizing scrum practices. Tasks were broken down by features and assigned to team members with deadlines. 
+* Jobs progression was tracked on a Kanban board.
+* scrum stand-up ceremony was practiced when the team was physically present.
+
+##### User Story
+As a Trainer 
+I want to assign workout program to clients as easy as possible
+So that they can avoid the inconvenience of going back and fourth when view programs.
+
+
+#### Wireframe/sketch of the design.
+Coach home page
+![coach](readMeimg/coach.JPG) 
+
+#### How to Use
+* Create a account as a coach if you are using it for the first time. (Remember your email and password that you use)
+* create a account for a client and assign that client to the coach you have created.
+* Once you have done that, login to the coach side and assign a workout program for the created client by clicking on set workout for today. Once you have done that you can view the workout for the client by clicking on the client  details when you hit the home button.
+* you can view your program for a client when you login as a client and clicking on start workout for today which would show your workout for the day.
+
+
+
+#### Technologies 
+Project is created with:
+
+* ReactJS
+* NodeJS
+* Express
+* MongoDB
+* JWT Token authentication
+
+<!-- #### Quality Assurance Tests: -->
+
+##### Responsiveness and CSS per browser
+* Chrome browser - base line 
+
+* Firefox browser
+  * Responsiveness - Y
+  * Does the UI change? - N
+  * Any browser variations? - N
+  * Expected and Actual behavior are the same? Y
+
+* Edge
+  * Responsiveness - Y
+  * Does the UI change? - N
+  * Any browser variations? - N
+  * Expected and Actual behavior are the same? Y
+
+* Safari browser
+  * Responsiveness - Y
+  * Does the UI change? - N
+  * Any browser variations? - N
+  * Expected and Actual behavior are the same? N
+
+* Android mobile Chrome
+  * Responsiveness - Y
+  * Does the UI change? - N
+  * Any browser variations? - N
+  * Expected and Actual behavior are the same? Y
+
+* Apple mobile browser
+  * Responsiveness - Y/N
+  * Does the UI change? - Y/N
+  * Any browser variations? - Y/N
+  * Expected and Actual behavior are the same? Y/N
+
+
+
+#### Limitations:
+* The results rendered by the application are 100% dependant on the api used. As such we the developers are restricted by what is allowed by the api owner. 
+* Both third party API accounts are using the free version. These restrictions have been adhered to.
+* This application can be constituted as an MVP (minimum viable product). Therefore the options to customize search results are limited to two dynamic input felids. 
+
+
+#### Authors of Sections 
+* Charles - Zomato API, Google Maps API, Sass,
+* Keegan - Google Maps API, 
+* Tara - Zomato API, Opencage Data API, Css, scroll to top, noty modal
+
+
+#### Acknowledgments
+Monash coding Bootcamp academic staff
+
+
+###### Sources
+* 
+* 
+
+
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
