@@ -26,10 +26,12 @@
     "bcryptjs": "^2.4.3",
     "bootstrap": "^4.4.1",
     "connect-mongo": "^3.2.0",
+    "cookie-session": "^1.4.0",
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "express-session": "^1.17.0",
     "if-env": "^1.0.4",
+    "js-cookie": "^2.2.1",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.3.16",
     "passport": "^0.4.1",
@@ -39,6 +41,7 @@
     "react-native-image-base64": "^0.1.4",
     "react-select": "^3.1.0",
     "react-super-responsive-table": "^5.1.1",
-    "reactstrap": "^8.4.1"
+    "reactstrap": "^8.4.1",
+    "universal-cookie": "^4.0.3"
   }
 }

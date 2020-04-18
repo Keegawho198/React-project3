@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState,useEffect} from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter as Router, Route, Switch, Redirect} from "react-router-dom"
 import UserCreate from './pages/SignUp';
@@ -15,11 +15,15 @@ import AddExercise from "./pages/AddExercise"
 import viewExercise from "./pages/ViewExercise"
 import viewClient from "./pages/ViewClient"
 import AuthContext from "./utils/auth.contect"
-
-
+import Cookies from 'js-cookie'
 
 
 function App() {
+ 
+  useEffect(() => {
+ checkCookie()
+    
+  }, [])
 
   const [state, setState] = useState({
     token: null,
@@ -27,12 +31,36 @@ function App() {
     master:false
   })
 
+  
+
+  function checkCookie(){
+    const user = Cookies.get("token")
+  const masters= Cookies.get("master")
+   const id=Cookies.get("id");
+    if(!masters){
+  
+    {setState({token: user,userId:id})}
+    }
+else 
+  
+  {setState({token: user,master:masters,userId:id})}
+
+  }
+
 
   const login = (token, userId, tokenExpiration,master) => {
-    setState({token: token, userId: userId, master:master})
+
+   
+       
+    {setState({ token: token,userId: userId, master:master})}
+
   }
-  const logout = (token, userId, tokenExpiration) => {
-    setState({token: null, userId: null, })
+
+   const logout = (token, userId, tokenExpiration) => {
+    const removeCookie= Cookies.remove("token")
+    Cookies.remove("master")
+    Cookies.remove("id")
+    setState({token: removeCookie, userId: null, })
   }
 
 
@@ -45,7 +73,8 @@ function App() {
      <Router>
     <div>
     <AuthContext.Provider value={{
-        token: state.token,
+    
+        token:state.token,
         userId: state.userId,
         master:state.master,
         login: login, 

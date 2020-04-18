@@ -3,6 +3,7 @@ import API from "../utils/api";
 import { MDBContainer, MDBRow, MDBCol, MDBBtn, MDBCard, MDBInput } from 'mdbreact';
 import { Link } from "react-router-dom";
 import AuthContext from '../utils/auth.contect'
+import Cookies from 'js-cookie'
 
 const UserLogin = (props) => {
 
@@ -45,11 +46,12 @@ const UserLogin = (props) => {
       }
       else{
         if(res.data.token){
-          
-
-        
-            login(res.data.token, res.data.userId, res.data.tokenExpiration);
+           login(res.data.token, res.data.userId, res.data.tokenExpiration);
             console.log({login});
+         
+          Cookies.set("token",res.data.token);
+          Cookies.set("id",res.data.userId);
+          
             
           
         }

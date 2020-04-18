@@ -3,6 +3,7 @@ import { MDBContainer, MDBRow, MDBCol, MDBBtn, MDBCard, MDBInput } from 'mdbreac
 import { Link, useHistory } from "react-router-dom";
 import API from "../utils/api";
 import AuthContext from '../utils/auth.contect'
+import Cookies from 'js-cookie'
 
 const MasterLogin = () => {
 
@@ -46,8 +47,11 @@ const MasterLogin = () => {
 
         console.log("hello");
           login(res.data.token, res.data.userId, res.data.tokenExpiration,true);
+           history.push("/master-dashboard");
+           Cookies.set("token",res.data.token);
+           Cookies.set("id",res.data.userId);
+           Cookies.set("master",true);
           
-          history.push("/master-dashboard");
       }
 
   }

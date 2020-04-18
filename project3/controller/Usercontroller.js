@@ -1,6 +1,7 @@
 const db = require("../models");
 const bcrypt = require('bcryptjs');
 const jwt= require('jsonwebtoken');
+const cookie =require('universal-cookie');
 
 // Defining methods for the booksController
 module.exports = {
@@ -45,13 +46,18 @@ module.exports = {
     `abc`,
     {
         expiresIn: '1h'
-    });
+    }
+    );
+  res.cookie('token', token);
+    
     return res.json({
         userId: user.id,
         token: token,
         tokenExpiration: 1000000,
         master:false
     })
+
+    
 }
 catch (err){
     console.log({err});
@@ -99,3 +105,5 @@ catch (err){
 
 
 };
+
+

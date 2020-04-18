@@ -5,11 +5,12 @@ import { Link } from "react-router-dom";
 
 import { TodaysIntake } from '../components/Cards/Cards/Navbar/TodaysIntake'
 import AuthContext from '../utils/auth.contect'
-
+import { Modal, Button } from 'react-bootstrap'
 
 import API from '../utils/api'
 
 import { MDBRow, MDBCol, MDBCard, MDBAvatar, MDBCardBody, MDBIcon } from "mdbreact";
+import Cookies from 'js-cookie'
 
 
 
@@ -29,6 +30,8 @@ function MasterDashboard(props) {
     ],
   });
 
+  const [show, setShow] = useState(false);
+
   const { userId } = useContext(AuthContext);
 
 
@@ -38,21 +41,20 @@ function MasterDashboard(props) {
   }, [])
 
 
+  
+
+ function handleClose(){
+   setShow(false);
+   window.location.reload();
+ }
+  const handleShow = () => setShow(true);
+
+
   function loadMaster() {
+  
     API.getMaster(userId)
       .then(res =>
-        Setmaster({
-          id: res.data._id,
-          name: res.data.name,
-          email: res.data.email,
-          password: res.data.password,
-          qualifications: res.data.qualifications,
-          bio: res.data.bio,
-          image: res.data.image,
-          users: res.data.users
-
-
-        })
+        Setmaster(res.data)
 
       )
 
@@ -66,8 +68,27 @@ function MasterDashboard(props) {
     <div >
       <Navbar />
 
-      <br></br>
-      <br></br>
+<>
+
+<Modal show={show} onHide={handleClose} size="sm"
+  aria-labelledby="contained-modal-title-vcenter"
+  centered >
+  <Modal.Header closeButton>
+    <Modal.Title id="contained-modal-title-vcenter">
+      Update Your Weight
+</Modal.Title>
+  </Modal.Header>
+  <Modal.Body>
+
+  </Modal.Body>
+  <Modal.Footer>
+    <Button variant="primary" onClick={handleClose} style={{ marginRight: "28%" }}>
+      Save Changes
+  </Button>
+  </Modal.Footer>
+</Modal>
+</>
+
       <br></br>
       <br></br>
 
@@ -75,7 +96,10 @@ function MasterDashboard(props) {
 
         <TodaysIntake><h1 className="hellotext">Hello {master.name}! </h1>
           <h4 className="hellotext">Please add the excercises for all your clients</h4>
-          <img src={master.image} id="coachImg" >
+          <img src={master.image} style={{
+            borderRadius: "50%", height: "200%",
+            marginTop: "-14%", marginLeft: "70%", position: "absolute"
+          }}>
           </img>
 
 
@@ -97,11 +121,9 @@ function MasterDashboard(props) {
 
       <br></br>
       <br></br>
+      
 
-      <div class="wrapper">
-        {/* <button class="button">Button</button> */}
-        <button type="button" className="btn btn-lg btn-primary text-center" id="setWorkout"><Link to={"/program/" + master.id} style={{ color: 'white' }}>Set Workout for Today</Link></button>
-      </div>
+      <button type="button" className="btn btn-lg btn-primary text-center" style={{ marginLeft: "40%" }}><Link to={"/program/" + master.id} style={{ color: 'white' }}>Set Workout for Today</Link></button>
 
       <div className="row">
         {master.users.map((userList) => {
@@ -116,13 +138,13 @@ function MasterDashboard(props) {
                     <MDBCol md="4" lg="6" sm="12" className="float-left">
                       <img
                         src={userList.image}
-                        className="empty"
+                        className=""
                         id="tileImgID"
                         tag="img"
                         alt="Sample avatar"
                       />
                     </MDBCol>
-                    <MDBCol md="8" lg="6" className="float-right" id="userDetails">
+                    <MDBCol md="8" lg="6" className="float-right">
                       <h4 className="font-weight-bold mb-3">{userList.name}</h4>
                       <h6 className="font-weight-bold grey-text mb-3">
                         {userList.email}
@@ -148,17 +170,12 @@ function MasterDashboard(props) {
                 </MDBRow>
               </MDBCardBody>
             </MDBCard>
-
           )
 
 
 
 
         })}
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
 
 
 
