@@ -95,8 +95,8 @@ const Program = (props) => {
   };
   //This function Handles changes for the dropdown only!!!!
   const handleChange = (e) => {
-    console.log(e);
-    console.log(e.value);
+    // console.log(e);
+    // console.log(e.value);
 
 
     //daynumber not showing on input when selected
@@ -120,7 +120,7 @@ const Program = (props) => {
 
     setTableData({ ...formData });
   }
-  console.log(tableData);
+  //console.log(tableData);
   return (
     <>
       <Modal show={show} onHide={handleClose}>

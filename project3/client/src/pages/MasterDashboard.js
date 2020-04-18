@@ -68,15 +68,14 @@ function MasterDashboard(props) {
 
       <br></br>
       <br></br>
+      <br></br>
+      <br></br>
 
       <div className="row">
 
         <TodaysIntake><h1 className="hellotext">Hello {master.name}! </h1>
           <h4 className="hellotext">Please add the excercises for all your clients</h4>
-          <img src={master.image} style={{
-            borderRadius: "50%", height: "200%",
-            marginTop: "-14%", marginLeft: "70%", position: "absolute"
-          }}>
+          <img src={master.image} id="coachImg" >
           </img>
 
 
@@ -98,9 +97,11 @@ function MasterDashboard(props) {
 
       <br></br>
       <br></br>
-      
 
-      <button type="button" className="btn btn-lg btn-primary text-center" style={{ marginLeft: "40%" }}><Link to={"/program/" + master.id} style={{ color: 'white' }}>Set Workout for Today</Link></button>
+      <div class="wrapper">
+        {/* <button class="button">Button</button> */}
+        <button type="button" className="btn btn-lg btn-primary text-center" id="setWorkout"><Link to={"/program/" + master.id} style={{ color: 'white' }}>Set Workout for Today</Link></button>
+      </div>
 
       <div className="row">
         {master.users.map((userList) => {
@@ -115,13 +116,13 @@ function MasterDashboard(props) {
                     <MDBCol md="4" lg="6" sm="12" className="float-left">
                       <img
                         src={userList.image}
-                        className=""
+                        className="empty"
                         id="tileImgID"
                         tag="img"
                         alt="Sample avatar"
                       />
                     </MDBCol>
-                    <MDBCol md="8" lg="6" className="float-right">
+                    <MDBCol md="8" lg="6" className="float-right" id="userDetails">
                       <h4 className="font-weight-bold mb-3">{userList.name}</h4>
                       <h6 className="font-weight-bold grey-text mb-3">
                         {userList.email}
@@ -147,12 +148,17 @@ function MasterDashboard(props) {
                 </MDBRow>
               </MDBCardBody>
             </MDBCard>
+
           )
 
 
 
 
         })}
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
 
 
 

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import API from '../../utils/api'
 import _ from 'lodash';
 import './style.css';
+import DeleteBtn from '../DeleteBtn'
 
 import { Table, Thead, Tbody, Tr, Th, Td } from 'react-super-responsive-table'
 import 'react-super-responsive-table/dist/SuperResponsiveTableStyle.css'
@@ -73,6 +74,12 @@ const TableDisplay = (props) => {
       
   };
 
+  function deleteRow(row) {
+
+    console.log("delete hitting");
+    console.log(row.exerciseName);
+    //_id.splice(); not sure how to do this part...... always coming up as undefined
+  }
 
 
 
@@ -104,7 +111,9 @@ const TableDisplay = (props) => {
                 <Td>{row.reps}</Td>
                 <Td>{row.tempo}</Td>
                 <Td>{row.rest}</Td>
-                {/* <DeleteBtn onClick={() => deleteProgram(program._id)} /> */}
+                <DeleteBtn value={row.exerciseName} onClick={() => deleteRow(row.exerciseName)} />
+
+              
               </Tr>)
             )}
 

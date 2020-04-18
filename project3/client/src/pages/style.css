@@ -20,17 +20,19 @@ body {
   margin-right: 20%;
   background-blend-mode: lighten;
   border-radius: 0%;
-  margin-right: 11%;
-  margin-left: -25%;
+  margin-right: -7%;
+  margin-left: -6%;
   margin-top: -15px;
 }
+
 
 nav {
   background-color: #f3f2f0;
 }
 
 #basic-navbar-nav {
-  margin-left: 300px;
+  /* margin-left: 300px; */
+  margin-left: 45%;
 }
 
 .nav-link {
@@ -226,8 +228,8 @@ tr:hover {
   border-radius: 50%;
   height: 230px;
   width: 230px;
-  /* margin-right: 28px; */
-  margin-left: -70px;
+  margin-left: -80%;
+  /* margin-left: -70px; */
 }
 
 .foodCard {
@@ -406,7 +408,20 @@ div {
 
 img {
   border-radius: 50%;
+  border-radius: 50%;
+  height: 150%;
+  margin-top: -14%;
+  margin-left: 70%;
+  position: absolute;
 }
+
+.wrapper {
+  text-align: center;
+}
+#setWorkout {
+  margin: auto;
+}
+
 
 @media screen and (max-width: 600px) {
   .topnav a:not(:first-child) {
@@ -429,7 +444,66 @@ img {
 }
 
 @media screen and (max-width: 400px) {
+  #basic-navbar-nav {
+    margin-left: 0px;
+  }
+
+  #burgerToggle{
+    margin-right: 77%;
+    margin-top: 16%;
+  }
+
+  .wrapper {
+    text-align: center;
+}
+#setWorkout {
+    margin: auto;
+}
+
+  .hellotext {
+    color: white;
+    margin-left: 30px;
+    margin-top: 25px;
+  }
+
+  #coachImg {
+    float: right;
+    margin-top: -35%;
+    margin-left: 60%;
+    height: 71%;
+}
+
+  .card-head {
+    flex: 1 1 auto;
+    min-height: 1px;
+    padding: 0.25rem;
+    margin-top: 0%;
+    margin-left: 0px;
+    margin-right: 0px;
+    width: 100%;
+    color: white;
+    background-color: #c6d1c1;
+    height: 200px;
+    border-radius: 25px;
+}
+
+#tileImgID {
+  border-radius: 50%;
+  height: 180px;
+  margin-top: 1%;
+  /* height: 57%; */
+  width: 50%;
+  /* margin-right: 28px; */
+  margin-left: 3%;
+}
   /*master dashboard css  */
+  img{
+    border-radius: 50%;
+    height: 50%;
+    margin-top: -14%;
+    margin-left: 70%;
+    position: absolute;
+  }
   .profile_pic img {
     width: 100px;
     height: 100px;
@@ -451,8 +525,12 @@ img {
     text-align: left;
   }
   .viewMorebtn {
-    margin-left: -1%;
-    margin-top: -200px;
+    margin-left: 0%;
+    margin-top: 40px;
+    margin-bottom: 10%;
+  }
+  #userDetails{
+    margin-right: 25%;
   }
   .tile {
     overflow: hidden;
