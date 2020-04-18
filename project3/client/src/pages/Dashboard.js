@@ -9,6 +9,8 @@ import API from '../utils/api'
 import { Link } from "react-router-dom";
 import { Modal, Button } from 'react-bootstrap'
 import AuthContext from '../utils/auth.contect'
+import Cookies from 'js-cookie'
+
 
 function Dashboard(props) {
 
@@ -29,6 +31,7 @@ function Dashboard(props) {
     calories: ""
 
   });
+
   const [show, setShow] = useState(false);
   const [tempweight, SetTempWeight] = useState("");
 
@@ -37,9 +40,11 @@ function Dashboard(props) {
   const handleShow = () => setShow(true);
 
   useEffect(() => {
+  
     loadUsers();
     handleShow();
   }, [])
+
 
 
 
@@ -55,6 +60,7 @@ function Dashboard(props) {
 
 
   function loadUsers() {
+    
     API.getUser(userId)
       .then(res =>
         setUser(res.data)
