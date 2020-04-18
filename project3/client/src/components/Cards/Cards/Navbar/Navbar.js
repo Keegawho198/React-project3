@@ -20,7 +20,7 @@ export function Navbar() {
         <NavbarI.Brand href="#home"><a class="navbar-brand" ><img id="navImg" src={require('../../../../img/logo.jpg')} alt="" style={{ height: "5rem" }} id="logo"></img></a>
         </NavbarI.Brand>
 
-        <NavbarI.Toggle aria-controls="basic-navbar-nav" />
+        <NavbarI.Toggle aria-controls="basic-navbar-nav" id="burgerToggle" />
         <NavbarI.Collapse id="basic-navbar-nav">
           <Nav className="mr-auto">
             <Link exact to="/" ><a className="nav-link" style={{color:"#384349"}} id="navA">Home</a></Link>

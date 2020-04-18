@@ -1,6 +1,3 @@
-
-
-
 import React, { useState, useEffect } from 'react';
 import _ from 'lodash';
 import './style.css';
@@ -98,8 +95,8 @@ const Program = (props) => {
   };
   //This function Handles changes for the dropdown only!!!!
   const handleChange = (e) => {
-    console.log(e);
-    console.log(e.value);
+    // console.log(e);
+    // console.log(e.value);
 
 
     //daynumber not showing on input when selected
@@ -123,7 +120,7 @@ const Program = (props) => {
 
     setTableData({ ...formData });
   }
-  console.log(tableData);
+  //console.log(tableData);
   return (
     <>
       <Modal show={show} onHide={handleClose}>
@@ -143,7 +140,7 @@ const Program = (props) => {
 
       <h1 className="text-center">Program Page</h1>
       <div className="row">
-        <div className="Form col-sm-4 col-lg-4">
+        <div className="Form col-sm-4 col-lg-" id="programForm" style={{marginLeft:'0%', paddingLeft:'7%'}}>
           <p>Day Number</p>
           <Select label="DayNum" name="dayNum" value={options.selected} options={options}
             onChange={handleChange} />
@@ -169,7 +166,7 @@ const Program = (props) => {
           </div>
           <button type="button" className="btn btn-lg btn-primary " onClick={handleSave}>Add</button>
         </div>
-        <div class="col-sm-8 col-md col-lg-8">
+        <div class="col-sm-8 col-md col-lg-">
           <TableDisplay dayNum={formData.dayNum} data={tableData}>
           </TableDisplay>
         </div>
