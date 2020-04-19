@@ -9,6 +9,11 @@ import { MDBDataTable } from 'mdbreact';
 import { MDBBtn, MDBTable, MDBTableBody, MDBTableHead } from 'mdbreact';
 const ViewPrograms = (props) => {
 
+  const [count, setCount] = useState(
+    {
+      count: 0
+    }
+  );
   const [tableData, setTableData] = useState([]);
   const [userProgram, setUserprogram] = useState({
     id: "",
@@ -138,13 +143,24 @@ const ViewPrograms = (props) => {
       .catch(err => console.log(err));
   }
 
+  function doIntervalChange(){
+    setInterval(() => {
+    setCount(prevState => ({
+      count: prevState.count + 1
+    }))
+  }, 1000)
+}
 
-  console.log(tableData);
+
+  // console.log(tableData);
   return (
     <div>
 
 <Navbar/>
       <br></br>
+  <p>Timer: {count.count}</p>
+  <button onClick={() => doIntervalChange()}>Start Timer</button>
+  <button onClick={()=> clearInterval()}> Clear </button>
 
       <MDBDataTable className="tableDisplay"
         responsive="sm"
