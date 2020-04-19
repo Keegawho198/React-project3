@@ -28,7 +28,8 @@ function App() {
   const [state, setState] = useState({
     token: null,
     userId: null,
-    master:false
+    master:false,
+    showModel:true
   })
 
   
@@ -36,6 +37,7 @@ function App() {
   function checkCookie(){
     const user = Cookies.get("token")
   const masters= Cookies.get("master")
+  const model= Cookies.get('showmodel')
    const id=Cookies.get("id");
     if(!masters){
   
@@ -43,12 +45,14 @@ function App() {
     }
 else 
   
-  {setState({token: user,master:masters,userId:id})}
-
+  {setState({token: user,master:masters,userId:id,showModel:model})}
+  console.log(state.token)
+  console.log(state.showModel)
   }
 
 
-  const login = (token, userId, tokenExpiration,master) => {
+
+  const login = (token, userId, tokenExpiration,master,showModel) => {
 
    
        
@@ -77,6 +81,7 @@ else
         token:state.token,
         userId: state.userId,
         master:state.master,
+        showModel:state.showModel,
         login: login, 
         logout: logout,
         

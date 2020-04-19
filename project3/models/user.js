@@ -53,6 +53,11 @@ const UserSchema = new Schema({
 
   },
 
+  sleep:{   //[1], [1,2],
+    type:[Number]
+
+  },
+
   goalWeight: {
     type: Number,
 

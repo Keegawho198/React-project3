@@ -15,6 +15,7 @@ import Cookies from 'js-cookie'
 function Dashboard(props) {
 
   const {userId} = useContext(AuthContext);
+  const [model,setModel]= useState("");
   const [user, setUser] = useState({
     id: "",
     name: "",
@@ -28,21 +29,44 @@ function Dashboard(props) {
     week: [],
     weights: [],
     programs: [],
-    calories: ""
+    calories: "",
+    sleep: []
 
   });
 
   const [show, setShow] = useState(false);
   const [tempweight, SetTempWeight] = useState("");
+  const [tempsleep, SetTempSleep] = useState("");
+  const [formObject,  setFormObject]= useState({});
+ 
+
+  const cookieModel= Cookies.get('showmodel')
+
+  function closeModel(){
+  
+    Cookies.set('showmodel', "isgood", { expires: 0.5 });
+     handleClose();
+   }
+
+  
+
+  function handle(){
+    if(cookieModel){setShow(false);}
+  
+else{
+  setShow(true);
+}
+
+  }
 
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
   useEffect(() => {
-  
+    
     loadUsers();
-    handleShow();
+    handle();
   }, [])
 
 
@@ -50,13 +74,22 @@ function Dashboard(props) {
 
   function handleInputChange(event) {
     const { name, value } = event.target;
-    console.log(event.target);
-    console.log(name, value);
-
-
+   
+    
     SetTempWeight(parseInt(value));
+  
+  
+   
   }
 
+
+  function handleInputChange1(event) {
+    const { name, value } = event.target;
+  
+    SetTempSleep(parseInt(value));
+  
+   
+  }
 
 
   function loadUsers() {
@@ -80,41 +113,39 @@ function Dashboard(props) {
 
 
   async function saveWeight() {
+
+  
+    
+
     var today = new Date();
     var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
-    //var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
-    var dateTime = date;
+    console.log(formObject);
     console.log(tempweight);
+    console.log(tempsleep);
+    var dateTime = date;
+
     console.log(dateTime);
     const newUser = {
       ...user,
       currentWeight: tempweight,
       weights: [...user.weights, tempweight],
-      week: [...user.week, dateTime]
+      week: [...user.week, dateTime],
+      sleep: [...user.sleep, tempsleep],
     };
     setUser(newUser);
 
     await updatingUser(newUser);
 
-    handleClose();
+    closeModel();
 
     console.log(user);
 
     loadUsers();
 
 
-
-
   }
 
-  //udpate function in save button to call handleSave
-  // push the new weight in to weights
-  //update user
-  //close
 
-  // await setUser({ ...user, weights: user.weights.push(tempweight) });
-
-  console.log(user);
 
   return (
 
@@ -123,7 +154,7 @@ function Dashboard(props) {
       <br></br>
       <>
 
-        <Modal show={show} onHide={handleClose} size="sm"
+        <Modal show={show} onHide={closeModel} size="sm"
           aria-labelledby="contained-modal-title-vcenter"
           centered >
           <Modal.Header closeButton>
@@ -132,10 +163,15 @@ function Dashboard(props) {
         </Modal.Title>
           </Modal.Header>
           <Modal.Body>
+          <div className="form-group">
+              Enter Your Sleep
+            <input className="form-control" id="exampleInput" type="number" name="sleep" onChange={handleInputChange1}></input>
+            </div>
             <div className="form-group">
               Enter Your Weight in (Kg)
-            <input className="form-control" id="exampleInput" type="number" name="currentWeight" onChange={handleInputChange}></input>
+            <input className="form-control" id="exampleInput" type="string" name="currentWeight" onChange={handleInputChange}></input>
             </div>
+          
           </Modal.Body>
           <Modal.Footer>
             <Button variant="primary" onClick={saveWeight} style={{ marginRight: "28%" }}>
