@@ -150,8 +150,10 @@ const ViewPrograms = (props) => {
 
 <Navbar/>
       <br></br>
-  
+      <br></br>
+
   <Timer/>
+  <br></br>
 
       <MDBDataTable className="tableDisplay"
         responsive="sm"

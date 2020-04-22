@@ -59,6 +59,7 @@ class Timer extends React.Component {
   render() {
     return (
       <div className="time-container">
+        <div className="timeBackground">
         <div className="time-inner-container">
           <div className="time-digits">
             {String(this.state.hours).padStart(2, "0")} :
@@ -73,6 +74,7 @@ class Timer extends React.Component {
         </div>
 
         <br />
+        <div className="btn-container">
         <button
           className="button orange shield glossy"
           data-icon="♚"
@@ -81,19 +83,21 @@ class Timer extends React.Component {
           Start Timer
         </button>
         <button
-          className="button pink serif round glass"
+          className="button orange shield glossy"
           data-icon="♛"
           onClick={this.handleTimerStop.bind(this)}
         >
           Stop Timer
         </button>
         <button
-          className="button blue skew"
+          className="button orange shield glossy"
           data-icon="♞"
           onClick={this.handleTimerReset.bind(this)}
         >
           Reset!
         </button>
+        </div>
+        </div>
       </div>
     );
   }
