@@ -85,9 +85,3 @@ module.exports = {
   }
 
 };
-
-
-
-//get help for delete btn
-//
-//ref week 20 activity 21 for the update without the clicked thing 

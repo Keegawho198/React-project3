@@ -7,13 +7,10 @@ import { Navbar } from '../components/Cards/Cards/Navbar/Navbar';
 import { Form, Col } from 'react-bootstrap';
 import { MDBDataTable } from 'mdbreact';
 import { MDBBtn, MDBTable, MDBTableBody, MDBTableHead } from 'mdbreact';
+import Timer from '../components/Timer/Timer'
 const ViewPrograms = (props) => {
 
-  const [count, setCount] = useState(
-    {
-      count: 0
-    }
-  );
+
   const [tableData, setTableData] = useState([]);
   const [userProgram, setUserprogram] = useState({
     id: "",
@@ -143,13 +140,8 @@ const ViewPrograms = (props) => {
       .catch(err => console.log(err));
   }
 
-  function doIntervalChange(){
-    setInterval(() => {
-    setCount(prevState => ({
-      count: prevState.count + 1
-    }))
-  }, 1000)
-}
+
+
 
 
   // console.log(tableData);
@@ -158,9 +150,8 @@ const ViewPrograms = (props) => {
 
 <Navbar/>
       <br></br>
-  <p>Timer: {count.count}</p>
-  <button onClick={() => doIntervalChange()}>Start Timer</button>
-  <button onClick={()=> clearInterval()}> Clear </button>
+  
+  <Timer/>
 
       <MDBDataTable className="tableDisplay"
         responsive="sm"
