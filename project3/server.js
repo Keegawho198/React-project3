@@ -21,6 +21,9 @@ if (process.env.NODE_ENV === "production") {
 // Add routes, both API and view
 app.use(routes);
 
+//moving to atlas mongodb need this section of code
+const uri = mongodb+srv://User:Password@cluster0.jwb3e.mongodb.net/Cluster0?retryWrites=true&w=majority;
+
 // Connect to the Mongo DB
 mongoose.connect(process.env.MONGODB_URI || "mongodb://user:password123@ds139072.mlab.com:39072/heroku_fk9bgj1g");
 // mongodb://localhost/peakConditiondb
