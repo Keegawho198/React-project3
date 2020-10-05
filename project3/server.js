@@ -21,7 +21,7 @@ if (process.env.NODE_ENV === "production") {
 // Add routes, both API and view
 app.use(routes);
 
-//moving to atlas mongodb need this section of code
+//moving to atlas mongodb need this section of code  asdad
 const uri = mongodb+srv://User:Password@cluster0.jwb3e.mongodb.net/Cluster0?retryWrites=true&w=majority;
 
 // Connect to the Mongo DB
