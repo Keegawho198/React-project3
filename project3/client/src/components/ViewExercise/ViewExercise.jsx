@@ -111,7 +111,7 @@ const ViewExercise = (props) => {
   return (
     <div>
     
-
+      <br></br>
       <br></br>
 
       <MDBDataTable className="tableDisplay" 

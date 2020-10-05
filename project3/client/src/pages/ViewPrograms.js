@@ -7,7 +7,9 @@ import { Navbar } from '../components/Cards/Cards/Navbar/Navbar';
 import { Form, Col } from 'react-bootstrap';
 import { MDBDataTable } from 'mdbreact';
 import { MDBBtn, MDBTable, MDBTableBody, MDBTableHead } from 'mdbreact';
+import Timer from '../components/Timer/Timer'
 const ViewPrograms = (props) => {
+
 
   const [tableData, setTableData] = useState([]);
   const [userProgram, setUserprogram] = useState({
@@ -139,12 +141,19 @@ const ViewPrograms = (props) => {
   }
 
 
-  console.log(tableData);
+
+
+
+  // console.log(tableData);
   return (
     <div>
 
 <Navbar/>
       <br></br>
+      <br></br>
+
+  <Timer/>
+  <br></br>
 
       <MDBDataTable className="tableDisplay"
         responsive="sm"
