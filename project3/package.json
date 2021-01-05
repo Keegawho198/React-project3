@@ -22,7 +22,7 @@
   "dependencies": {
     "@progress/kendo-react-dropdowns": "^3.11.0",
     "@progress/kendo-react-intl": "^3.11.0",
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "bcryptjs": "^2.4.3",
     "bootstrap": "^4.4.1",
     "connect-mongo": "^3.2.0",
